@@ -8,9 +8,10 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <style type="text/css">
-        body {background-color: #f2f2f2; margin: 0px; padding: 0px; font-family: 'allerregular', sans-serif !important;}
+        body {background-color: #fff; margin: 0px; padding: 0px; font-family: 'allerregular', sans-serif !important; font-size:18px !important;}
         p {font-family: 'aller_lightregular', sans-serif !important;}
-        .wrapper-alert {max-width: 768px; margin: 1px auto 0px; background-color: #FFF; padding: 20px;}
+        .wrapper-alert, .wrapper-alert-success {max-width: 768px; margin: 1px auto 0px; background-color: #FFF; padding: 20px;position: fixed;
+    width: 100%;}
         .wrapper {max-width: 768px; margin: 1px auto 0px; background-color: #FFF; padding: 20px;}
         .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
             z-index: 2;
@@ -19,12 +20,41 @@
             border-color: transparent;
             color: #333;
         }
-        .submitButton {background-color: transparent; border: none; color: #106cb5; text-transform: uppercase;}
-        .submitButton:focus, .submitButton:hover,
+        .submitButton, .gobackButton {background-color: transparent; border: none; color: #106cb5; text-transform: uppercase;}
+        .submitButton:focus, .submitButton:hover, .gobackButton:focus, .gobackButton:hover, .gobackButton:active:focus, .gobackButton:active:hover, 
         .submitButton:active:focus, .submitButton:active:hover {background-color: transparent; border: none; color: #106cb5; outline: none; box-shadow: none; }
         .list-group {position: relative;}
         .list-group p {color:#666; padding: 15px;}
         .list-group textarea {margin-bottom: 15px; padding: 10px; text-align: left;}
+			textarea {
+			-moz-border-bottom-colors: none !important;
+			-moz-border-left-colors: none !important;
+			-moz-border-right-colors: none !important;
+			-moz-border-top-colors: none !important;
+			background: rgba(250, 250, 250, 0.4) !important;
+			border-color: -moz-use-text-color -moz-use-text-color #ccc !important;
+			border-image: none !important;
+			border-radius: 0 !important;
+			border-style: none none solid !important;
+			border-width: medium medium 1px !important;
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset !important;
+			font-family: "aller_lightregular",sans-serif !important;
+			overflow: auto;
+			font-size:18px !important;
+			}
+			.list-group-item {
+			border: 0px solid #ddd !important;
+			border-bottom: 1px solid #ddd !important;
+			margin-bottom: 0 !important;
+			}
+			.list-group-item:first-child {
+			border-top-left-radius: 0 !important;
+			border-top-right-radius: 0 !important;
+			}
+			.list-group-item:last-child {
+			border-top-left-radius: 0 !important;
+			border-top-right-radius: 0 !important;
+			}
         .btn-link {color:#000; font-size: 14px; line-height: 0px; padding: 2px 10px 8px; opacity: 0.7; position: absolute; top: 9px; right: 3px; z-index: 9;}
         .btn-link:focus, .btn-link:hover,
         .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {outline: none; color: #000; opacity: 1;}
@@ -41,21 +71,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script>
         $(function() {
-
+			
+			var complaintURL= "http://prod-gotuktuk-1087397403.us-east-1.elb.amazonaws.com/api/v1/trips/";
+				   $('.wrapper-alert').hide()
+            $('.wrapper-alert-success').hide()
+			$('.wrapper').hide()
             $.urlParam = function(name){
                 var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
                 return results[1] || 0;
             }
-            $('.test').text(window.location.href)
+            //$('.test').text(window.location.href)
             var trip = $.urlParam('trip')
             var token = $.urlParam('token')
-            $('.wrapper-alert').hide()
-            $('.wrapper-alert-success').hide()
-            if(trip=="" || token=="")
+	         
+            if((!trip || trip=="") || (!token || token==""))
             {
                 $('.wrapper-alert').show()
                 $('.wrapper').hide()
             }
+			else
+			{
+			$('.wrapper').show()
+			}
             var data = {}
             data.subject="";
             data.content="";
@@ -115,10 +152,9 @@
 
                 console.log( data.content)
                 console.log( data.message)
-                $('.test').text(token)
+                //$('.test').text(token)
                 $.ajax({
-                    //url:"http://54.172.107.103/api/v1/trips/"+trip+"/report",
-                    url:"http://prod-gotuktuk-1087397403.us-east-1.elb.amazonaws.com/api/v1/trips/"+trip+"/report",
+                    url:complaintURL + trip + "/report",
                     type: "POST",
                     headers: {
                         "Authorization": "Bearer " +token
@@ -146,7 +182,7 @@
     </script>
 </head>
 <body>
-<div class="test"></div>
+<!--<div class="test"></div>-->
 <div class="wrapper-alert">
     <div class="alert alert-danger">
         <p>Something went wrong please try again later.</p>
@@ -156,8 +192,9 @@
 <div class="wrapper-alert-success">
     <div class="alert alert-success">
         <p>Report successfully submitted.</p>
-        <button onclick="app.closeSelf()">Go Back</button>
+		
     </div>
+	<button class="gobackButton btn btn-primary btn-lg" onclick="app.closeSelf()">Go Back</button>
 </div>
 
 <div class="wrapper">
@@ -186,7 +223,7 @@
         <button class="btn btn-link btn-xs pull-right"><i class="glyphicon glyphicon-chevron-left"></i></button>
         <span href="javascript:void(0)" class="list-group-item active">I had an issue with my pickup </span>
         <p>Had trouble connecting with your driver and weren’t able to complete the trip? Let us know what went wrong and we’ll be sure to follow up.</p>
-        <textarea class="form-control" placeholder="Describe your item" rows="4"></textarea>
+        <textarea class="form-control" placeholder="Describe what happened" rows="4"></textarea>
 
         <div class="text-success text-center" style="display: none;">Message has been send successfully</div>
         <div class="text-danger text-center" style="display: none;">Internal Server Error</div><br>
@@ -200,7 +237,7 @@
         <span href="javascript:void(0)" class="list-group-item active">I had an issue with my vehicle </span>
         <p>
             We expect our partners to keep their vehicles well-maintained and scent-free. Please provide us additional information about the vehicle that you rode in so that we can follow up accordingly.</p>
-        <textarea class="form-control" placeholder="Describe your item" rows="4"></textarea>
+        <textarea class="form-control" placeholder="Vehicle Details" rows="4"></textarea>
 
         <div class="text-success text-center" style="display: none;">Message has been send successfully</div>
         <div class="text-danger text-center" style="display: none;">Internal Server Error</div><br>
@@ -223,7 +260,7 @@
             <span href="javascript:void(0)" class="list-group-item active">My driver was unprofessional </span>
             <p>We try to ensure that every trip meets rider expectations. Drivers who partner with TukTuk agree to maintain a high standard of professional servicer, including being respectful and polite towards riders.
                 <br><br>If you feel that a driver you rode with did not meet the service standards you expect, please do let us know. We will follow up with the driver.</p>
-            <textarea class="form-control" placeholder="Describe your item" rows="4"></textarea>
+            <textarea class="form-control" placeholder="Feedback" rows="4"></textarea>
 
             <div class="text-success text-center" style="display: none;">Message has been send successfully</div>
             <div class="text-danger text-center" style="display: none;">Internal Server Error</div><br>
@@ -236,7 +273,7 @@
             <span href="javascript:void(0)" class="list-group-item active">Report a serious incident with a driver </span>
             <p>TukTuk enforces strict safety standards to keep your rides comfortable and safe. Inappropriate physical contact, verbal aggression, or any safety issues created by unprofessional driver behavior will not be tolerated.
                 <br><br>If you feel that a drive was unsafe of distracted during your ride, please provide any information that will help us to follow up.</p>
-            <textarea class="form-control" placeholder="Describe your item" rows="4"></textarea>
+            <textarea class="form-control" placeholder="Description" rows="4"></textarea>
 
             <div class="text-success text-center" style="display: none;">Message has been send successfully</div>
             <div class="text-danger text-center" style="display: none;">Internal Server Error</div><br>
@@ -248,7 +285,7 @@
             <button class="btn btn-link btn-xs pull-right"><i class="glyphicon glyphicon-chevron-left"></i></button>
             <span href="javascript:void(0)" class="list-group-item active">I was picked up by the wrong driver </span>
             <p>Sorry to hear about the trouble with your pickup. Please provide us additional information about your trip and your driver so we can follow up.</p>
-            <textarea class="form-control" placeholder="Describe your item" rows="4"></textarea>
+            <textarea class="form-control" placeholder="Details" rows="4"></textarea>
 
             <div class="text-success text-center" style="display: none;">Message has been send successfully</div>
             <div class="text-danger text-center" style="display: none;">Internal Server Error</div><br>
@@ -274,7 +311,7 @@
             <button class="btn btn-link btn-xs pull-right"><i class="glyphicon glyphicon-chevron-left"></i></button>
             <span href="javascript:void(0)" class="list-group-item active">I paid my driver cash </span>
             <p>If you paid your driver with cash on a non-cash trip in error, please share the details so we can help.</p>
-            <textarea class="form-control" placeholder="Describe your item" rows="4"></textarea>
+            <textarea class="form-control" placeholder="Cash Amount" rows="4"></textarea>
 
             <div class="text-success text-center" style="display: none;">Message has been send successfully</div>
             <div class="text-danger text-center" style="display: none;">Internal Server Error</div><br>
@@ -287,21 +324,22 @@
             <button class="btn btn-link btn-xs pull-right"><i class="glyphicon glyphicon-chevron-left"></i></button>
             <span href="javascript:void(0)" class="list-group-item active">There was traffic along the route </span>
             <p>Fares for TukTuk are charged by both distance and time, so your fare may vary from the estimate or previous trips.</p>
-            <textarea class="form-control" placeholder="Describe your item" rows="4"></textarea>
+            <!--<textarea class="form-control" placeholder="Describe your item" rows="4"></textarea>-->
 
             <div class="text-success text-center" style="display: none;">Message has been send successfully</div>
             <div class="text-danger text-center" style="display: none;">Internal Server Error</div><br>
             <div style="margin: 0px auto; text-align: center;">
                 <button class="submitButton btn btn-primary btn-lg" >Submit</button>
             </div>
+			
         </div>
 
         <div class="list-group detail" id="ques52">
             <button class="btn btn-link btn-xs pull-right"><i class="glyphicon glyphicon-chevron-left"></i></button>
             <span href="javascript:void(0)" class="list-group-item active">My driver too a poor route </span>
-            <>If you have concerns about the route your driver took, let us know the details and we will be happy to review the fare.
+            <p>If you have concerns about the route your driver took, let us know the details and we will be happy to review the fare.
             <br><br>Fares for trips are charged by both distance an time. Keep in mind that if events outside of your drivers’ control (such as traffic or construction) impact your fare, we may not be able to provide you an adjustment.</p>
-            <textarea class="form-control" placeholder="Describe your item" rows="4"></textarea>
+            <textarea class="form-control" placeholder="Details" rows="4"></textarea>
 
             <div class="text-success text-center" style="display: none;">Message has been send successfully</div>
             <div class="text-danger text-center" style="display: none;">Internal Server Error</div><br>
@@ -315,7 +353,7 @@
             <span href="javascript:void(0)" class="list-group-item active">My vehicle was pulled over </span>
             <p>If your trip was interrupted by a police stop or checkpoint, please let us know the details so that we can follow up accordingly.</p>
 
-            <textarea class="form-control" placeholder="Describe your item" rows="4"></textarea>
+            <textarea class="form-control" placeholder="Details" rows="4"></textarea>
 
             <div class="text-success text-center" style="display: none;">Message has been send successfully</div>
             <div class="text-danger text-center" style="display: none;">Internal Server Error</div><br>
