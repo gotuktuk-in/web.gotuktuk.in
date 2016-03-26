@@ -8,9 +8,10 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <style type="text/css">
-        body {background-color: #f2f2f2; margin: 0px; padding: 0px; font-family: 'allerregular', sans-serif !important;}
+        body {background-color: #fff; margin: 0px; padding: 0px; font-family: 'allerregular', sans-serif !important;}
         p {font-family: 'aller_lightregular', sans-serif !important;}
-        .wrapper-alert {max-width: 768px; margin: 1px auto 0px; background-color: #FFF; padding: 20px;}
+        .wrapper-alert, .wrapper-alert-success {max-width: 768px; margin: 1px auto 0px; background-color: #FFF; padding: 20px;position: fixed;
+    width: 100%;}
         .wrapper {max-width: 768px; margin: 1px auto 0px; background-color: #FFF; padding: 20px;}
         .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
             z-index: 2;
@@ -41,12 +42,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script>
         $(function() {
+			
+			var complaintURL= "http://prod-gotuktuk-1087397403.us-east-1.elb.amazonaws.com/api/v1/trips/";
 
             $.urlParam = function(name){
                 var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
                 return results[1] || 0;
             }
-            $('.test').text(window.location.href)
+            //$('.test').text(window.location.href)
             var trip = $.urlParam('trip')
             var token = $.urlParam('token')
             $('.wrapper-alert').hide()
@@ -115,10 +118,9 @@
 
                 console.log( data.content)
                 console.log( data.message)
-                $('.test').text(token)
+                //$('.test').text(token)
                 $.ajax({
-                    //url:"http://54.172.107.103/api/v1/trips/"+trip+"/report",
-                    url:"http://prod-gotuktuk-1087397403.us-east-1.elb.amazonaws.com/api/v1/trips/"+trip+"/report",
+                    url:complaintURL + trip + "/report",
                     type: "POST",
                     headers: {
                         "Authorization": "Bearer " +token
@@ -146,7 +148,7 @@
     </script>
 </head>
 <body>
-<div class="test"></div>
+<!--<div class="test"></div>-->
 <div class="wrapper-alert">
     <div class="alert alert-danger">
         <p>Something went wrong please try again later.</p>
