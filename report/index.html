@@ -8,7 +8,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <style type="text/css">
-        body {background-color: #fff; margin: 0px; padding: 0px; font-family: 'allerregular', sans-serif !important;}
+        body {background-color: #fff; margin: 0px; padding: 0px; font-family: 'allerregular', sans-serif !important; font-size:16px !important;}
         p {font-family: 'aller_lightregular', sans-serif !important;}
         .wrapper-alert, .wrapper-alert-success {max-width: 768px; margin: 1px auto 0px; background-color: #FFF; padding: 20px;position: fixed;
     width: 100%;}
@@ -26,6 +26,21 @@
         .list-group {position: relative;}
         .list-group p {color:#666; padding: 15px;}
         .list-group textarea {margin-bottom: 15px; padding: 10px; text-align: left;}
+			textarea {
+			-moz-border-bottom-colors: none !important;
+			-moz-border-left-colors: none !important;
+			-moz-border-right-colors: none !important;
+			-moz-border-top-colors: none !important;
+			background: #f9f9f9 none repeat scroll 0 0 !important;
+			border-color: -moz-use-text-color -moz-use-text-color #ccc !important;
+			border-image: none !important;
+			border-radius: 0 !important;
+			border-style: none none solid !important;
+			border-width: medium medium 1px !important;
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset !important;
+			font-family: "aller_lightregular",sans-serif !important;
+			overflow: auto;
+			}
         .btn-link {color:#000; font-size: 14px; line-height: 0px; padding: 2px 10px 8px; opacity: 0.7; position: absolute; top: 9px; right: 3px; z-index: 9;}
         .btn-link:focus, .btn-link:hover,
         .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {outline: none; color: #000; opacity: 1;}
@@ -44,7 +59,9 @@
         $(function() {
 			
 			var complaintURL= "http://prod-gotuktuk-1087397403.us-east-1.elb.amazonaws.com/api/v1/trips/";
-
+				   $('.wrapper-alert').hide()
+            $('.wrapper-alert-success').hide()
+			$('.wrapper').hide()
             $.urlParam = function(name){
                 var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
                 return results[1] || 0;
@@ -52,13 +69,16 @@
             //$('.test').text(window.location.href)
             var trip = $.urlParam('trip')
             var token = $.urlParam('token')
-            $('.wrapper-alert').hide()
-            $('.wrapper-alert-success').hide()
-            if(trip=="" || token=="")
+	         
+            if((!trip || trip=="") || (!token || token==""))
             {
                 $('.wrapper-alert').show()
                 $('.wrapper').hide()
             }
+			else
+			{
+			$('.wrapper').show()
+			}
             var data = {}
             data.subject="";
             data.content="";
@@ -158,8 +178,9 @@
 <div class="wrapper-alert-success">
     <div class="alert alert-success">
         <p>Report successfully submitted.</p>
-		<button class="gobackButton btn btn-primary btn-lg" onclick="app.closeSelf()">Go Back</button>
+		
     </div>
+	<button class="gobackButton btn btn-primary btn-lg" onclick="app.closeSelf()">Go Back</button>
 </div>
 
 <div class="wrapper">
