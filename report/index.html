@@ -98,7 +98,7 @@
                 console.log( data.message)
                 $.ajax({
                     //url:"http://54.172.107.103/api/v1/trips/"+trip+"/report",
-                    url:"https://stage.gotuktuk.in/api/v1/trips/"+trip+"/report",
+                    url:"http://prod-gotuktuk-1087397403.us-east-1.elb.amazonaws.com/api/v1/trips/"+trip+"/report",
                     type: "POST",
                     headers: {
                         "Authorization": "Basic " +token
