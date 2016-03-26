@@ -46,6 +46,7 @@
                 var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
                 return results[1] || 0;
             }
+            $('.test').text(window.location.href)
             var trip = $.urlParam('trip')
             var token = $.urlParam('token')
             $('.wrapper-alert').hide()
@@ -114,12 +115,14 @@
 
                 console.log( data.content)
                 console.log( data.message)
+                $('.test').text(token)
                 $.ajax({
                     //url:"http://54.172.107.103/api/v1/trips/"+trip+"/report",
                     url:"http://prod-gotuktuk-1087397403.us-east-1.elb.amazonaws.com/api/v1/trips/"+trip+"/report",
                     type: "POST",
                     headers: {
-                        "Authorization": "Basic " +token
+                        "Authorization": "Basic " +token,
+                        "content-type":'application/json'
                     },
                     data: data,
                     success:function(response){
@@ -144,7 +147,7 @@
     </script>
 </head>
 <body>
-
+<div class="test"></div>
 <div class="wrapper-alert">
     <div class="alert alert-danger">
         <p>Something went wrong please try again later.</p>
