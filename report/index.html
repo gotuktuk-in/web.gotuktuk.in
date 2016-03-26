@@ -20,8 +20,8 @@
             border-color: transparent;
             color: #333;
         }
-        .submitButton {background-color: transparent; border: none; color: #106cb5; text-transform: uppercase;}
-        .submitButton:focus, .submitButton:hover,
+        .submitButton, .gobackButton {background-color: transparent; border: none; color: #106cb5; text-transform: uppercase;}
+        .submitButton:focus, .submitButton:hover, .gobackButton:focus, .gobackButton:hover, .gobackButton:active:focus, .gobackButton:active:hover, 
         .submitButton:active:focus, .submitButton:active:hover {background-color: transparent; border: none; color: #106cb5; outline: none; box-shadow: none; }
         .list-group {position: relative;}
         .list-group p {color:#666; padding: 15px;}
@@ -158,7 +158,7 @@
 <div class="wrapper-alert-success">
     <div class="alert alert-success">
         <p>Report successfully submitted.</p>
-        <button onclick="app.closeSelf()">Go Back</button>
+		<button class="gobackButton btn btn-primary btn-lg" onclick="app.closeSelf()">Go Back</button>
     </div>
 </div>
 
