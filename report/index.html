@@ -12,18 +12,22 @@
         p {font-family: 'aller_lightregular', sans-serif !important;}
         .wrapper-alert, .wrapper-alert-success { margin: 1px auto 0px; background-color: #FFF; padding: 14px 20px; position: fixed;
     width: 100%;}
-        .wrapper { margin: 1px auto 0px; background-color: #FFF; padding: 14px 20px;}
+        .wrapper { margin: 30px auto 0px; background-color: #FFF; padding: 14px 20px;}
         .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
             z-index: 2;
             color: #fff;
-            background-color: #efefef;
+            background: none;
             border-color: transparent;
             color: #333;
+			font-size: 22px;
+			margin-bottom: 15px !important;
+			border-bottom: none !important;
         }
         .submitButton, .gobackButton {background-color: transparent; border: none; color: #106cb5; text-transform: uppercase; padding:0 !important;}
         .submitButton:focus, .submitButton:hover, .gobackButton:focus, .gobackButton:hover, .gobackButton:active:focus, .gobackButton:active:hover, 
         .submitButton:active:focus, .submitButton:active:hover {background-color: transparent; border: none; color: #106cb5; outline: none; box-shadow: none; }
         .list-group {position: relative;}
+
         .list-group p {color:#666; padding: 15px;}
         .list-group textarea {margin-bottom: 15px; padding: 10px; text-align: left;}
 			textarea {
@@ -108,7 +112,8 @@
             $('.wrapper-alert-success').hide();
 			$('.submitButton').addClass('disableClick');
 			$('.wrapper').hide();
-			
+			$('.loader').hide();
+
             $.urlParam = function(name){
                 var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
                 return results[1] || 0;
@@ -182,7 +187,7 @@
 
                 data.content=$(this).parent().parent().children("p").text();
                 data.message=$(this).parent().parent().children("textarea").val();
-
+                $('.loader').show();
                 console.log( data.content)
                 console.log( data.message)
                 //$('.test').text(token)
@@ -197,10 +202,12 @@
                         //alert("success: " + response);
                         $('.wrapper').hide()
                         $('.wrapper-alert-success').show()
+                        $('.loader').hide();
                     },
                     error:function (xhr, textStatus, thrownError){
                         //alert("xhr status: " + xhr.statusText);
                         $("text-danger").show()
+                        $('.loader').hide();
                     },
                 });
             });
@@ -236,6 +243,28 @@
 </head>
 <body>
 <!--<div class="test"></div>-->
+<div class="loader">
+    <div class="alert alert-info" style="
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+    border: none;
+    opacity: 0.9;
+">
+        <p style="
+    text-align: center;
+    padding: 40% 0 0;
+    background-image: url(img/ring.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 20%;
+    color: #333;
+">Please wait...</p>
+    </div>
+</div>
+
 <div class="wrapper-alert">
     <div class="alert alert-danger">
         <p>Something went wrong please try again later.</p>
@@ -254,7 +283,7 @@
 <div class="wrapper">
 
     <div class="list-group" id="questions">
-	<div style="height:30px;"></div>
+	<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
         <a href="#" class="list-group-item" id="1">I lost an Item</a>
         <a href="#" class="list-group-item" id="2">I had an issue with my pickup</a>
         <a href="#" class="list-group-item" id="3">I had an issue with my vehicle</a>
@@ -262,8 +291,8 @@
         <a href="#" class="list-group-item" id="5">I had an issue with my fare</a>
     </div>
     <div class="list-group subQuestion" id="ques1">
-			<button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-			<div style="height:30px;"></div>
+			<button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+			<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
         <span href="javascript:void(0)" class="list-group-item active">I lost an Item </span>
         <p>Keep in mind that the fastest and most seamless way for you to retrieve your item will be to coordinate with your driver directly. However, if you are unable to connect with you Driver, tell us about your lost item, and we’ll do what we can to help facilitate a connection!</p>
         <textarea id="ta-ques1" onKeyUp='onTextChange("ta-ques1")' class="form-control" placeholder="Describe your item" rows="1"></textarea>
@@ -276,8 +305,8 @@
     </div>
 
     <div class="list-group subQuestion" id="ques2">
-        <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-		<div style="height:30px;"></div>
+        <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+		<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
         <span href="javascript:void(0)" class="list-group-item active">I had an issue with my pickup </span>
         <p>Had trouble connecting with your driver and weren’t able to complete the trip? Let us know what went wrong and we’ll be sure to follow up.</p>
         <textarea id="ta-ques2" onKeyUp='onTextChange("ta-ques2")' class="form-control" placeholder="Describe what happened" rows="1"></textarea>
@@ -290,8 +319,8 @@
     </div>
 
     <div class="list-group subQuestion" id="ques3">
-        <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-		<div style="height:30px;"></div>
+        <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+		<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
         <span href="javascript:void(0)" class="list-group-item active">I had an issue with my vehicle </span>
         <p>
             We expect our partners to keep their vehicles well-maintained and scent-free. Please provide us additional information about the vehicle that you rode in so that we can follow up accordingly.</p>
@@ -305,8 +334,8 @@
     </div>
     <div class="subset">
         <div class="list-group subQuestion subQuestion1" id="ques4">
-            <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-			<div style="height:30px;"></div>
+            <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+			<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
             <span href="javascript:void(0)" class="list-group-item active">I had an issue with my driver </span>
             <a href="javascript:void(0)" class="list-group-item">My driver was unprofessional</a>
             <a href="javascript:void(0)" class="list-group-item">Report a serious incident with a driver</a>
@@ -315,8 +344,8 @@
 
         <!----4--->
         <div class="list-group detail" id="ques40">
-            <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-			<div style="height:30px;"></div>
+            <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+			<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
             <span href="javascript:void(0)" class="list-group-item active">My driver was unprofessional </span>
             <p>We try to ensure that every trip meets rider expectations. Drivers who partner with TukTuk agree to maintain a high standard of professional servicer, including being respectful and polite towards riders.
                 <br><br>If you feel that a driver you rode with did not meet the service standards you expect, please do let us know. We will follow up with the driver.</p>
@@ -329,8 +358,8 @@
             </div>
         </div>
         <div class="list-group detail" id="ques41">
-            <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-			<div style="height:30px;"></div>
+            <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+			<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
             <span href="javascript:void(0)" class="list-group-item active">Report a serious incident with a driver </span>
             <p>TukTuk enforces strict safety standards to keep your rides comfortable and safe. Inappropriate physical contact, verbal aggression, or any safety issues created by unprofessional driver behavior will not be tolerated.
                 <br><br>If you feel that a drive was unsafe of distracted during your ride, please provide any information that will help us to follow up.</p>
@@ -343,8 +372,8 @@
             </div>
         </div>
         <div class="list-group detail" id="ques42">
-            <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-			<div style="height:30px;"></div>
+            <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+			<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
             <span href="javascript:void(0)" class="list-group-item active">I was picked up by the wrong driver </span>
             <p>Sorry to hear about the trouble with your pickup. Please provide us additional information about your trip and your driver so we can follow up.</p>
             <textarea id="ta-ques42" onKeyUp='onTextChange("ta-ques42")' class="form-control" placeholder="Details" rows="1"></textarea>
@@ -360,8 +389,8 @@
     <div class="subset">
 
         <div class="list-group subQuestion subQuestion1" id="ques5">
-            <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-			<div style="height:30px;"></div>
+            <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+			<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
             <span href="javascript:void(0)" class="list-group-item active">I had an issue with my fare </i></button></span>
             <a href="javascript:void(0)" class="list-group-item">I paid my driver cash</a>
             <a href="javascript:void(0)" class="list-group-item">There was traffic along the route</a>
@@ -371,8 +400,8 @@
         </div>
         <!----5 --->
         <div class="list-group detail" id="ques50">
-            <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-			<div style="height:30px;"></div>
+            <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+			<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
             <span href="javascript:void(0)" class="list-group-item active">I paid my driver cash </span>
             <p>If you paid your driver with cash on a non-cash trip in error, please share the details so we can help.</p>
             <textarea id="ta-ques50" onKeyUp='onTextChange("ta-ques50")' class="form-control" placeholder="Cash Amount" rows="1"></textarea>
@@ -385,8 +414,8 @@
         </div>
 
         <div class="list-group detail" id="ques51">
-            <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-			<div style="height:30px;"></div>
+            <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+			<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
             <span href="javascript:void(0)" class="list-group-item active">There was traffic along the route </span>
             <p>Fares for TukTuk are charged by both distance and time, so your fare may vary from the estimate or previous trips.</p>
             <!--<textarea class="form-control" placeholder="Describe your item" rows="1"></textarea>-->
@@ -394,14 +423,14 @@
             <div class="text-success text-center" style="display: none;">Message has been send successfully</div>
             <div class="text-danger text-center" style="display: none;">Internal Server Error</div>
             <div style="margin: 0px auto; text-align: right;" class="submit-div">
-                <button class="submitButton btn btn-primary btn-lg" >Submit</button>
+                <button class="submitButton btn btn-primary btn-lg" style="display: inline-block;">Submit</button>
             </div>
 			
         </div>
 
         <div class="list-group detail" id="ques52">
-            <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-			<div style="height:30px;"></div>
+            <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+			<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
             <span href="javascript:void(0)" class="list-group-item active">My driver too a poor route </span>
             <p>If you have concerns about the route your driver took, let us know the details and we will be happy to review the fare.
             <br><br>Fares for trips are charged by both distance an time. Keep in mind that if events outside of your drivers’ control (such as traffic or construction) impact your fare, we may not be able to provide you an adjustment.</p>
@@ -415,8 +444,8 @@
         </div>
 
         <div class="list-group detail" id="ques53">
-            <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-			<div style="height:30px;"></div>
+            <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+			<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
             <span href="javascript:void(0)" class="list-group-item active">My vehicle was pulled over </span>
             <p>If your trip was interrupted by a police stop or checkpoint, please let us know the details so that we can follow up accordingly.</p>
 
@@ -430,18 +459,18 @@
         </div>
 
         <div class="list-group detail" id="ques54">
-            <button class="btn btn-link btn-xs pull-right" style="position:relative;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
-			<div style="height:30px;"></div>
+            <button class="btn btn-link btn-xs pull-right" style="position: fixed;right: 20px;z-index: 101;top: 10px;"><i class="glyphicon glyphicon-chevron-left"></i> Go Back</button>
+			<div style="height: 45px;background: #fff;background: rgba(255,255,255,0.8);position: fixed;z-index: 100;top: -1px;width: 90%;"></div>
             <span href="javascript:void(0)" class="list-group-item active">What is surge pricing? </span>
             <p>TukTuk rates increase to ensure reliability when demand can not be met by the number of drivers on the road.
                 <br><br>Our goal is to be as reliable as possible in connecting you with a driver whenever you need one. At times of high demand, the number of drivers we can connect you with becomes limited. As a result, prices increase to encourage more drivers to become available.
                 <br><br>We take notifying you of the current pricing seriously. To that end, you will see a notification screen in your app whenever there is a surge pricing. You’ll have to accept those higher rates before we connect you to a driver.</p>
-            <textarea id="ta-ques54" onKeyUp='onTextChange("ta-ques54")' class="form-control" placeholder="Describe your item" rows="1"></textarea>
+            <!-- <textarea id="ta-ques54" onKeyUp='onTextChange("ta-ques54")' class="form-control" placeholder="Describe your item" rows="1"></textarea> -->
 
             <div class="text-success text-center" style="display: none;">Message has been send successfully</div>
             <div class="text-danger text-center" style="display: none;">Internal Server Error</div>
             <div style="margin: 0px auto; text-align: right;" class="submit-div">
-                <button class="submitButton btn btn-primary btn-lg" >Submit</button>
+                <button class="submitButton btn btn-primary btn-lg" style="display: inline-block;">Submit</button>
             </div>
         </div>
         <!----5 end--->
