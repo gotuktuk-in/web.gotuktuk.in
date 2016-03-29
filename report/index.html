@@ -24,7 +24,7 @@
 			border-bottom: none !important;
         }
         .submitButton, .gobackButton {background-color: transparent; border: none; color: #106cb5; text-transform: uppercase; padding:0 !important;}
-        .submitButton:focus, .submitButton:hover, .gobackButton:focus, .gobackButton:hover, .gobackButton:active:focus, .gobackButton:active:hover, 
+        .submitButton:focus, .submitButton:hover, .gobackButton:focus, .gobackButton:hover, .gobackButton:active:focus, .gobackButton:active:hover,
         .submitButton:active:focus, .submitButton:active:hover {background-color: transparent; border: none; color: #106cb5; outline: none; box-shadow: none; }
         .list-group {position: relative;}
 
@@ -78,7 +78,7 @@
 			{
 				display:none;
 			}
-			
+
         .btn-link {
     color: #000;
     font-size: 16px;
@@ -105,9 +105,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script>
         $(function() {
-			
-			var complaintURL= "http://prod-gotuktuk-1087397403.us-east-1.elb.amazonaws.com/api/v1/trips/";
-			
+
+			var complaintURL= "https://api.gotuktuk.in/api/v1/trips/";
+
 			$('.wrapper-alert').hide();
             $('.wrapper-alert-success').hide();
 			$('.submitButton').addClass('disableClick');
@@ -121,7 +121,7 @@
             //$('.test').text(window.location.href)
             var trip = $.urlParam('trip')
             var token = $.urlParam('token')
-	         
+
             if((!trip || trip=="") || (!token || token==""))
             {
                 $('.wrapper-alert').show()
@@ -211,7 +211,7 @@
                     },
                 });
             });
-			
+
         });
 		$('textarea').on('keyup',function(x,y) {
 				//$('.submitButton').removeClass('disableClick');
@@ -225,8 +225,8 @@
 						$('.submitButton').removeClass('disableClick');
 					}
 		});
-		
-		
+
+
 		function onTextChange(x, y){
 				var valueData = ($("#"+x).val()||"").trim();
 				if(!valueData)
@@ -425,7 +425,7 @@
             <div style="margin: 0px auto; text-align: right;" class="submit-div">
                 <button class="submitButton btn btn-primary btn-lg" style="display: inline-block;">Submit</button>
             </div>
-			
+
         </div>
 
         <div class="list-group detail" id="ques52">
