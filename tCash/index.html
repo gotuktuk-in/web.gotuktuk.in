@@ -18,39 +18,39 @@
 <body>
   <div id="w">
     <h2>Infinite Loading Demo</h2>
-    
+
     <div id="content">
       <p>This is the main content element. All the infinite scroll content will load into this div.</p>
     </div>
-    
+
     <div class="loading" id="loading">Loading please wait...</div>
     <div class="loading" id="nomoreresults">Sorry, no more results to display.</div>
   </div>
 <script type="text/javascript">
   var page = 0;
-$(function(){  
+$(function(){
 	$('#content').scrollPagination({
-		'contentPage': 'https://dev-api.gotuktuk.in/api/v1/tcash', // the url you are fetching the results
-		'contentData': { 'page': page }, 
+		'contentPage': 'https://dev-api.gotuktuk.in/api/o/v1/tcash', // the url you are fetching the results
+		'contentData': { 'page': page },
 		'scrollTarget': $(window),
 		'heightOffset': 10,
-		'beforeLoad': function(){ 
+		'beforeLoad': function(){
 		  // before load function, you can display a preloader div
-			$('#loading').fadeIn();	
+			$('#loading').fadeIn();
 		},
 		'afterLoad': function(elementsLoaded){
 			 $('#loading').fadeOut();
 			 var i = 0;
 			 $(elementsLoaded).fadeInWithDelay();
 			 page++;
-			 if ($('#content').children().size() > 140){ 
+			 if ($('#content').children().size() > 140){
 			   // if more than 140 results already loaded, then stop pagination
 			 	$('#nomoreresults').fadeIn();
 				$('#content').stopScrollPagination();
 			 }
 		}
 	});
-	
+
 	// code for fade in element by element
 	$.fn.fadeInWithDelay = function(){
 		var delay = 0;
@@ -59,7 +59,7 @@ $(function(){
 			delay += 100;
 		});
 	};
-		   
+
 });
 </script>
 </body>
