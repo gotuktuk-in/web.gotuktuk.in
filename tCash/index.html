@@ -41,12 +41,11 @@
 		.badge {background-color: transparent; color:#000;}
 		.list-group-item>.badge {margin-top:17px; font-size: 15px;}
 		.text-danger {color: #f20c17!important;}
-		.heading {font-size: 16px; text-align: center; font-weight: 700; margin: 10px 0px;}
+		.heading {font-size: 18px; text-align: center; font-weight: 700; margin: 10px 0px;}
 	</style>
 </head>
 
 <body>
-
 <div id="w" class="wrapper">
 <div class="row">
 	<div class="col-md-12">
@@ -87,7 +86,8 @@
 				$('#loading').fadeOut();
 				var i = 0;
 				$(elementsLoaded).fadeInWithDelay();
-				page++;
+				//page++;
+				console.log('page updated ',page)
 				if ($('#content').children().size() > 140){
 					// if more than 140 results already loaded, then stop pagination
 					$('#nomoreresults').fadeIn();

@@ -34,12 +34,7 @@
   };
   
   $.fn.scrollPagination.loadContent = function(obj, opts){
-	  var books = [
-		  { title: "ASP.NET 4 Unleashed", price: 37.79, picture: "AspNet4Unleashed.jpg" },
-		  { title: "ASP.NET MVC Unleashed", price: 44.99, picture: "AspNetMvcUnleashed.jpg" },
-		  { title: "ASP.NET Kick Start", price: 4.00, picture: "AspNetKickStart.jpg" },
-		  { title: "ASP.NET MVC Unleashed iPhone", price: 44.99, picture: "AspNetMvcUnleashedIPhone.jpg" },
-	  ];
+	  console.log(opts.contentData.page)
 	 var target = opts.scrollTarget;
 	 var mayLoadContent = $(target).scrollTop()+opts.heightOffset >= $(document).height() - $(target).height();
 	 if (mayLoadContent){
@@ -54,7 +49,7 @@
 				  'content-type':'application/json'
 			  },
 			  url: opts.contentPage,
-			  data: opts.contentData,
+			  data: {'page':page},
 			  success: function(data){
 				//$(obj).append(data);
 				  var newData =JSON.parse(data)
@@ -77,7 +72,12 @@
 	
 	 $(target).scroll(function(event){
 		if ($(obj).attr('scrollPagination') == 'enabled'){
-	 		$.fn.scrollPagination.loadContent(obj, opts);		
+			console.log("on scroll ", page)
+			if  ($(target).scrollTop() == $(document).height() - $(target).height()){
+				$.fn.scrollPagination.loadContent(obj, opts);
+				page++;
+			}
+	 		//$.fn.scrollPagination.loadContent(obj, opts);
 		}
 		else {
 			event.stopPropagation();	
@@ -90,7 +90,7 @@
 	
  $.fn.scrollPagination.defaults = {
       	 'contentPage' : null,
-     	 'contentData' : {},
+     	 'contentData' : {page:0},
 		 'beforeLoad': null,
 		 'afterLoad': null	,
 		 'scrollTarget': null,
