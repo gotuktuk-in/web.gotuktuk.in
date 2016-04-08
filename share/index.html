@@ -296,7 +296,7 @@
     var autoIcon = L.icon({
         iconUrl: 'rickshaw.png',
         iconSize: [24, 24],
-        iconAnchor: [12, 12],
+        iconAnchor: [12, 24],
         popupAnchor: [12, 24]
     });
 
@@ -308,6 +308,13 @@
     });
 
     var dropIcon = L.icon({
+        iconUrl: 'drop.png',
+        iconSize: [32, 32],
+        iconAnchor: [30, 0],
+        popupAnchor: [0, 0]
+    });
+
+    var actualLocationIcon = L.icon({
         iconUrl: 'drop.png',
         iconSize: [32, 32],
         iconAnchor: [30, 0],
@@ -405,14 +412,7 @@
 //            JSON.stringify(unfilteredTracks);
         });
 
-        socket.on('on_trip_start', function (data) {
-            console.log('on_trip_start', data);
-            document.getElementById('tripheading').innerHTML = 'TRIP STARTED(FOR TRIP)';
-            var dropMarker = L.marker([data.location.lt, data.location.ln]);
-            dropMarker.bindPopup("<b>Trip Start Point!</b>").openPopup();
-            map.addLayer(dropMarker);
-        });
-
+     
 
         socket.on('on_trip_pickup', function (data) {
             console.log('on_trip_pickup', data);
@@ -435,6 +435,14 @@
             document.getElementById('tripheading').innerHTML = 'TRIP AT PICKUP';
             var dropMarker = L.marker([data.location.lt, data.location.ln]);
             dropMarker.bindPopup("<b>At Pickup Point!</b>").openPopup();
+            map.addLayer(dropMarker);
+        });
+
+        socket.on('on_trip_start', function (data) {
+            console.log('on_trip_start', data);
+            document.getElementById('tripheading').innerHTML = 'TRIP STARTED(FOR TRIP)';
+            var dropMarker = L.marker([data.location.lt, data.location.ln],{icon:actualLocationIcon});
+            dropMarker.bindPopup("<b>Trip Start Point!</b>").openPopup();
             map.addLayer(dropMarker);
         });
 
