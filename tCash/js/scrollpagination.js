@@ -34,7 +34,7 @@
   };
   
   $.fn.scrollPagination.loadContent = function(obj, opts){
-	  console.log(opts.contentData.page)
+	  console.log(opts.contentData.start,' ', opts.contentData.end)
 	 var target = opts.scrollTarget;
 	 var mayLoadContent = $(target).scrollTop()+opts.heightOffset >= $(document).height() - $(target).height();
 	 if (mayLoadContent){
@@ -48,8 +48,10 @@
 				  'Authorization':"Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNGVTUWtMVGNnIiwicm9sZSI6ImRyaXZlciIsInBob25lIjoiKzkxODg4OTQ0NDQyMiIsInZ0IjoiYmlrZSIsImlhdCI6MTQ1OTc2NzU4NSwiZXhwIjoxNDYwMTI3NTg1LCJ0eXBlIjoiYmlrZSJ9.XmIuVeQ8I2EwNFn4QRhhIhfG754AR_EBmJBGf1jfieo",
 				  'content-type':'application/json'
 			  },
+
 			  url: opts.contentPage,
-			  data: {'page':page},
+		//	  data: {'page':page},
+             data: { 'start': start, 'end': end },
 			  success: function(data){
 				//$(obj).append(data);
 				  var newData =JSON.parse(data)
@@ -72,10 +74,12 @@
 	
 	 $(target).scroll(function(event){
 		if ($(obj).attr('scrollPagination') == 'enabled'){
-			console.log("on scroll ", page)
+			console.log("on scroll ", start," ",  end)
 			if  ($(target).scrollTop() == $(document).height() - $(target).height()){
 				$.fn.scrollPagination.loadContent(obj, opts);
-				page++;
+				//page++;
+                start+=10;
+                end+=10;
 			}
 	 		//$.fn.scrollPagination.loadContent(obj, opts);
 		}
@@ -84,13 +88,13 @@
 		}
 	 });
 	 
-	 $.fn.scrollPagination.loadContent(obj, opts);
+	// $.fn.scrollPagination.loadContent(obj, opts);
 	 
  };
 	
  $.fn.scrollPagination.defaults = {
       	 'contentPage' : null,
-     	 'contentData' : {page:0},
+     	 'contentData' : {start:0,end:10},
 		 'beforeLoad': null,
 		 'afterLoad': null	,
 		 'scrollTarget': null,

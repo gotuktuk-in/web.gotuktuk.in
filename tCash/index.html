@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
 	<style type="text/css">
 		html { height: 101%; }
-		#w {}
+		#w { }
 		.loading {
 			background:#c1c39a;
 			color:#303030;
@@ -70,12 +70,16 @@
 </script>
 <script type="text/javascript">
 	var page = 0;
+	var start = 0;
+	var end = 10;
 	$(function(){
 
 		$('#content').scrollPagination({
 			'contentPage': 'https://dev-api.gotuktuk.in/api/o/v1/tcash', // the url you are fetching the results
 			//'contentPage': 'ajax.php', // the url you are fetching the results
-			'contentData': { 'page': page },
+			//'contentData': { 'page': page },
+			'contentData': { 'start': start, 'end': end },
+
 			'scrollTarget': $(window),
 			'heightOffset': 10,
 			'beforeLoad': function(){
@@ -87,7 +91,7 @@
 				var i = 0;
 				$(elementsLoaded).fadeInWithDelay();
 				//page++;
-				console.log('page updated ',page)
+				console.log('page updated ',start, ' ', end)
 				if ($('#content').children().size() > 140){
 					// if more than 140 results already loaded, then stop pagination
 					$('#nomoreresults').fadeIn();
