@@ -290,7 +290,7 @@
     //    }
     //
 
-    var socket = io.connect('https://dev-api.gotuktuk.in?requestState=0&token=' + token, {path: '/tk'});
+    var socket = io.connect('https://api.gotuktuk.in?requestState=0&token=' + token, {path: '/ws'});
     //  var socket = io.connect('http://localhost:8080/?requestState=1&token=' + token, {path: '/tk'});
 
     var autoIcon = L.icon({
@@ -412,7 +412,7 @@
 //            JSON.stringify(unfilteredTracks);
         });
 
-     
+
 
         socket.on('on_trip_pickup', function (data) {
             console.log('on_trip_pickup', data);
