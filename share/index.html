@@ -289,7 +289,6 @@
     //        map.addLayer(googleLayer);
     //    }
     //
-
     var socket = io.connect('https://api.gotuktuk.in?requestState=1&token=' + token, {path: '/ws', transports: ['websocket']});
     //  var socket = io.connect('http://localhost:8080/?requestState=1&token=' + token, {path: '/tk'});
 
@@ -421,18 +420,7 @@
             var dropMarker = L.marker([data.location.lt, data.location.ln]);
             dropMarker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
             map.addLayer(dropMarker);
-<<<<<<< HEAD
-
-            /*if(!isEmpty(trip.endPointActual))
-            {
-                var dropMarker = L.marker([data.location.lt, data.location.ln]);
-                dropMarker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
-                map.addLayer(dropMarker);
-            }*/
-
-=======
             showDate(new Date().getTime());
->>>>>>> staging
         });
 
         socket.on('on_at_pickup', function (data) {
