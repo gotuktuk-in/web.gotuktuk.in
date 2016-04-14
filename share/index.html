@@ -289,14 +289,13 @@
     //        map.addLayer(googleLayer);
     //    }
     //
-
     var socket = io.connect('https://stg-api.gotuktuk.in?requestState=1&token=' + token, {path: '/ws', transports: ['websocket']});
     //  var socket = io.connect('http://localhost:8080/?requestState=1&token=' + token, {path: '/tk'});
 
     var autoIcon = L.icon({
         iconUrl: 'rickshaw.png',
         iconSize: [24, 24],
-        iconAnchor: [12, 12],
+        iconAnchor: [12, 24],
         popupAnchor: [12, 24]
     });
 
@@ -308,6 +307,13 @@
     });
 
     var dropIcon = L.icon({
+        iconUrl: 'drop.png',
+        iconSize: [32, 32],
+        iconAnchor: [30, 0],
+        popupAnchor: [0, 0]
+    });
+
+    var actualLocationIcon = L.icon({
         iconUrl: 'drop.png',
         iconSize: [32, 32],
         iconAnchor: [30, 0],
@@ -338,7 +344,14 @@
     var currentSocket;
     var allTracks = [];
     var unfilteredTracks = [];
+    function isEmpty(obj) {
+        for(var prop in obj) {
+            if(obj.hasOwnProperty(prop))
+                return false;
+        }
 
+        return true;
+    }
     function addHandlers(socket) {
         var currentLoc;
         socket.on('on_trip_track', function (track) {
@@ -376,10 +389,19 @@
             document.getElementById("droploc").innerHTML = drop;
             var dropDate = new Date(trip.dropOn * 1000);
             document.getElementById('dropTime').innerHTML = convertTime(dropDate)//dropDate.getHours() + ":" + dropDate.getMinutes();
-            var dropMarker = L.marker([trip.endPointActual.lt, trip.endPointActual.ln], {icon: dropIcon});
-            dropMarker.bindPopup("<b>End Point!</b>").openPopup();
-            map.addLayer(dropMarker);
-            ;
+            if(!isEmpty(trip.endPointActual))
+            {
+                var dropMarker = L.marker([trip.endPointActual.lt, trip.endPointActual.ln], {icon: dropIcon});
+                dropMarker.bindPopup("<b>Actual Trip Drop Point!</b>").openPopup();
+                map.addLayer(dropMarker);
+            }
+            else
+            {
+                var dropMarker = L.marker([trip.endPointRequest.lt, trip.endPointRequest.ln], {icon: dropIcon});
+                dropMarker.bindPopup("<b>Requested Trip Drop Point!</b>").openPopup();
+                map.addLayer(dropMarker);
+            }
+
 
             console.log('****TRIP END****');
 //            console.log('ALL TRACKS', allTracks.length);
@@ -390,13 +412,6 @@
 //            JSON.stringify(unfilteredTracks);
         });
 
-        socket.on('on_trip_start', function (data) {
-            console.log('on_trip_start', data);
-            document.getElementById('tripheading').innerHTML = 'TRIP STARTED(FOR TRIP)';
-            var dropMarker = L.marker([data.location.lt, data.location.ln]);
-            dropMarker.bindPopup("<b>Trip Start Point!</b>").openPopup();
-            map.addLayer(dropMarker);
-        });
 
 
         socket.on('on_trip_pickup', function (data) {
@@ -406,6 +421,12 @@
             dropMarker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
             map.addLayer(dropMarker);
             showDate(new Date().getTime());
+            /*if(!isEmpty(trip.endPointActual))
+            {
+                var dropMarker = L.marker([data.location.lt, data.location.ln]);
+                dropMarker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
+                map.addLayer(dropMarker);
+            }*/
         });
 
         socket.on('on_at_pickup', function (data) {
@@ -413,6 +434,14 @@
             document.getElementById('tripheading').innerHTML = 'TRIP AT PICKUP';
             var dropMarker = L.marker([data.location.lt, data.location.ln]);
             dropMarker.bindPopup("<b>At Pickup Point!</b>").openPopup();
+            map.addLayer(dropMarker);
+        });
+
+        socket.on('on_trip_start', function (data) {
+            console.log('on_trip_start', data);
+            document.getElementById('tripheading').innerHTML = 'TRIP STARTED(FOR TRIP)';
+            var dropMarker = L.marker([data.location.lt, data.location.ln],{icon:actualLocationIcon});
+            dropMarker.bindPopup("<b>Trip Start Point!</b>").openPopup();
             map.addLayer(dropMarker);
         });
 
@@ -460,9 +489,19 @@
             var dropDate = new Date(trip.dropOn * 1000);
             document.getElementById('dropTime').innerHTML = convertTime(dropDate);//  dropDate.getHours() + ":" + dropDate.getMinutes();
             //Drop location
-            var dropMarker = L.marker([trip.endPointActual.lt, trip.endPointActual.ln], {icon: dropIcon});
-            dropMarker.bindPopup("<b>Trip Drop Point!</b>").openPopup();
-            map.addLayer(dropMarker);
+            if(!isEmpty(trip.endPointActual))
+            {
+                var dropMarker = L.marker([trip.endPointActual.lt, trip.endPointActual.ln], {icon: dropIcon});
+                dropMarker.bindPopup("<b>Actual Trip Drop Point!</b>").openPopup();
+                map.addLayer(dropMarker);
+            }
+            else
+            {
+                var dropMarker = L.marker([trip.endPointRequest.lt, trip.endPointRequest.ln], {icon: dropIcon});
+                dropMarker.bindPopup("<b>Requested Trip Drop Point!</b>").openPopup();
+                map.addLayer(dropMarker);
+            }
+
 
         } else {
             document.getElementById('tripheading').innerHTML = 'TRIP IN PROGRESS';
@@ -474,7 +513,7 @@
         }
 
         //Actual Pickup Point
-        if (trip.pickupPointActual) {
+        if (!isEmpty(trip.pickupPointActual)) {
             var marker = L.marker([trip.pickupPointActual.lt, trip.pickupPointActual.ln], {icon: pickupIcon});
             marker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
             map.addLayer(marker);
@@ -491,7 +530,7 @@
         {
             showDate(trip.requestOn * 1000);
         }
-        
+
     }
 
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -547,10 +586,10 @@
         var p2 = new LatLon(lt2, ln2);
         return p1.bearingTo(p2);
     }
-    
+
 var _transformTrip = function (trip) {
     if (!trip) {
-          return;    
+          return;
       }
     var transformedTrip = {};
     transformedTrip.pickupPointActual =trip.lpa;
