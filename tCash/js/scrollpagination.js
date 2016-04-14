@@ -1,19 +1,7 @@
-/*
-**	Anderson Ferminiano
-**	contato@andersonferminiano.com -- feel free to contact me for bugs or new implementations.
-**	jQuery ScrollPagination
-**	28th/March/2011
-**	http://andersonferminiano.com/jqueryscrollpagination/
-**	You may use this script for free, but keep my credits.
-**	Thank you.
-*/
-
 (function( $ ){
-	 
 		 
  $.fn.scrollPagination = function(options) {
-
-		var opts = $.extend($.fn.scrollPagination.defaults, options);  
+		var opts = $.extend($.fn.scrollPagination.defaults, options);
 		var target = opts.scrollTarget;
 		if (target == null){
 			target = obj; 
@@ -23,14 +11,12 @@
 		return this.each(function() {
 		  $.fn.scrollPagination.init($(this), opts);
 		});
-
   };
   
   $.fn.stopScrollPagination = function(){
 	  return this.each(function() {
 	 	$(this).attr('scrollPagination', 'disabled');
 	  });
-	  
   };
   
   $.fn.scrollPagination.loadContent = function(obj, opts){
@@ -45,27 +31,34 @@
 		 $.ajax({
 			  type: 'GET',
 			  headers:{
-				  'Authorization':"Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNGVTUWtMVGNnIiwicm9sZSI6ImRyaXZlciIsInBob25lIjoiKzkxODg4OTQ0NDQyMiIsInZ0IjoiYmlrZSIsImlhdCI6MTQ1OTc2NzU4NSwiZXhwIjoxNDYwMTI3NTg1LCJ0eXBlIjoiYmlrZSJ9.XmIuVeQ8I2EwNFn4QRhhIhfG754AR_EBmJBGf1jfieo",
+                  'Authorization':"Basic " + token,
 				  'content-type':'application/json'
 			  },
 
 			  url: opts.contentPage,
-		//	  data: {'page':page},
              data: { 'start': start, 'end': end },
 			  success: function(data){
-				//$(obj).append(data);
 				  var newData =JSON.parse(data)
 				  $("#tCashTemplate").tmpl(newData).appendTo("#content");
 				var objectsRendered = $(obj).children('[rel!=loaded]');
-				
+
+                  if (newData.length < 10){
+                      // if more than 140 results already loaded, then stop pagination
+                      $('#nomoreresults').fadeIn();
+                      $('#content').stopScrollPagination();
+                  }
+
 				if (opts.afterLoad != null){
 					opts.afterLoad(objectsRendered);	
 				}
 			  },
+             error:function(data){
+                 $('#error').show();
+             },
+
 			  dataType: 'html'
 		 });
 	 }
-	 
   };
   
   $.fn.scrollPagination.init = function(obj, opts){
@@ -88,7 +81,7 @@
 		}
 	 });
 	 
-	// $.fn.scrollPagination.loadContent(obj, opts);
+	 $.fn.scrollPagination.loadContent(obj, opts);
 	 
  };
 	
