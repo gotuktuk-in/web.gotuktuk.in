@@ -367,6 +367,7 @@
         });
 
         socket.on('on_invoice', function (trip) {
+            trip = _transformTrip(trip);
             console.log('on_invoice', trip);
             //document.getElementById('dropsection').setAttribute("style", "display: block;");
             document.getElementById('tripheading').innerHTML = 'TRIP COMPLETED';
@@ -404,6 +405,7 @@
             var dropMarker = L.marker([data.location.lt, data.location.ln]);
             dropMarker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
             map.addLayer(dropMarker);
+            showDate(new Date().getTime());
         });
 
         socket.on('on_at_pickup', function (data) {
@@ -424,7 +426,7 @@
                 }
                 console.log('=>Trip - ', trip);
                 if (trip) {
-                    setTripDetails(trip);
+                    setTripDetails(_transformTrip(trip));
                 } else {
                     console.log('Got empty trip');
                     //alert('Invalid request token');
@@ -481,7 +483,15 @@
             marker.bindPopup("<b>Requested Pickup Point!</b>").openPopup();
             map.addLayer(marker);
         }
-        showDate(trip.pickupOn * 1000);
+        if(trip.pickupOn)
+        {
+            showDate(trip.pickupOn * 1000);
+        }
+        else
+        {
+            showDate(trip.requestOn * 1000);
+        }
+        
     }
 
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -537,6 +547,59 @@
         var p2 = new LatLon(lt2, ln2);
         return p1.bearingTo(p2);
     }
+    
+var _transformTrip = function (trip) {
+    if (!trip) {
+          return;    
+      }
+    var transformedTrip = {};
+    transformedTrip.pickupPointActual =trip.lpa;
+    transformedTrip.pickupPointRequest = trip.lpr;
+    transformedTrip.atPickupPoint = trip.lap;
+    transformedTrip.startPoint = trip.sp;
+    transformedTrip.endPointActual = trip.lda;
+    transformedTrip.endPointRequest = trip.ldr;
+
+    transformedTrip.startOn = trip.son;
+    transformedTrip.pickupOn = trip.pon;
+    transformedTrip.atPickupOn = trip.apon;
+    transformedTrip.dropOn = trip.don;
+    transformedTrip.cancelOn = trip.con;
+    transformedTrip.requestOn = trip.ron;
+    transformedTrip.allocatedOn = trip.aon;
+    transformedTrip.updatedOn = trip.uon;
+
+    transformedTrip.forTripTrackCount = trip.sptc;
+    transformedTrip.inTripTrackCount = trip.pdtc;
+
+    transformedTrip.disStartPickup = trip.dsp;
+    transformedTrip.startPickupFare = trip.spf;
+    transformedTrip.fareId = trip.fid;
+    transformedTrip.promoId = trip.pid;
+    transformedTrip.promoCode = trip.pc;
+    transformedTrip.disPickupDrop = trip.dpd;
+    transformedTrip.promoDiscountAmount = trip.pda;
+
+    if (trip.d) {
+        // User Profiles
+        transformedTrip.driver = trip.d;
+    }
+
+    transformedTrip.rider = trip.r;
+
+    transformedTrip.id = trip.id;
+    transformedTrip.vehicleType = trip.vt;
+    transformedTrip.vehicleId = trip.vn;
+    transformedTrip.cancelReason = trip.cr;
+    transformedTrip.cancelCode = trip.cc;
+    transformedTrip.state = trip.state;
+    transformedTrip.city = trip.city;
+    //transformedTrip.su = trip.shareUrl;
+
+    
+    //log.debug(JSON.stringify(transformedTrip, null, 4));
+    return transformedTrip;
+}
 
     addHandlers(socket);
 
