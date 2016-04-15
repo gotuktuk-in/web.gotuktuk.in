@@ -85,7 +85,7 @@
 				'Authorization':"Basic " + token,
 				'content-type':'application/json'
 			},
-			url: "https://stg-api.gotuktuk.in/support/rest/v1/tcash",
+			url: "https://api.gotuktuk.in/support/rest/v1/tcash",
 			success: function(data){
 				//$(obj).append(data);
 				var newData =JSON.parse(data)
@@ -98,7 +98,7 @@
 		});
 
 		$('#content').scrollPagination({
-			'contentPage': 'https://stg-api.gotuktuk.in/support/rest/v1/tcash/ledger',
+			'contentPage': 'https://api.gotuktuk.in/support/rest/v1/tcash/ledger',
 			'contentData': { 'start': start, 'end': end },
 			'scrollTarget': $(window),
 			'heightOffset': 10,
