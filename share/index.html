@@ -291,7 +291,7 @@
     //
 
    //PROD - '', DEV - 'dev-', STAGE - 'stg'
-   var PREFIX = 'dev-';
+   var PREFIX = '';
 
     var socket = io.connect('https://'+PREFIX+'api.gotuktuk.in?requestState=1&token=' + token, {path: '/ws', transports: ['websocket']});
 
