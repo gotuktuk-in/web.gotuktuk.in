@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="fonts/aller.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            background-color: #fff;
+            margin: 0px;
+            padding: 0px;
+            font-family: 'allerregular', sans-serif !important;
+            font-size: 16px !important;
+        }
+
+        p {
+            font-family: 'aller_lightregular', sans-serif !important;
+        }
+
+        .wrapper {
+            margin: 30px auto 0px;
+            background-color: #FFF;
+            padding: 14px 20px;
+        }
+        .panel{
+            -webkit-border-radius:;
+            -moz-border-radius:;
+            border-radius:0;
+            border:none;
+        }
+        .panel-title {
+            font-size: 22px;
+        }
+        .panel-default > .panel-heading {
+            background-color: #fff;
+            border:none;
+        }
+        .table, th, tr, td{
+            font-family: 'aller_lightregular', sans-serif !important;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <span onclick="app.closeSelf()"><i style=" font-size: 18px;" class="glyphicon glyphicon-chevron-left"></i></span>
+                        Rate Card</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped table-hover table-condensed ng-scope ng-table" width="100%">
+                        <tbody>
+                        <tr class="text-info">
+                            <td class="text-center">Meter Down</td>
+                            <td class="text-center">₹ 15</td>
+                        </tr>
+                        <tr class="text-success">
+                            <td class="text-center">0 - 5 Km</td>
+                            <td class="text-center">₹ 2/Km</td>
+                        </tr>
+                        <tr class="text-warning">
+                            <td class="text-center">5 - 10 Km</td>
+                            <td class="text-center">₹ 4/Km</td>
+                        </tr>
+                        <tr class="text-danger">
+                            <td class="text-center">10 Km - Above</td>
+                            <td class="text-center">₹ 9/Km</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>
