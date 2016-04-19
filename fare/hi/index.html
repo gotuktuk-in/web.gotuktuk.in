@@ -40,9 +40,23 @@
             background-color: #fff;
             border:none;
         }
+        .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+            border-top: 0px solid #ddd;
+        }
+        .table-striped>tbody>tr:nth-of-type(odd) {
+            background-color: #fff;
+        }
+        .table-striped>tbody>tr:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+        .panel-default > .panel-heading {
+            background-color: #fff;
+            border:none;
+        }
         .table, th, tr, td{
             font-family: 'aller_lightregular', sans-serif !important;
         }
+        .text-bold{font-weight: bold;font-family: 'allerregular', sans-serif !important;}
 
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -56,37 +70,42 @@
     <div class="row">
         <div class="col-md-12">
 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <span onclick="app.closeSelf()"><i style=" font-size: 18px;" class="glyphicon glyphicon-chevron-left"></i></span>
-                        किराया दर</h4>
-                </div>
-                <div class="panel-body">
-                    <table class="table table-bordered table-striped table-hover table-condensed ng-scope ng-table" width="100%">
-                        <tbody>
-                        <tr class="text-info">
-                            <td class="text-center">
-                                मीटर डाउन</td>
-                            <td class="text-center">₹ 15</td>
-                        </tr>
-                        <tr class="text-success">
-                            <td class="text-center">0 - 5 किमी</td>
-                            <td class="text-center">₹ 2/किमी</td>
-                        </tr>
-                        <tr class="text-warning">
-                            <td class="text-center">5 - 10 किमी</td>
-                            <td class="text-center">₹ 4/किमी</td>
-                        </tr>
-                        <tr class="text-danger">
-                            <td class="text-center">10 किमी - ऊपर</td>
-                            <td class="text-center">₹ 9/किमी</td>
-                        </tr>
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <table class="table table-condensed ng-scope ng-table" width="100%">
+                <tbody>
+                <tr>
+                    <td class="text-bold" style="padding-left: 20px">आधार किराया</td>
+                    <td class="text-right">₹ 15</td>
+                </tr>
+                <tr>
+                    <td class="text-bold">+ प्रति मिनट</td>
+                    <td class="text-right">₹ 1</td>
+                </tr>
+                <tr>
+                    <td class="text-bold" colspan="2">+ दूरी</td>
+                </tr>
+                <tr>
+                    <td  style="padding-left: 20px">0 - 5 किमी</td>
+                    <td class="text-right">₹ 2/किमी</td>
+                </tr>
+                <tr>
+                    <td  style="padding-left: 20px">5 - 10 किमी</td>
+                    <td class="text-right">₹ 4/किमी</td>
+                </tr>
+                <tr>
+                    <td  style="padding-left: 20px">10 किमी - ऊपर</td>
+                    <td class="text-right">₹ 9/किमी</td>
+                </tr>
+                <tr>
+                    <td class="text-bold" style="padding-left: 20px" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td  style="padding-left: 20px" colspan="2">
+                        रात के चार्ज
+                        <span style="font-size: 14px">(रात 10बजे से सुबह 6बजे )</span> 1.5x</td>
+                </tr>
+                </tbody>
+            </table>
 
 
         </div>
