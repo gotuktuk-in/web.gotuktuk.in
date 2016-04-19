@@ -486,11 +486,11 @@
     function setIcons()
     {
         autoIcon ={
-        url: 'rickshaw.png',
+        url: 'user.png',
         size: new google.maps.Size(50, 50),
-        //scaledSize: new google.maps.Size(24, 24),
-        anchor: new google.maps.Point(30, 0),
-        //anchor: new google.maps.Point(0, 0),
+        scaledSize: new google.maps.Size(50, 50),
+       // anchor: new google.maps.Point(30, 0),
+     anchor: new google.maps.Point(0, 25),
         origin:new google.maps.Point(0, 0)
 }
 
@@ -918,7 +918,7 @@
          autoMarkers[0].setMap(null)
             autoMarkers.pop()
          autoMarker = new google.maps.Marker({position: latLang, map: map,icon:{
-        url: 'rickshaw.png',
+        url: 'user.png',
         size: new google.maps.Size(50, 50),
       //  scaledSize: new google.maps.Size(50, 50),
         anchor: new google.maps.Point(12, 24),
