@@ -489,7 +489,8 @@
         url: 'rickshaw.png',
         size: new google.maps.Size(50, 50),
         //scaledSize: new google.maps.Size(24, 24),
-        anchor: new google.maps.Point(12, 24),
+        anchor: new google.maps.Point(30, 0),
+        //anchor: new google.maps.Point(0, 0),
         origin:new google.maps.Point(0, 0)
 }
 
@@ -526,7 +527,7 @@
         return true;
     }
     function initMap() {
-        if(tripStatus=='complete' || tripStatus=='cencel')
+        if(tripStatus!='complete' || tripStatus!='cancel')
         {
                  map = new google.maps.Map(document.getElementById('map'), {
              // center: {lat: 22.7228 , lng: 75.8737},22.719744474937276,75.86874961853027
@@ -601,7 +602,7 @@
                                     ],
                                     strokeColor: "#FF0000",
                                     strokeOpacity: 1.0,
-                                    strokeWeight: 10,
+                                    strokeWeight: 2,
                                     map: map
                                 });
                console.log(angle)
@@ -793,7 +794,7 @@
         }
         else if(trip.state > 61)
         {
-              tripStatus = 'cencel'
+              tripStatus = 'cancel'
              document.getElementById('tripheading').innerHTML = 'TRIP CANCELED';
             showMapImage(trip.id)
         }
