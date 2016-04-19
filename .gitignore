@@ -6,3 +6,8 @@
 .idea/web.gotuktuk.in.iml
 
 .idea/workspace.xml
+
+invoice/node_modules/
+
+invoice/package.json
+.idea/.name
