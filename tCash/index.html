@@ -13,26 +13,33 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/scrollpagination.js"></script>
 	<!--[if lt IE 9]>
-	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script type="text/javascript" src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+	<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
 	<style type="text/css">
 		html { height: 100%; }
 		#w { }
 		.loading {background:#c1c39a; color:#303030; font-size:14px; padding:6px; text-align:center; width:90%; margin:0px auto; display:none; border-radius: 5px;}
-		.wrapper {max-width: 768px; background-color: #FFF; padding:10px 20px;}
-		.list-group-item {border-left:none; border-right:none; border-bottom: solid 1px #e2e2e2; border-radius: 0px; padding: 5px 0px;}
+		.wrapper {max-width: 768px; background-color: #FFF; padding:0px}
+		.list-group-item {border-left:none; border-right:none; border-bottom: solid 1px #f0f0f0; border-top: solid 1px #f0f0f0; border-radius: 0px; padding:6px 15px;}
 		.list-group-item:first-child {border-top: none;}
 		.list-group-item:last-child, .list-group-item:first-child {border-radius: 0px;}
+		li:nth-child(odd) {background: #FFF;}
+		li:nth-child(even) {background: #f8f8f8;}
 		.list-group-item .date {display: block; color: #9e9e9e; font-size: 11px;}
-		.list-group-item h4 {font-size: 16px; margin: 4px 0px 0px; font-size: 14px; text-transform: uppercase;}
+		.list-group-item h4 {font-size: 16px; margin: 4px 0px 0px; font-size: 14px; text-transform: uppercase; width: 70%}
 		.list-group-item h4 span {display: inline-block; color: #9e9e9e; padding-left:4px;}
 		.list-group-item p {margin:0px; font-size: 12px;}
-		.badge {background-color: transparent; color:#000;}
-		.list-group-item>.badge {margin-top:17px; font-size: 15px;}
+		.badge {background-color: transparent; color:#000; padding: 3px 0px;}
+		.list-group-item>.badge {margin-top:16px; font-size: 15px;}
 		.text-danger {color: #f20c17!important;}
-		.heading {font-size: 18px; text-align: center; font-weight: 700; margin: 10px 0px;}
+		.heading {font-size: 18px; text-align: center; font-weight: 700; margin: 10px 0px; border-bottom: solid 1px #e2e2e2; padding-bottom: 10px;}
 		.alert-danger {position: fixed;	z-index: 12; top: 9%; width: 100%; left: 0px; border-radius: 0px; text-align: center; border: none;}
+		.tFooter {position: absolute; bottom: 0px; background-color: #FFF; border-top: solid 1px #e2e2e2; width: 100%; left: 0px; padding-top: 5px; text-align: center;}
+		.tFooter p {display: inline-block; font-size: 11px; color: #666; padding: 0px 10px; }
+		.label-default {position: absolute;	right: 55px; background-color: #ccc!important; font-size: 10px!important; font-weight: normal; color: #FFF; text-transform: uppercase; padding:3px 6px 2px!important; margin-top: 18px!important; display: inline-block;}
+		.text-success {color: #5cb85c; font-style: normal;}
+		.text-danger {color: #d9534f; font-style: normal;}
 	</style>
 </head>
 
@@ -40,25 +47,41 @@
 <div id="w" class="wrapper">
 	<div id="error" class="alert alert-danger" role="alert">Something went wrong!!!</div>
 	<div class="loading" id="loading" style="position: fixed; bottom:0px; left: 0px; z-index: 11; width: 100%; border-radius: 0px;">Loading please wait...</div>
-<div class="row">
-	<div class="col-md-12">
+	<div class="tFooter">
+		<p>FT =  First Trip</p>
+		<p>Ins =  Rider Init</p>
+		<p>Redeem =  Redeem</p>
+	</div>
+<div class="row" style="margin: 0px;">
+	<div class="col-md-12" style="padding: 0px;">
 		<div class="heading"><img src="images/tcash.png" title="" alt="" height="20px"> <span id="tHead"></span> </div>
 		<ul class="list-group" id="content">
 		</ul>
-		<div class="loading" id="nomoreresults">Sorry, no more results to display.</div>
+		<!--<div class="loading" id="nomoreresults">Sorry, no more results to display.</div>-->
 	</div>
 </div>
-
-
-
 
 </div>
 <script id="tCashTemplate" type="text/x-jQuery-tmpl">
 		<li class="list-group-item">
-			<span class="badge">${tCash}</span>
+			<span class="badge">
+				{{if type==='credit'}} <i class="text-success">+</i>{{/if}}
+				{{if type==='debit'}} <i class="text-danger">-</i>{{/if}}
+
+				{{if type==='credit'}}
+					{{if tCash}} <i class="text-success">${tCash}</i>{{/if}}
+            	{{/if}}
+            	{{if type==='debit'}}
+					{{if tCash}}<i class="text-danger">${tCash}</i>{{/if}}
+            	{{/if}}
+			</span>
+			<span class="badge label label-default">
+				{{if action==='first_trip'}}FT {{/if}}
+				{{if action==='rider_init'}}Ins {{/if}}
+				{{if action==='redeem'}}redeem {{/if}}
+			</span>
 			<span class="date">${formattedDate(date)}</span>
-			<h4>${name} <span>${phone}</span></h4>
-			<p>${actionDetail}</p>
+			<h4>${name}</h4>
 		</li>
 </script>
 
