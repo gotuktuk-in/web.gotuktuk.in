@@ -2,21 +2,66 @@ body {
     font-family: 'Lato', sans-serif !important;
     font-size: 13px;
     line-height: 1.6;
-    padding-top: 95px;
+    /*padding-top: 95px;*/
+    /*background-image: url("../images/map.png");*/
+    /*background-position: center top;*/
+    /*background-repeat: no-repeat;*/
+}
+header {
+    background-attachment: scroll;
+    background-image: url("../images/header-bg.jpg");
+    background-position: center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+header .intro-text {
+    padding-bottom: 200px;
+    padding-top: 300px;
+}
+header .intro-text .intro-lead-in {
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 40px;
+    font-style: italic;
+    line-height: 40px;
+    margin-bottom: 25px;
+}
+header .intro-text .intro-heading {
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 75px;
+    font-weight: 700;
+    line-height: 75px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+.printOnly {
+    display: none;
+    visibility: hidden;
+}
+@media print {
+    body{padding: 0;}
+    .navbar, footer, header {
+        display: none;
+        visibility: hidden;
+    }
+    .printOnly {
+        display: block;
+        visibility: visible;
+    }
 }
 .navbar-default {
     background: url("../images/header-bg.png");
     border-color: transparent;
     background-size: contain;
     border: none;
-    height: 200px;
+    /*height: 200px;*/
 }
 .navbar-header{
     min-height: 120px;
 }
 .navbar-brand {
      height: auto;
-    padding: 15px 15px;
+    padding: 15px 0 0;
 }
 a:focus, a:hover {
     color: #000000;
@@ -147,10 +192,10 @@ p {
     margin: 10px 0;
 }
 .b47TT-mApp-img {
-    margin-top: -28px;
+    margin-top: -75px;
 }
 .b47TT-about-quad {
-    margin-top: 9%;
+    margin-top: 1%;
     margin-bottom: 6%;
     padding-bottom: 0;
 }
@@ -193,10 +238,10 @@ p {
     -ms-transform: rotate(-4deg);
     display: inline-block
 }
-
+footer{background: #fff}
 .b47TT-footer-quad {
     background: #fff;
-    padding: 40px 0;
+    padding: 20px 0;
     border-top:1px solid #ddd;
 }
 
@@ -212,7 +257,7 @@ p {
 
 .b47TT-footer-quad li a, .b47TT-footer-quad a, .b47TT-footer-quad span {
     font-size: 13px;
-    line-height: 22px;
+    line-height: 26px;
     padding: 0 4px;
 }
 .b47TT-footer-quad li a:hover{
@@ -331,7 +376,7 @@ p {
 /*** responsive css starts***/
 @media (min-width: 768px){
     .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
-        margin: 10px 0 0 0;
+        margin: 20px 0 0 0;
     }
 }
 @media (max-width: 767px) {
@@ -363,7 +408,7 @@ p {
     }
 
     .b47TT-about-quad {
-        margin: 16% 0 0 0;
+        margin: 0;
         border-bottom: 0px solid #e1e1e1;
         padding: 0 25px
     }
