@@ -437,7 +437,7 @@
     var search = window.location.search;
     var token;
     var tripId;
-    var showPath
+    var showPath =1
     if (search) {
         search.split('&').forEach(function (qs) {
             console.log(qs);
@@ -493,10 +493,10 @@
     {
         autoIcon ={
         url: 'user.png',
-        size: new google.maps.Size(100, 100),
-        scaledSize: new google.maps.Size(50, 50),
+        size: new google.maps.Size(22, 43),
+      //  scaledSize: new google.maps.Size(22, 43),
        // anchor: new google.maps.Point(30, 0),
-     anchor: new google.maps.Point(12.5, 50),
+  //  anchor: new google.maps.Point(0, 0),
         origin:new google.maps.Point(0, 0)
 }
 
@@ -537,7 +537,7 @@
                  map = new google.maps.Map(document.getElementById('map'), {
              // center: {lat: 22.7228 , lng: 75.8737},22.719744474937276,75.86874961853027
              center: {lat: 22.719744474937276 , lng: 75.86874961853027},
-              zoom: 14
+              zoom: 14, maxZoom:16
             });
             setIcons()
         
@@ -938,7 +938,7 @@
        //      console.log(autoMarker.icon.rotation)
         autoMarker.setPosition( latLang );
 
-     //   map.panTo( latLang );
+       map.panTo( latLang );
       //  autoMarkers.push(autoMarker)
     };
 
