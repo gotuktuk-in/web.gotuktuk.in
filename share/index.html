@@ -437,6 +437,7 @@
     var search = window.location.search;
     var token;
     var tripId;
+    var showPath =1
     if (search) {
         search.split('&').forEach(function (qs) {
             console.log(qs);
@@ -449,8 +450,13 @@
     if (!token) {
         alert('Invalid token');
     }
-
-
+    $.urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            return results[1] || 0;
+        }
+        //$('.test').text(window.location.href)
+       // showPath = $.urlParam('path')
+        console.log('showPath ', showPath)
    //PROD - '', DEV - 'dev-', STAGE - 'stg'
    var PREFIX = 'dev-';
    
@@ -486,10 +492,11 @@
     function setIcons()
     {
         autoIcon ={
-        url: 'rickshaw.png',
-        size: new google.maps.Size(50, 50),
-        //scaledSize: new google.maps.Size(24, 24),
-        anchor: new google.maps.Point(12, 24),
+        url: 'user.png',
+        size: new google.maps.Size(22, 43),
+      //  scaledSize: new google.maps.Size(22, 43),
+       // anchor: new google.maps.Point(30, 0),
+  //  anchor: new google.maps.Point(0, 0),
         origin:new google.maps.Point(0, 0)
 }
 
@@ -526,15 +533,14 @@
         return true;
     }
     function initMap() {
-        if(tripStatus=='complete' || tripStatus=='cencel')
-        {
+
                  map = new google.maps.Map(document.getElementById('map'), {
              // center: {lat: 22.7228 , lng: 75.8737},22.719744474937276,75.86874961853027
              center: {lat: 22.719744474937276 , lng: 75.86874961853027},
-              zoom: 14
+              zoom: 14, maxZoom:16
             });
             setIcons()
-        }
+        
     }
      var myInterval 
      var markers_arr = []
@@ -594,6 +600,8 @@
             //    autoMarker = new google.maps.Marker({position: latlng,map: map,icon:autoIcon });
                 moveMarker(map, autoMarker, latlng, 0)
                angle = getAngle(currentLoc.lt, currentLoc.ln, track.lt, track.ln);
+               if(showPath)
+               {
                 var line = new google.maps.Polyline({
                                     path: [
                                         new google.maps.LatLng(currentLoc.lt, currentLoc.ln), 
@@ -601,9 +609,11 @@
                                     ],
                                     strokeColor: "#FF0000",
                                     strokeOpacity: 1.0,
-                                    strokeWeight: 10,
+                                    strokeWeight: 2,
                                     map: map
                                 });
+               }
+                
                console.log(angle)
                  /*var newPoint = new L.LatLng(track.lt, track.ln);
                 map.removeLayer(autoMarker);
@@ -743,6 +753,10 @@
         var pAdd = trip.pickupPointRequest.address;
         var pickup = pAdd.line1 + ', ' + (pAdd.line2 ? pAdd.line2 + ', ' : '') + '<p>' + pAdd.city + ', ' + pAdd.state + ', ' + pAdd.country + '</p>';
         document.getElementById("pickuploc").innerHTML = pickup;
+        if(trip.requestOn)
+        {
+            trip.pickupOn = trip.requestOn;
+        }
         var pickupDate = new Date(trip.pickupOn * 1000);
         document.getElementById('pickupTime').innerHTML = convertTime(pickupDate);// pickupDate.getHours() + ":" + pickupDate.getMinutes();
 
@@ -793,7 +807,7 @@
         }
         else if(trip.state > 61)
         {
-              tripStatus = 'cencel'
+              tripStatus = 'cancel'
              document.getElementById('tripheading').innerHTML = 'TRIP CANCELED';
             showMapImage(trip.id)
         }
@@ -804,6 +818,10 @@
         else if(trip.state === 40)
         {
                  document.getElementById('tripheading').innerHTML = 'DRIVER ARRIVED';
+        }
+        else if(trip.state === 30)
+        {
+                 document.getElementById('tripheading').innerHTML = 'DRIVER APPROACHING';
         }
          else {
             document.getElementById('tripheading').innerHTML = 'TRIP CONFIRM';
@@ -852,7 +870,7 @@
         {
             showDate(trip.requestOn * 1000);
         }
-          //   startMoving()
+            // startMoving()
     }
     function showMapImage(id)
     {
@@ -913,22 +931,15 @@
 
     function moveMarker( map, marker, latLang , rotation) {
         var autoRotation = rotation
-        console.log(autoMarkers[0])
-         autoMarkers[0].setMap(null)
-            autoMarkers.pop()
-         autoMarker = new google.maps.Marker({position: latLang, map: map,icon:{
-        url: 'rickshaw.png',
-        size: new google.maps.Size(50, 50),
-      //  scaledSize: new google.maps.Size(50, 50),
-        anchor: new google.maps.Point(12, 24),
-        origin:new google.maps.Point(0, 0),
-        rotation: autoRotation
-            }});
-             console.log(autoMarker.icon.rotation)
+      //  console.log(autoMarkers[0])
+       //  autoMarkers[0].setMap(null)
+       //     autoMarkers.pop()
+       //  autoMarker = new google.maps.Marker({position: latLang, map: map,icon:autoIcon});
+       //      console.log(autoMarker.icon.rotation)
         autoMarker.setPosition( latLang );
 
-     //   map.panTo( latLang );
-        autoMarkers.push(autoMarker)
+       map.panTo( latLang );
+      //  autoMarkers.push(autoMarker)
     };
 
     function getAngle(lt1, ln1, lt2, ln2) {
