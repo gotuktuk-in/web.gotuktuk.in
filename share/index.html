@@ -446,10 +446,11 @@
                 token = qs[1];
             }
             if ('path' === qs[0] || '?path' === qs[0]) {
-                showPath = qs[1];
+                showPath = Number(qs[1]);
             }
         });
     }
+    showPath = showPath ? true :false;
     if (!token) {
         alert('Invalid token');
     }
@@ -689,11 +690,9 @@
              if(!isEmpty(data.location))
             {
                 var pAdd = data.location.address;
-            var pickup = pAdd.line1 + ', ' + (pAdd.line2 ? pAdd.line2 + ', ' : '') + '<p>' + pAdd.city + ', ' + pAdd.state + ', ' + pAdd.country + '</p>';
-            document.getElementById("pickuploc").innerHTML = pickup;
+                var pickup = pAdd.line1 + ', ' + (pAdd.line2 ? pAdd.line2 + ', ' : '') + '<p>' + pAdd.city + ', ' + pAdd.state + ', ' + pAdd.country + '</p>';
+                document.getElementById("pickuploc").innerHTML = pickup;
             }
-
-            
 
              var latlng = new google.maps.LatLng(data.location.lt, data.location.ln);
              if(pickUpMarker)
@@ -749,7 +748,8 @@
           $('#mapContent').show()
             $('#loader').hide()
         if (trip.driver && trip.driver.id) {
-            document.getElementById("driverVNOName").innerHTML = trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " - " + trip.driver.vn;
+           // document.getElementById("driverVNOName").innerHTML = trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " - " + trip.driver.vn;
+            document.getElementById("driverVNOName").innerHTML = " "+trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " (" + trip.driver.vn+")"; 
             document.getElementById("callme").setAttribute('href','tel:'+trip.driver.phn);
         }
         //
