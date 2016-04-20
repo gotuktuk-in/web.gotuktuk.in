@@ -437,7 +437,7 @@
     var search = window.location.search;
     var token;
     var tripId;
-    var showPath =1
+    var showPath =0
     if (search) {
         search.split('&').forEach(function (qs) {
             console.log(qs);
@@ -445,17 +445,15 @@
             if ('token' === qs[0] || '?token' === qs[0]) {
                 token = qs[1];
             }
+            if ('path' === qs[0] || '?path' === qs[0]) {
+                showPath = qs[1];
+            }
         });
     }
     if (!token) {
         alert('Invalid token');
     }
-    $.urlParam = function(name){
-            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-            return results[1] || 0;
-        }
-        //$('.test').text(window.location.href)
-       // showPath = $.urlParam('path')
+
         console.log('showPath ', showPath)
    //PROD - '', DEV - 'dev-', STAGE - 'stg'
    var PREFIX = 'dev-';
@@ -547,8 +545,7 @@
      function startMoving()
      {
        myInterval = setInterval(function(){ 
-       
-       
+      
          console.log(i)
          
          if(i<dummy.length)
@@ -638,7 +635,7 @@
             document.getElementById("droploc").innerHTML = drop;
             var dropDate = new Date(trip.dropOn * 1000);
             document.getElementById('dropTime').innerHTML = convertTime(dropDate)//dropDate.getHours() + ":" + dropDate.getMinutes();
-            if(!isEmpty(trip.endPointActual))
+            /*if(!isEmpty(trip.endPointActual))
             {
                  var latlng = new google.maps.LatLng(trip.endPointActual.lt, trip.endPointActual.ln);
                  if(dropMarker)
@@ -649,10 +646,6 @@
                  {
                     dropMarker = new google.maps.Marker({position: latlng,map: map,icon:dropIcon });
                  }
-                
-               /* var dropMarker = L.marker([trip.endPointActual.lt, trip.endPointActual.ln], {icon: dropIcon});
-                dropMarker.bindPopup("<b>Actual Trip Drop Point!</b>").openPopup();
-                map.addLayer(dropMarker);*/
             }
             else
             {
@@ -665,13 +658,9 @@
                  {
                     dropMarker = new google.maps.Marker({position: latlng,map: map,icon:dropIcon });
                  }
-               // dropMarker = new google.maps.Marker({position: latlng,map: map,icon:dropIcon });
-                /*var dropMarker = L.marker([trip.endPointRequest.lt, trip.endPointRequest.ln], {icon: dropIcon});
-                dropMarker.bindPopup("<b>Requested Trip Drop Point!</b>").openPopup();
-                map.addLayer(dropMarker);*/
-            }
+             }*/
             showMapImage(trip.id)
-            console.log('****TRIP END****', url);
+            console.log('****TRIP END****');
         });
 
         socket.on('on_trip_start', function (data) {
@@ -697,6 +686,15 @@
         socket.on('on_trip_pickup', function (data) {
             console.log('on_trip_pickup', data);
             document.getElementById('tripheading').innerHTML = 'EN ROUTE';
+             if(!isEmpty(data.location))
+            {
+                var pAdd = data.location.address;
+            var pickup = pAdd.line1 + ', ' + (pAdd.line2 ? pAdd.line2 + ', ' : '') + '<p>' + pAdd.city + ', ' + pAdd.state + ', ' + pAdd.country + '</p>';
+            document.getElementById("pickuploc").innerHTML = pickup;
+            }
+
+            
+
              var latlng = new google.maps.LatLng(data.location.lt, data.location.ln);
              if(pickUpMarker)
              {
@@ -710,9 +708,14 @@
            /* var dropMarker = L.marker([data.location.lt, data.location.ln]);
             dropMarker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
             map.addLayer(dropMarker);*/
-            showDate(new Date().getTime());
+            getDateWithoutTime(new Date().getTime());
         });
 
+         socket.on('on_trip_cancel', function (data) {
+            console.log('on_trip_cancel', data);
+            document.getElementById('tripheading').innerHTML = 'TRIP CANCELED';
+                 socket.close();
+        });
         
 
        
@@ -728,6 +731,10 @@
                 if (trip) {
                     if(trip.state>=61){
                         socket.close();
+                    }
+                    else
+                    {
+                        initMap();
                     }
                     setTripDetails(_transformTrip(trip));
                 } else {
@@ -750,10 +757,15 @@
             document.getElementById("riderName").innerHTML = trip.rider.fnm
         }
         document.getElementById("tripid").innerHTML = trip.id;
+        if(!isEmpty(trip.pickupPointActual))
+        {
+            trip.pickupPointRequest = trip.pickupPointActual;
+        }
+
         var pAdd = trip.pickupPointRequest.address;
         var pickup = pAdd.line1 + ', ' + (pAdd.line2 ? pAdd.line2 + ', ' : '') + '<p>' + pAdd.city + ', ' + pAdd.state + ', ' + pAdd.country + '</p>';
         document.getElementById("pickuploc").innerHTML = pickup;
-        if(trip.requestOn)
+        if(!trip.pickupOn)
         {
             trip.pickupOn = trip.requestOn;
         }
@@ -770,7 +782,7 @@
             var dropDate = new Date(trip.dropOn * 1000);
             document.getElementById('dropTime').innerHTML = convertTime(dropDate);//  dropDate.getHours() + ":" + dropDate.getMinutes();
             //Drop location
-            if(!isEmpty(trip.endPointActual))
+           /* if(!isEmpty(trip.endPointActual))
             {
                var latlng = new google.maps.LatLng(trip.endPointActual.lt, trip.endPointActual.ln);
                  if(dropMarker)
@@ -781,11 +793,7 @@
                  {
                     dropMarker = new google.maps.Marker({position: latlng,map: map ,icon:dropIcon});
                  }
-              // var dropMarker = new google.maps.Marker({position: latlng,map: map,icon:dropIcon });
-               /* var dropMarker = L.marker([trip.endPointActual.lt, trip.endPointActual.ln], {icon: dropIcon});
-                dropMarker.bindPopup("<b>Actual Trip Drop Point!</b>").openPopup();
-                map.addLayer(dropMarker);*/
-            }
+             }
             else
             {
                var latlng = new google.maps.LatLng(trip.endPointRequest.lt, trip.endPointRequest.ln);
@@ -797,11 +805,7 @@
                  {
                     dropMarker = new google.maps.Marker({position: latlng,map: map ,icon:dropIcon});
                  }
-              // var dropMarker = new google.maps.Marker({position: latlng,map: map,icon:dropIcon });
-                /*var dropMarker = L.marker([trip.endPointRequest.lt, trip.endPointRequest.ln], {icon: dropIcon});
-                dropMarker.bindPopup("<b>Requested Trip Drop Point!</b>").openPopup();
-                map.addLayer(dropMarker);*/
-            }
+            }*/
 
             showMapImage(trip.id)
         }
@@ -864,11 +868,11 @@
         }
         if(trip.pickupOn)
         {
-            showDate(trip.pickupOn * 1000);
+            getDateWithoutTime(trip.pickupOn * 1000);
         }
         else
         {
-            showDate(trip.requestOn * 1000);
+            getDateWithoutTime(trip.requestOn * 1000);
         }
             // startMoving()
     }
@@ -902,7 +906,15 @@
         var ampm = hr < 12 ? "am" : "pm";
         return h + ":" + min + " " + ampm;
     }
-
+    function getDateWithoutTime(date)
+    {
+          var dt = new Date(date)
+          var date = dt.getDate();
+        var month = months[dt.getMonth()];
+        var year = dt.getFullYear();
+         var dn = date + " " + month + " " + year;
+        $("#date").html(dn);
+    }
     function showDate(date) {
         console.log(date)
         var dt = new Date(date)
@@ -1004,6 +1016,6 @@ var _transformTrip = function (trip) {
    addHandlers(socket)
 
 </script>
-    <script src="https://maps.google.com/maps/api/js?v=3.22&callback=initMap"></script>
+    <script src="https://maps.google.com/maps/api/js?v=3.22"></script>
 </body>
 </html>
