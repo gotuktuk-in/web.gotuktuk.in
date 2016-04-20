@@ -19,7 +19,7 @@ body {
     padding: 15px 15px;
 }
 a:focus, a:hover {
-    color: #FFED51;
+    color: #000000;
     text-decoration: none;
 }
 .b47TT-privacy, .b47TT-terms{
@@ -210,11 +210,12 @@ p {
     margin-top: 8px
 }
 
-.b47TT-footer-quad li a {
-    color: #333;
-    font-size: 16px;
+.b47TT-footer-quad li a, .b47TT-footer-quad a, .b47TT-footer-quad span {
+    font-size: 13px;
     line-height: 22px;
-}.b47TT-footer-quad li a:hover{
+    padding: 0 4px;
+}
+.b47TT-footer-quad li a:hover{
     color: #000;
 }
 
@@ -243,7 +244,7 @@ p {
     font-size: 18px;
     color: #333;
     padding: 0;
-    margin-left: 30px
+    margin-left: 8px
 }
 
 .b47TT-socialLinks:hover {
