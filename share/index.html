@@ -819,6 +819,10 @@
         {
                  document.getElementById('tripheading').innerHTML = 'DRIVER ARRIVED';
         }
+        else if(trip.state === 30)
+        {
+                 document.getElementById('tripheading').innerHTML = 'DRIVER APPROACHING';
+        }
          else {
             document.getElementById('tripheading').innerHTML = 'TRIP CONFIRM';
             //document.getElementById('dropsection').setAttribute("style", "display: none;");
