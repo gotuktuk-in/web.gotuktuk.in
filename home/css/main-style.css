@@ -5,11 +5,15 @@ body {
     padding-top: 95px;
 }
 .navbar-default {
-    background-color: rgba(255,255,255,0.9);
+    background: url("../images/header-bg.png");
     border-color: transparent;
+    background-size: contain;
+    border: none;
+    height: 200px;
 }
 .navbar-header{
-    min-height: 100px;}
+    min-height: 120px;
+}
 .navbar-brand {
      height: auto;
     padding: 15px 15px;
@@ -191,8 +195,9 @@ p {
 }
 
 .b47TT-footer-quad {
-    background: #333333;
-    padding: 40px 0
+    background: #fff;
+    padding: 40px 0;
+    border-top:1px solid #ddd;
 }
 
 .b47TT-footer-quad li:first-child {
@@ -200,69 +205,50 @@ p {
 }
 
 .b47TT-footer-quad li {
-    color: #b4b4b4;
+    color: #333;
     font-size: 13px;
     margin-top: 8px
 }
 
 .b47TT-footer-quad li a {
-    color: #B4B4B4;
+    color: #333;
     font-size: 16px;
     line-height: 22px;
+}.b47TT-footer-quad li a:hover{
+    color: #000;
 }
 
 .b47TT-socialLinks:first-child {
     margin-left: 0
 }
 
-.b47TT-mailToLink, .b47TT-mailToLink:hover, .b47TT-mailToLink:focus, .b47TT-mailToLink:visited {
-    display: block;
-    font-size: 16px;
-    color: #fff;
-    margin-top: 30px;
-    outline: none
-}
-
 .b47TT-copyrightText {
-    color: #cbcbcb;
+    color: #333;
     display: block;
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 5px
 }
 
 .b47TT-footer-quad li a {
-    color: #B4B4B4;
-    font-size: 13px;
+    color: #333;
+    font-size: 14px;
     line-height: 22px;
 }
 
 .b47TT-footer-quad li a:hover {
-    color: #fff;
+    color: #000;
 }
 
 .b47TT-socialLinks {
     font-size: 18px;
-    color: #ccc;
-    padding: 0 2px;
+    color: #333;
+    padding: 0;
     margin-left: 30px
 }
 
 .b47TT-socialLinks:hover {
-    text-decoration: none
-}
-
-.b47TT-mailToLink, .b47TT-mailToLink:hover {
-    display: block;
-    font-size: 16px;
-    color: #fff;
-    margin-top: 30px
-}
-
-.b47TT-copyrightText {
-    color: #cbcbcb;
-    display: block;
-    font-size: 12px;
-    margin-top: 5px;
+    text-decoration: none;
+    color: #000;
 }
 
 #seccessDiv {
