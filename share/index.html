@@ -771,7 +771,14 @@
         }
         var pickupDate = new Date(trip.pickupOn * 1000);
         document.getElementById('pickupTime').innerHTML = convertTime(pickupDate);// pickupDate.getHours() + ":" + pickupDate.getMinutes();
-
+         if(trip.pickupOn)
+        {
+            getDateWithoutTime(trip.pickupOn * 1000);
+        }
+        else
+        {
+            getDateWithoutTime(trip.requestOn * 1000);
+        }
         if (trip.state === 60 || trip.state === 61) {
             tripStatus = 'complete'
             //document.getElementById('dropsection').setAttribute("style", "display: block;");
@@ -807,13 +814,15 @@
                  }
             }*/
 
-            showMapImage(trip.id)
+            showMapImage(trip.id);
+            return
         }
         else if(trip.state > 61)
         {
               tripStatus = 'cancel'
              document.getElementById('tripheading').innerHTML = 'TRIP CANCELED';
-            showMapImage(trip.id)
+            showMapImage(trip.id);
+            return
         }
         else if(trip.state === 50)
         {
@@ -866,14 +875,7 @@
             marker.bindPopup("<b>Requested Pickup Point!</b>").openPopup();
             map.addLayer(marker);*/
         }
-        if(trip.pickupOn)
-        {
-            getDateWithoutTime(trip.pickupOn * 1000);
-        }
-        else
-        {
-            getDateWithoutTime(trip.requestOn * 1000);
-        }
+       
             // startMoving()
     }
     function showMapImage(id)
