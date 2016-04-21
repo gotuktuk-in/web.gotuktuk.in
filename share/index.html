@@ -438,6 +438,7 @@
     var token;
     var tripId;
     var showPath =0
+    var map;
     if (search) {
         search.split('&').forEach(function (qs) {
             console.log(qs);
@@ -532,14 +533,15 @@
         return true;
     }
     function initMap() {
-
-                 map = new google.maps.Map(document.getElementById('map'), {
-             // center: {lat: 22.7228 , lng: 75.8737},22.719744474937276,75.86874961853027
-             center: {lat: 22.719744474937276 , lng: 75.86874961853027},
-              zoom: 14, maxZoom:16
-            });
-            setIcons()
-        
+                if(!map)
+                {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        // center: {lat: 22.7228 , lng: 75.8737},22.719744474937276,75.86874961853027
+                        center: {lat: 22.719744474937276 , lng: 75.86874961853027},
+                        zoom: 14, maxZoom:16
+                    });
+                    setIcons()
+                }
     }
      var myInterval 
      var markers_arr = []
