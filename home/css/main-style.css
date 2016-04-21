@@ -2,6 +2,7 @@ body {
     font-family: 'Lato', sans-serif !important;
     font-size: 13px;
     line-height: 1.6;
+    color:#333;
     /*padding-top: 95px;*/
     /*background-image: url("../images/map.png");*/
     /*background-position: center top;*/
@@ -425,7 +426,7 @@ footer{background: #fff}
 @media (min-width: 320px) {
     .mobileOnly {display: block;}
     .mobileOnly hr {border-top: 1px solid #666;}
-    .b47TT-mApp-img {
+    .b47TT-mApp-img, .career-img {
         display: none
     }
 
@@ -496,7 +497,7 @@ footer{background: #fff}
         width: auto;
     }
 
-    .b47TT-mApp-img {
+    .b47TT-mApp-img, .career-img {
         display: block;
     }
 
@@ -580,7 +581,7 @@ footer{background: #fff}
         width: auto;
     }
 
-    .b47TT-mApp-img {
+    .b47TT-mApp-img, .career-img {
         display: block;
     }
 
