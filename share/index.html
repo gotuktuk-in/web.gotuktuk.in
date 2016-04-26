@@ -458,7 +458,7 @@
 
     console.log('showPath ', showPath)
     //PROD - '', DEV - 'dev-', STAGE - 'stg'
-    var PREFIX = 'dev-';
+    var PREFIX = '';
 
     var socket //= io.connect('https://'+PREFIX+'api.gotuktuk.in?requestState=1&token=' + token, {path: '/tk', transports: ['websocket']});
 
@@ -533,7 +533,7 @@
     }
     function initMap() {
         socket = io.connect('https://' + PREFIX + 'api.gotuktuk.in?requestState=1&token=' + token, {
-            path: '/tk',
+            path: '/ws',
             transports: ['websocket']
         });
         addHandlers(socket)
