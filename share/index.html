@@ -38,25 +38,25 @@
             flex-flow: row wrap;
         }
 
-        .trip-detail div {
+        .trip-detail .bx-1, .trip-detail .bx-2, .trip-detail .bx-3, .trip-detail .bx-4, .trip-detail .bx-5 {
             flex: 1 1 auto;
         }
 
-        .trip-detail div:nth-of-type(3) {
+        .trip-detail .bx-3 {
             flex: 1 1 100%;
             margin: 20px 0px 20px;
             border: 1px solid #e2e2e2;
-            padding: 4px;
+            padding: 0px;
         }
 
-        .trip-detail div:nth-of-type(4) {
+        .trip-detail .bx-4 {
             flex: 1 1 48%;
             border: solid 1px #e2e2e2;
             padding: 10px;
             margin-right: 2%;
         }
 
-        .trip-detail div:nth-of-type(4) span i {
+        .trip-detail .bx-4 span i {
             display: inline-block;
             padding: 6px;
             border-radius: 100%;
@@ -64,23 +64,23 @@
             margin-right: 8px;
         }
 
-        .trip-detail div:nth-of-type(4) span, .trip-detail div:nth-of-type(5) span {
+        .trip-detail .bx-4 span, .trip-detail .bx-5 span {
             font-weight: 600;
         }
 
-        .trip-detail div:nth-of-type(4) p, .trip-detail div:nth-of-type(5) p {
+        .trip-detail .bx-4 p, .trip-detail .bx-5 p {
             font-size: 12px;
             margin-top: 5px;
         }
 
-        .trip-detail div:nth-of-type(5) {
+        .trip-detail .bx-5 {
             flex: 1 1 48%;
             border: solid 1px #e2e2e2;
             padding: 10px;
             margin-left: 2%;
         }
 
-        .trip-detail div:nth-of-type(5) span i {
+        .trip-detail .bx-5 span i {
             display: inline-block;
             padding: 6px;
             border-radius: 100%;
@@ -128,6 +128,190 @@
         #map {
             width: 100%;
             height: 500px;
+            overflow: hidden;
+        }
+
+        .img-responsive {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        #fountainG {
+            position: relative;
+            width: 234px;
+            height: 28px;
+            margin: auto;
+        }
+
+        .fountainG {
+            position: absolute;
+            top: 0;
+            background-color: rgb(0, 0, 0);
+            width: 28px;
+            height: 28px;
+            animation-name: bounce_fountainG;
+            -o-animation-name: bounce_fountainG;
+            -ms-animation-name: bounce_fountainG;
+            -webkit-animation-name: bounce_fountainG;
+            -moz-animation-name: bounce_fountainG;
+            animation-duration: 1.5s;
+            -o-animation-duration: 1.5s;
+            -ms-animation-duration: 1.5s;
+            -webkit-animation-duration: 1.5s;
+            -moz-animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            -ms-animation-iteration-count: infinite;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            animation-direction: normal;
+            -o-animation-direction: normal;
+            -ms-animation-direction: normal;
+            -webkit-animation-direction: normal;
+            -moz-animation-direction: normal;
+            transform: scale(.3);
+            -o-transform: scale(.3);
+            -ms-transform: scale(.3);
+            -webkit-transform: scale(.3);
+            -moz-transform: scale(.3);
+            border-radius: 19px;
+            -o-border-radius: 19px;
+            -ms-border-radius: 19px;
+            -webkit-border-radius: 19px;
+            -moz-border-radius: 19px;
+        }
+
+        #fountainG_1 {
+            left: 0;
+            animation-delay: 0.6s;
+            -o-animation-delay: 0.6s;
+            -ms-animation-delay: 0.6s;
+            -webkit-animation-delay: 0.6s;
+            -moz-animation-delay: 0.6s;
+        }
+
+        #fountainG_2 {
+            left: 29px;
+            animation-delay: 0.75s;
+            -o-animation-delay: 0.75s;
+            -ms-animation-delay: 0.75s;
+            -webkit-animation-delay: 0.75s;
+            -moz-animation-delay: 0.75s;
+        }
+
+        #fountainG_3 {
+            left: 58px;
+            animation-delay: 0.9s;
+            -o-animation-delay: 0.9s;
+            -ms-animation-delay: 0.9s;
+            -webkit-animation-delay: 0.9s;
+            -moz-animation-delay: 0.9s;
+        }
+
+        #fountainG_4 {
+            left: 88px;
+            animation-delay: 1.05s;
+            -o-animation-delay: 1.05s;
+            -ms-animation-delay: 1.05s;
+            -webkit-animation-delay: 1.05s;
+            -moz-animation-delay: 1.05s;
+        }
+
+        #fountainG_5 {
+            left: 117px;
+            animation-delay: 1.2s;
+            -o-animation-delay: 1.2s;
+            -ms-animation-delay: 1.2s;
+            -webkit-animation-delay: 1.2s;
+            -moz-animation-delay: 1.2s;
+        }
+
+        #fountainG_6 {
+            left: 146px;
+            animation-delay: 1.35s;
+            -o-animation-delay: 1.35s;
+            -ms-animation-delay: 1.35s;
+            -webkit-animation-delay: 1.35s;
+            -moz-animation-delay: 1.35s;
+        }
+
+        #fountainG_7 {
+            left: 175px;
+            animation-delay: 1.5s;
+            -o-animation-delay: 1.5s;
+            -ms-animation-delay: 1.5s;
+            -webkit-animation-delay: 1.5s;
+            -moz-animation-delay: 1.5s;
+        }
+
+        #fountainG_8 {
+            left: 205px;
+            animation-delay: 1.64s;
+            -o-animation-delay: 1.64s;
+            -ms-animation-delay: 1.64s;
+            -webkit-animation-delay: 1.64s;
+            -moz-animation-delay: 1.64s;
+        }
+
+        @keyframes bounce_fountainG {
+            0% {
+                transform: scale(1);
+                background-color: rgb(0, 0, 0);
+            }
+
+            100% {
+                transform: scale(.3);
+                background-color: rgb(255, 255, 255);
+            }
+        }
+
+        @-o-keyframes bounce_fountainG {
+            0% {
+                -o-transform: scale(1);
+                background-color: rgb(0, 0, 0);
+            }
+
+            100% {
+                -o-transform: scale(.3);
+                background-color: rgb(255, 255, 255);
+            }
+        }
+
+        @-ms-keyframes bounce_fountainG {
+            0% {
+                -ms-transform: scale(1);
+                background-color: rgb(0, 0, 0);
+            }
+
+            100% {
+                -ms-transform: scale(.3);
+                background-color: rgb(255, 255, 255);
+            }
+        }
+
+        @-webkit-keyframes bounce_fountainG {
+            0% {
+                -webkit-transform: scale(1);
+                background-color: rgb(0, 0, 0);
+            }
+
+            100% {
+                -webkit-transform: scale(.3);
+                background-color: rgb(255, 255, 255);
+            }
+        }
+
+        @-moz-keyframes bounce_fountainG {
+            0% {
+                -moz-transform: scale(1);
+                background-color: rgb(0, 0, 0);
+            }
+
+            100% {
+                -moz-transform: scale(.3);
+                background-color: rgb(255, 255, 255);
+            }
         }
 
         @media only screen and (max-width: 768px) {
@@ -157,24 +341,35 @@
     </style>
 
 
-    <script src="js/leaflet.js"></script>
-    <script src="https://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
-    <script src="js/leaflet-google.js"></script>
-    <script type="text/javascript" src="MovingMarker.js"></script>
+    <!--   <script src="js/leaflet.js"></script> -->
+
+    <!-- <script src="js/leaflet-google.js"></script>
+    <script type="text/javascript" src="MovingMarker.js"></script> -->
     <!--<script type="text/javascript"  src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
-    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <!--  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script> -->
 
 
-    <script src="marker_rotate.js"></script>
+    <!--  <script src="marker_rotate.js"></script> -->
     <script src="socket.io-1.3.5.js"></script>
     <script src="latlog.js"></script>
 
 </head>
 <body>
-
-<div class="wrapper">
+<div class="wrapper" id="loader" style="height: 600px">
+    <div id="fountainG">
+        <div id="fountainG_1" class="fountainG"></div>
+        <div id="fountainG_2" class="fountainG"></div>
+        <div id="fountainG_3" class="fountainG"></div>
+        <div id="fountainG_4" class="fountainG"></div>
+        <div id="fountainG_5" class="fountainG"></div>
+        <div id="fountainG_6" class="fountainG"></div>
+        <div id="fountainG_7" class="fountainG"></div>
+        <div id="fountainG_8" class="fountainG"></div>
+    </div>
+</div>
+<div class="wrapper" id="mapContent">
     <div class="trip-detail">
-        <div>
+        <div class="bx-1">
             <table class="table">
                 <tbody>
                 <tr>
@@ -192,7 +387,7 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div class="bx-2">
             <table class="table">
                 <tbody>
                 <tr>
@@ -208,15 +403,15 @@
                 </tbody>
             </table>
         </div>
-        <div id="map"></div>
+        <div class="bx-3" id="map"></div>
 
-        <div>
+        <div class="bx-4">
             <span class="text-success"><i></i>Pickup Location</span>
             <span class="text-success pull-right" id="pickupTime"></span>
 
             <p id="pickuploc"></p>
         </div>
-        <div>
+        <div class="bx-5">
             <span class="text-danger"><i></i>Drop Location</span>
             <span class="text-danger pull-right" id="dropTime"></span>
 
@@ -225,7 +420,7 @@
     </div>
 
 
-    <p class="poweredBy">Powered by <a href="#">Tuktuk</a></p>
+    <p class="poweredBy">Powered by <a href="http://gotuktuk.in" target="_blank">Tuktuk</a></p>
 </div>
 </div>
 
@@ -237,9 +432,13 @@
 
 
 <script>
+    $('#mapContent').hide()
+    $('#loader').show()
     var search = window.location.search;
     var token;
     var tripId;
+    var showPath = 0
+    var map;
     if (search) {
         search.split('&').forEach(function (qs) {
             console.log(qs);
@@ -247,110 +446,138 @@
             if ('token' === qs[0] || '?token' === qs[0]) {
                 token = qs[1];
             }
+            if ('path' === qs[0] || '?path' === qs[0]) {
+                showPath = Number(qs[1]);
+            }
         });
     }
+    showPath = showPath ? true : false;
     if (!token) {
         alert('Invalid token');
     }
 
-    var roughtPoint = [];
-    //    roughtPoint.push(new L.LatLng(22.717541, 75.872406));
-    //    roughtPoint.push(new L.LatLng(22.718288, 75.871875));
-    //    roughtPoint.push(new L.LatLng(22.719367, 75.871178));
-    //    roughtPoint.push(new L.LatLng(22.720139, 75.870861));
-    //    roughtPoint.push(new L.LatLng(22.720505, 75.872905));
-    //    roughtPoint.push(new L.LatLng(22.720505, 75.872905));
-    //
-    //    roughtPoint.push(new L.LatLng(22.721054, 75.875389));
+    console.log('showPath ', showPath)
+    //PROD - '', DEV - 'dev-', STAGE - 'stg'
+    var PREFIX = '';
 
-    function drawRought() {
-        route = new L.Polyline(roughtPoint, {
-            weight: 3,
-            opacity: 0.5,
-            smoothFactor: 1
-        }).addTo(map);
-        route.bringToFront();
-    }
+    var socket //= io.connect('https://'+PREFIX+'api.gotuktuk.in?requestState=1&token=' + token, {path: '/tk', transports: ['websocket']});
 
-    var googleLayer = new L.Google('ROADMAP');
-
-    //    function renderMap() {
-    //        $("#mymap").append("<div  class='map-restore' id='map' style='width:100%; height:100%;'></div>")
-    //        map = new L.Map('map', {
-    //            fullscreenControl: false,
-    //            // OR
-    ////        fullscreenControl: {
-    ////            pseudoFullscreen: true // if true, fullscreen to page width and height
-    ////        },
-    //            zoomControl: false,
-    //            center: new L.LatLng(lt, ln), zoom: 11
-    //        });
-    //        //map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
-    //        map.addLayer(googleLayer);
-    //    }
-    //
-    var socket = io.connect('https://stg-api.gotuktuk.in?requestState=1&token=' + token, {path: '/ws', transports: ['websocket']});
-    //  var socket = io.connect('http://localhost:8080/?requestState=1&token=' + token, {path: '/tk'});
-
-    var autoIcon = L.icon({
-        iconUrl: 'rickshaw.png',
-        iconSize: [24, 24],
-        iconAnchor: [12, 24],
-        popupAnchor: [12, 24]
-    });
-
-    var pickupIcon = L.icon({
-        iconUrl: 'pickup.png',
-        iconSize: [32, 32],
-        iconAnchor: [30, 0],
-        popupAnchor: [0, 0]
-    });
-
-    var dropIcon = L.icon({
-        iconUrl: 'drop.png',
-        iconSize: [32, 32],
-        iconAnchor: [30, 0],
-        popupAnchor: [0, 0]
-    });
-
-    var actualLocationIcon = L.icon({
-        iconUrl: 'drop.png',
-        iconSize: [32, 32],
-        iconAnchor: [30, 0],
-        popupAnchor: [0, 0]
-    });
-
-    var selfIcon = L.icon({
-        iconUrl: 'current-location.png',
-        iconSize: [24, 24]
-    });
-
-    var map = new L.Map('map', {
-        fullscreenControl: true,
-        // OR
-        fullscreenControl: {
-            pseudoFullscreen: true // if true, fullscreen to page width and height
-        },
-        center: new L.LatLng(22.7228, 75.8737), zoom: 14
-    });
-
-    //map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
-    map.addLayer(googleLayer);
-
+    // initMap()
     var autoMarker;
     var selfMarker;
+    var pickUpMarker;
+    var dropMarker;
 
     var angle = 0;
     var currentSocket;
     var allTracks = [];
     var unfilteredTracks = [];
+    var autoMarkers = [];
+    var autoIcon, pickupIcon, dropIcon, currentIcon
+    var tripStatus;
+    var dummy = [[22.719744474937276, 75.86874961853027, 10], [22.71986323087638, 75.86995124816895, 20], [22.72002157196817, 75.87085247039795, 30], [22.720179912876755, 75.87171077728271, -20], [22.72033825360211, 75.8726978302002, -60], [22.720496594144244, 75.87334156036377, -120], [22.720654934503134, 75.87428569793701, 20], [22.720892444697935, 75.8754014968872, -56], [22.7211695394041, 75.87668895721436, 45], [22.72180289662535, 75.87917804718018, 68], [22.722277912617276, 75.88080883026123, 10], [22.722634173528974, 75.88278293609619, 180], [22.723346692569343, 75.88518619537354, 45]]
+    var i = 0;
+
+
+    /* var infoPickup = new google.maps.InfoWindow({
+     content: 'Pickup Point'
+     });
+     var infoDrop = new google.maps.InfoWindow({
+     content: 'Drop Point'
+     });
+
+     pickUpMarker.addListener('click', function() {
+     infoPickup.open(map, pickUpMarker);
+     });*/
+    function setIcons() {
+        autoIcon = {
+            url: 'user.png',
+            size: new google.maps.Size(22, 43),
+            //  scaledSize: new google.maps.Size(22, 43),
+            // anchor: new google.maps.Point(30, 0),
+            //  anchor: new google.maps.Point(0, 0),
+            origin: new google.maps.Point(0, 0)
+        }
+
+        pickupIcon = {
+            url: 'pickup.png',
+            size: new google.maps.Size(20, 20),
+            //   scaledSize: new google.maps.Size(32, 32),
+            anchor: new google.maps.Point(10, 10),
+            origin: new google.maps.Point(0, 0)
+        }
+
+        dropIcon = {
+            url: 'drop.png',
+            size: new google.maps.Size(20, 20),
+            //scaledSize: new google.maps.Size(32, 32),
+            anchor: new google.maps.Point(10, 10),
+            origin: new google.maps.Point(0, 0)
+        }
+        currentIcon = {
+            url: 'current-location.png',
+            size: new google.maps.Size(32, 32),
+            scaledSize: new google.maps.Size(32, 32),
+            anchor: new google.maps.Point(30, 0),
+            origin: new google.maps.Point(0, 0)
+        }
+    }
+
     function isEmpty(obj) {
-        for(var prop in obj) {
-            if(obj.hasOwnProperty(prop))
+        for (var prop in obj) {
+            if (obj.hasOwnProperty(prop))
                 return false;
         }
 
         return true;
+    }
+    function initMap() {
+        socket = io.connect('https://' + PREFIX + 'api.gotuktuk.in?requestState=1&token=' + token, {
+            path: '/ws',
+            transports: ['websocket']
+        });
+        addHandlers(socket)
+        if (!map) {
+            map = new google.maps.Map(document.getElementById('map'), {
+                // center: {lat: 22.7228 , lng: 75.8737},22.719744474937276,75.86874961853027
+                center: {lat: 22.719744474937276, lng: 75.86874961853027},
+                zoom: 14, maxZoom: 16
+            });
+            setIcons()
+        }
+    }
+    var myInterval
+    var markers_arr = []
+    function startMoving() {
+        myInterval = setInterval(function () {
+
+                    console.log(i)
+
+                    if (i < dummy.length) {
+                        var lt = dummy[i][0];
+                        var ln = dummy[i][1];
+                        var latlng = new google.maps.LatLng(dummy[i][0], dummy[i][1]);
+                        var rotation = dummy[i][2]
+                        var line = new google.maps.Polyline({
+                            path: [
+                                new google.maps.LatLng(lt, ln),
+                                new google.maps.LatLng(dummy[i + 1][0], dummy[i + 1][1])
+                            ],
+                            strokeColor: "#FF0000",
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2,
+                            map: map
+                        });
+                        moveMarker(map, autoMarker, latlng, rotation);
+
+                        i++
+                    }
+                    else {
+                        clearInterval(myInterval)
+                    }
+
+                }, 3000
+        );
     }
     function addHandlers(socket) {
         var currentLoc;
@@ -363,19 +590,40 @@
             allTracks.push(track);
             console.log('got trip track', track);
             if (!autoMarker) {
-                autoMarker = L.marker([track.lt, track.ln], {iconAngle: track.brg, icon: autoIcon});
-                map.addLayer(autoMarker);
+                var latlng = new google.maps.LatLng(track.lt, track.ln);
+                autoMarker = new google.maps.Marker({position: latlng, map: map, icon: autoIcon});
+                autoMarkers.push(autoMarker)
+                /* autoMarker = L.marker([track.lt, track.ln], {iconAngle: track.brg, icon: autoIcon});
+                 map.addLayer(autoMarker);*/
             } else {
+                var latlng = new google.maps.LatLng(track.lt, track.ln);
+                //    autoMarker = new google.maps.Marker({position: latlng,map: map,icon:autoIcon });
+                moveMarker(map, autoMarker, latlng, 0)
                 angle = getAngle(currentLoc.lt, currentLoc.ln, track.lt, track.ln);
-                var newPoint = new L.LatLng(track.lt, track.ln);
-                map.removeLayer(autoMarker);
-                autoMarker = L.Marker.movingMarker([[currentLoc.lt, currentLoc.ln], [track.lt, track.ln]],
-                        [500], {iconAngle: angle, icon: autoIcon}).addTo(map);
-                autoMarker.setIconAngle(angle);
-                autoMarker.start();
-                L.polyline([new L.LatLng(currentLoc.lt, currentLoc.ln), newPoint], {color: 'red'}).addTo(map);
+                if (showPath) {
+                    var line = new google.maps.Polyline({
+                        path: [
+                            new google.maps.LatLng(currentLoc.lt, currentLoc.ln),
+                            new google.maps.LatLng(track.lt, track.ln)
+                        ],
+                        strokeColor: "#FF0000",
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2,
+                        map: map
+                    });
+                }
+
+                console.log(angle)
+                /*var newPoint = new L.LatLng(track.lt, track.ln);
+                 map.removeLayer(autoMarker);
+                 autoMarker = L.Marker.movingMarker([[currentLoc.lt, currentLoc.ln], [track.lt, track.ln]],
+                 [500], {iconAngle: angle, icon: autoIcon}).addTo(map);
+                 autoMarker.setIconAngle(angle);
+                 autoMarker.start();
+                 L.polyline([new L.LatLng(currentLoc.lt, currentLoc.ln), newPoint], {color: 'red'}).addTo(map);*/
             }
             currentLoc = track;
+
 //          map.setView(new L.LatLng(track.lt, track.ln), 16);
         });
 
@@ -389,61 +637,83 @@
             document.getElementById("droploc").innerHTML = drop;
             var dropDate = new Date(trip.dropOn * 1000);
             document.getElementById('dropTime').innerHTML = convertTime(dropDate)//dropDate.getHours() + ":" + dropDate.getMinutes();
-            if(!isEmpty(trip.endPointActual))
-            {
-                var dropMarker = L.marker([trip.endPointActual.lt, trip.endPointActual.ln], {icon: dropIcon});
-                dropMarker.bindPopup("<b>Actual Trip Drop Point!</b>").openPopup();
-                map.addLayer(dropMarker);
-            }
-            else
-            {
-                var dropMarker = L.marker([trip.endPointRequest.lt, trip.endPointRequest.ln], {icon: dropIcon});
-                dropMarker.bindPopup("<b>Requested Trip Drop Point!</b>").openPopup();
-                map.addLayer(dropMarker);
-            }
-
-
-            console.log('****TRIP END****');
-//            console.log('ALL TRACKS', allTracks.length);
-//            JSON.stringify(allTracks);
-//
-//            console.log('------------');
-//            console.log('UnFiltered TRACKS', unfilteredTracks.length);
-//            JSON.stringify(unfilteredTracks);
-        });
-
-
-
-        socket.on('on_trip_pickup', function (data) {
-            console.log('on_trip_pickup', data);
-            document.getElementById('tripheading').innerHTML = 'TRIP PICKUP(IN TRIP)';
-            var dropMarker = L.marker([data.location.lt, data.location.ln]);
-            dropMarker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
-            map.addLayer(dropMarker);
-            showDate(new Date().getTime());
             /*if(!isEmpty(trip.endPointActual))
-            {
-                var dropMarker = L.marker([data.location.lt, data.location.ln]);
-                dropMarker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
-                map.addLayer(dropMarker);
-            }*/
-        });
-
-        socket.on('on_at_pickup', function (data) {
-            console.log('on_at_pickup', data);
-            document.getElementById('tripheading').innerHTML = 'TRIP AT PICKUP';
-            var dropMarker = L.marker([data.location.lt, data.location.ln]);
-            dropMarker.bindPopup("<b>At Pickup Point!</b>").openPopup();
-            map.addLayer(dropMarker);
+             {
+             var latlng = new google.maps.LatLng(trip.endPointActual.lt, trip.endPointActual.ln);
+             if(dropMarker)
+             {
+             dropMarker.setPosition(latlng);
+             }
+             else
+             {
+             dropMarker = new google.maps.Marker({position: latlng,map: map,icon:dropIcon });
+             }
+             }
+             else
+             {
+             var latlng = new google.maps.LatLng(trip.endPointRequest.lt, trip.endPointRequest.ln);
+             if(dropMarker)
+             {
+             dropMarker.setPosition(latlng);
+             }
+             else
+             {
+             dropMarker = new google.maps.Marker({position: latlng,map: map,icon:dropIcon });
+             }
+             }*/
+            showMapImage(trip.id)
+            console.log('****TRIP END****');
         });
 
         socket.on('on_trip_start', function (data) {
             console.log('on_trip_start', data);
-            document.getElementById('tripheading').innerHTML = 'TRIP STARTED(FOR TRIP)';
-            var dropMarker = L.marker([data.location.lt, data.location.ln],{icon:actualLocationIcon});
-            dropMarker.bindPopup("<b>Trip Start Point!</b>").openPopup();
-            map.addLayer(dropMarker);
+            document.getElementById('tripheading').innerHTML = 'DRIVER APPROACHING';
+            //  var latlng = new google.maps.LatLng(data.location.lt, data.location.ln);
+            //   dropMarker = new google.maps.Marker({position: latlng,map: map,icon:pickupIcon });
+            /* var dropMarker = L.marker([data.location.lt, data.location.ln],{icon:actualLocationIcon});
+             dropMarker.bindPopup("<b>Trip Start Point!</b>").openPopup();
+             map.addLayer(dropMarker);*/
         });
+
+        socket.on('on_at_pickup', function (data) {
+            console.log('on_at_pickup', data);
+            document.getElementById('tripheading').innerHTML = 'DRIVER ARRIVED';
+            //  var latlng = new google.maps.LatLng(data.location.lt, data.location.ln);
+            //     pickUpMarker = new google.maps.Marker({position: latlng,map: map });
+            /*  var dropMarker = L.marker([data.location.lt, data.location.ln]);
+             dropMarker.bindPopup("<b>At Pickup Point!</b>").openPopup();
+             map.addLayer(dropMarker);*/
+        });
+
+        socket.on('on_trip_pickup', function (data) {
+            console.log('on_trip_pickup', data);
+            document.getElementById('tripheading').innerHTML = 'EN ROUTE';
+            if (!isEmpty(data.location)) {
+                var pAdd = data.location.address;
+                var pickup = pAdd.line1 + ', ' + (pAdd.line2 ? pAdd.line2 + ', ' : '') + '<p>' + pAdd.city + ', ' + pAdd.state + ', ' + pAdd.country + '</p>';
+                document.getElementById("pickuploc").innerHTML = pickup;
+            }
+
+            var latlng = new google.maps.LatLng(data.location.lt, data.location.ln);
+            if (pickUpMarker) {
+                pickUpMarker.setPosition(latlng);
+            }
+            else {
+                pickUpMarker = new google.maps.Marker({position: latlng, map: map, icon: pickupIcon});
+            }
+
+            /* var dropMarker = L.marker([data.location.lt, data.location.ln]);
+             dropMarker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
+             map.addLayer(dropMarker);*/
+            getDateWithoutTime(new Date().getTime());
+        });
+
+        socket.on('on_trip_cancel', function (data) {
+            console.log('on_trip_cancel', data);
+            document.getElementById('tripheading').innerHTML = 'TRIP CANCELED';
+            socket.close();
+        });
+
 
         socket.on('connect', function () {
             console.log('****CONNECTED*****');
@@ -455,6 +725,13 @@
                 }
                 console.log('=>Trip - ', trip);
                 if (trip) {
+                    if (trip.state >= 61) {
+                        socket.close();
+                    }
+                    /* else
+                     {
+                     initMap();
+                     }*/
                     setTripDetails(_transformTrip(trip));
                 } else {
                     console.log('Got empty trip');
@@ -465,22 +742,38 @@
     }
 
     function setTripDetails(trip) {
+        $('#mapContent').show()
+        $('#loader').hide()
         if (trip.driver && trip.driver.id) {
-            document.getElementById("driverVNOName").innerHTML = trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " - " + trip.driver.vn;
-            document.getElementById("callme").setAttribute('href','tel:'+trip.driver.phn);
+            // document.getElementById("driverVNOName").innerHTML = trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " - " + trip.driver.vn;
+            document.getElementById("driverVNOName").innerHTML = " " + trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " (" + trip.driver.vn + ")";
+            document.getElementById("callme").setAttribute('href', 'tel:' + trip.driver.phn);
         }
         //
         if (trip.rider && trip.rider.id) {
             document.getElementById("riderName").innerHTML = trip.rider.fnm
         }
         document.getElementById("tripid").innerHTML = trip.id;
+        if (!isEmpty(trip.pickupPointActual)) {
+            trip.pickupPointRequest = trip.pickupPointActual;
+        }
+
         var pAdd = trip.pickupPointRequest.address;
         var pickup = pAdd.line1 + ', ' + (pAdd.line2 ? pAdd.line2 + ', ' : '') + '<p>' + pAdd.city + ', ' + pAdd.state + ', ' + pAdd.country + '</p>';
         document.getElementById("pickuploc").innerHTML = pickup;
+        if (!trip.pickupOn) {
+            trip.pickupOn = trip.requestOn;
+        }
         var pickupDate = new Date(trip.pickupOn * 1000);
         document.getElementById('pickupTime').innerHTML = convertTime(pickupDate);// pickupDate.getHours() + ":" + pickupDate.getMinutes();
-
-        if (trip.state === 60 || trip.state === 61 || trip.state === 100) {
+        if (trip.pickupOn) {
+            getDateWithoutTime(trip.pickupOn * 1000);
+        }
+        else {
+            getDateWithoutTime(trip.requestOn * 1000);
+        }
+        if (trip.state === 60 || trip.state === 61) {
+            tripStatus = 'complete'
             //document.getElementById('dropsection').setAttribute("style", "display: block;");
             document.getElementById('tripheading').innerHTML = 'TRIP COMPLETED';
             var dAdd = (trip.endPointActual || {}).address;
@@ -489,22 +782,51 @@
             var dropDate = new Date(trip.dropOn * 1000);
             document.getElementById('dropTime').innerHTML = convertTime(dropDate);//  dropDate.getHours() + ":" + dropDate.getMinutes();
             //Drop location
-            if(!isEmpty(trip.endPointActual))
-            {
-                var dropMarker = L.marker([trip.endPointActual.lt, trip.endPointActual.ln], {icon: dropIcon});
-                dropMarker.bindPopup("<b>Actual Trip Drop Point!</b>").openPopup();
-                map.addLayer(dropMarker);
-            }
-            else
-            {
-                var dropMarker = L.marker([trip.endPointRequest.lt, trip.endPointRequest.ln], {icon: dropIcon});
-                dropMarker.bindPopup("<b>Requested Trip Drop Point!</b>").openPopup();
-                map.addLayer(dropMarker);
-            }
+            /* if(!isEmpty(trip.endPointActual))
+             {
+             var latlng = new google.maps.LatLng(trip.endPointActual.lt, trip.endPointActual.ln);
+             if(dropMarker)
+             {
+             dropMarker.setPosition(latlng);
+             }
+             else
+             {
+             dropMarker = new google.maps.Marker({position: latlng,map: map ,icon:dropIcon});
+             }
+             }
+             else
+             {
+             var latlng = new google.maps.LatLng(trip.endPointRequest.lt, trip.endPointRequest.ln);
+             if(dropMarker)
+             {
+             dropMarker.setPosition(latlng);
+             }
+             else
+             {
+             dropMarker = new google.maps.Marker({position: latlng,map: map ,icon:dropIcon});
+             }
+             }*/
 
-
-        } else {
-            document.getElementById('tripheading').innerHTML = 'TRIP IN PROGRESS';
+            showMapImage(trip.id);
+            return
+        }
+        else if (trip.state > 61) {
+            tripStatus = 'cancel'
+            document.getElementById('tripheading').innerHTML = 'TRIP CANCELED';
+            showMapImage(trip.id);
+            return
+        }
+        else if (trip.state === 50) {
+            document.getElementById('tripheading').innerHTML = 'EN ROUTE';
+        }
+        else if (trip.state === 40) {
+            document.getElementById('tripheading').innerHTML = 'DRIVER ARRIVED';
+        }
+        else if (trip.state === 30) {
+            document.getElementById('tripheading').innerHTML = 'DRIVER APPROACHING';
+        }
+        else {
+            document.getElementById('tripheading').innerHTML = 'TRIP CONFIRM';
             //document.getElementById('dropsection').setAttribute("style", "display: none;");
         }
 
@@ -514,25 +836,41 @@
 
         //Actual Pickup Point
         if (!isEmpty(trip.pickupPointActual)) {
-            var marker = L.marker([trip.pickupPointActual.lt, trip.pickupPointActual.ln], {icon: pickupIcon});
-            marker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
-            map.addLayer(marker);
+            var latlng = new google.maps.LatLng(trip.pickupPointActual.lt, trip.pickupPointActual.ln);
+            if (pickUpMarker) {
+                pickUpMarker.setPosition(latlng);
+            }
+            else {
+                pickUpMarker = new google.maps.Marker({position: latlng, map: map, icon: pickupIcon});
+            }
+            //   var marker = new google.maps.Marker({position: latlng,map: map,icon:pickupIcon });
+            /* var marker = L.marker([trip.pickupPointActual.lt, trip.pickupPointActual.ln], {icon: pickupIcon});
+             marker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
+             map.addLayer(marker);*/
         } else {
-            var marker = L.marker([trip.pickupPointRequest.lt, trip.pickupPointRequest.ln], {icon: pickupIcon});
-            marker.bindPopup("<b>Requested Pickup Point!</b>").openPopup();
-            map.addLayer(marker);
-        }
-        if(trip.pickupOn)
-        {
-            showDate(trip.pickupOn * 1000);
-        }
-        else
-        {
-            showDate(trip.requestOn * 1000);
+            var latlng = new google.maps.LatLng(trip.pickupPointRequest.lt, trip.pickupPointRequest.ln);
+            if (pickUpMarker) {
+                pickUpMarker.setPosition(latlng);
+            }
+            else {
+                pickUpMarker = new google.maps.Marker({position: latlng, map: map, icon: pickupIcon});
+            }
+            //  var marker = new google.maps.Marker({position: latlng,map: map,icon:pickupIcon });
+            /* var marker = L.marker([trip.pickupPointRequest.lt, trip.pickupPointRequest.ln], {icon: pickupIcon});
+             marker.bindPopup("<b>Requested Pickup Point!</b>").openPopup();
+             map.addLayer(marker);*/
         }
 
+        // startMoving()
     }
-
+    function showMapImage(id) {
+        var containerHeight = $("#map").height()
+        var containerWidth = $("#map").width()
+        //https://api.gotuktuk.in/rest/o/v1/trips/tNeLV-jayb/snap?size=450x320
+        var url = 'https://' + PREFIX + 'api.gotuktuk.in/rest/o/v1/trips/' + id + '/snap?size=' + containerWidth + 'x' + containerHeight
+        var imgTag = '<img class="img-responsive" src="' + url + '" />'
+        $('#map').html(imgTag)
+    }
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -554,7 +892,14 @@
         var ampm = hr < 12 ? "am" : "pm";
         return h + ":" + min + " " + ampm;
     }
-
+    function getDateWithoutTime(date) {
+        var dt = new Date(date)
+        var date = dt.getDate();
+        var month = months[dt.getMonth()];
+        var year = dt.getFullYear();
+        var dn = date + " " + month + " " + year;
+        $("#date").html(dn);
+    }
     function showDate(date) {
         console.log(date)
         var dt = new Date(date)
@@ -581,67 +926,81 @@
         $("#date").html(dn);
     }
 
+    function moveMarker(map, marker, latLang, rotation) {
+        var autoRotation = rotation
+        //  console.log(autoMarkers[0])
+        //  autoMarkers[0].setMap(null)
+        //     autoMarkers.pop()
+        //  autoMarker = new google.maps.Marker({position: latLang, map: map,icon:autoIcon});
+        //      console.log(autoMarker.icon.rotation)
+        autoMarker.setPosition(latLang);
+
+        map.panTo(latLang);
+        //  autoMarkers.push(autoMarker)
+    }
+    ;
+
     function getAngle(lt1, ln1, lt2, ln2) {
         var p1 = new LatLon(lt1, ln1);
         var p2 = new LatLon(lt2, ln2);
         return p1.bearingTo(p2);
     }
 
-var _transformTrip = function (trip) {
-    if (!trip) {
-          return;
-      }
-    var transformedTrip = {};
-    transformedTrip.pickupPointActual =trip.lpa;
-    transformedTrip.pickupPointRequest = trip.lpr;
-    transformedTrip.atPickupPoint = trip.lap;
-    transformedTrip.startPoint = trip.sp;
-    transformedTrip.endPointActual = trip.lda;
-    transformedTrip.endPointRequest = trip.ldr;
+    var _transformTrip = function (trip) {
+        if (!trip) {
+            return;
+        }
+        var transformedTrip = {};
+        transformedTrip.pickupPointActual = trip.lpa;
+        transformedTrip.pickupPointRequest = trip.lpr;
+        transformedTrip.atPickupPoint = trip.lap;
+        transformedTrip.startPoint = trip.sp;
+        transformedTrip.endPointActual = trip.lda;
+        transformedTrip.endPointRequest = trip.ldr;
 
-    transformedTrip.startOn = trip.son;
-    transformedTrip.pickupOn = trip.pon;
-    transformedTrip.atPickupOn = trip.apon;
-    transformedTrip.dropOn = trip.don;
-    transformedTrip.cancelOn = trip.con;
-    transformedTrip.requestOn = trip.ron;
-    transformedTrip.allocatedOn = trip.aon;
-    transformedTrip.updatedOn = trip.uon;
+        transformedTrip.startOn = trip.son;
+        transformedTrip.pickupOn = trip.pon;
+        transformedTrip.atPickupOn = trip.apon;
+        transformedTrip.dropOn = trip.don;
+        transformedTrip.cancelOn = trip.con;
+        transformedTrip.requestOn = trip.ron;
+        transformedTrip.allocatedOn = trip.aon;
+        transformedTrip.updatedOn = trip.uon;
 
-    transformedTrip.forTripTrackCount = trip.sptc;
-    transformedTrip.inTripTrackCount = trip.pdtc;
+        transformedTrip.forTripTrackCount = trip.sptc;
+        transformedTrip.inTripTrackCount = trip.pdtc;
 
-    transformedTrip.disStartPickup = trip.dsp;
-    transformedTrip.startPickupFare = trip.spf;
-    transformedTrip.fareId = trip.fid;
-    transformedTrip.promoId = trip.pid;
-    transformedTrip.promoCode = trip.pc;
-    transformedTrip.disPickupDrop = trip.dpd;
-    transformedTrip.promoDiscountAmount = trip.pda;
+        transformedTrip.disStartPickup = trip.dsp;
+        transformedTrip.startPickupFare = trip.spf;
+        transformedTrip.fareId = trip.fid;
+        transformedTrip.promoId = trip.pid;
+        transformedTrip.promoCode = trip.pc;
+        transformedTrip.disPickupDrop = trip.dpd;
+        transformedTrip.promoDiscountAmount = trip.pda;
 
-    if (trip.d) {
-        // User Profiles
-        transformedTrip.driver = trip.d;
+        if (trip.d) {
+            // User Profiles
+            transformedTrip.driver = trip.d;
+        }
+
+        transformedTrip.rider = trip.r;
+
+        transformedTrip.id = trip.id;
+        transformedTrip.vehicleType = trip.vt;
+        transformedTrip.vehicleId = trip.vn;
+        transformedTrip.cancelReason = trip.cr;
+        transformedTrip.cancelCode = trip.cc;
+        transformedTrip.state = trip.state;
+        transformedTrip.city = trip.city;
+        //transformedTrip.su = trip.shareUrl;
+
+
+        //log.debug(JSON.stringify(transformedTrip, null, 4));
+        return transformedTrip;
     }
 
-    transformedTrip.rider = trip.r;
-
-    transformedTrip.id = trip.id;
-    transformedTrip.vehicleType = trip.vt;
-    transformedTrip.vehicleId = trip.vn;
-    transformedTrip.cancelReason = trip.cr;
-    transformedTrip.cancelCode = trip.cc;
-    transformedTrip.state = trip.state;
-    transformedTrip.city = trip.city;
-    //transformedTrip.su = trip.shareUrl;
-
-    
-    //log.debug(JSON.stringify(transformedTrip, null, 4));
-    return transformedTrip;
-}
-
-    addHandlers(socket);
 
 </script>
+<script src="https://maps.google.com/maps/api/js?v=3.22&callback=initMap"></script>
 </body>
 </html>
