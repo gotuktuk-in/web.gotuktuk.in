@@ -42,16 +42,21 @@
 		.label-default {position: absolute;	right: 55px; background-color: #ccc!important; font-size: 10px!important; font-weight: normal; color: #FFF; text-transform: uppercase; padding:3px 6px 2px!important; margin-top: 18px!important; display: inline-block;}
 		.text-success {color: #5cb85c; font-style: normal;}
 		.text-danger {color: #d9534f; font-style: normal;}
-		#empty {margin-top:20px; color: #666; font-size: 16px;}
+		#empty {margin:50% 10% 0; color: #666; font-size: 16px;}
 	</style>
 </head>
 
 <body>
-<div id="empty" class="text-center" style="display: none;">Your tCash ledger is empty. <br>
-	It seems that you have not earned or spent any tCash yet.<br>
-	Go back and invite your friends now to earn tCash.</div>
+<div id="empty" class="text-center" style="display: none;">
+	<h3 style="font-size: 20px;">Your tCash ledger is empty.</h3>
+	<span  class="text-left" style="font-family: 'aller_lightregular'">It seems that you have not earned or spent any tCash yet
+	Go back and invite your friends now to earn tCash.</span></div>
 
-	<div id="w" class="wrapper" >
+<!--<div id="empty" class="text-center" style="display: none;">
+	<h3 style="font-size: 20px;">आपका टीकैश लेजर रिक्त है। </h3>
+	<span  class="text-left" style="font-family: 'aller_lightregular'">संभवतः आपने अभी तक कुछ भी टीकैश कमाया या ख़र्च नहीं किया है। टीकैश कमाने के लिए पिछे जा कर अपने मित्रों को आमंत्रित करें। </span></div>-->
+
+	<div id="w" class="wrapper" style="display: none;">
 	<!--<div id="error" class="alert alert-danger" role="alert">Something went wrong!!!</div>
 	<div class="loading" id="loading" style="position: fixed; bottom:0px; left: 0px; z-index: 11; width: 100%; border-radius: 0px;">Loading please wait...</div>-->
 
@@ -124,6 +129,7 @@
 
 				if(newData.left && newData.left!=0)
 				{
+					$("#w").show();
 					$("#w #tHead").text(newData.left);
 					$("#empty").hide();
 				}
