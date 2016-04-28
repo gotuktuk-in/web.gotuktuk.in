@@ -533,7 +533,7 @@
     }
     function initMap() {
         socket = io.connect('https://' + PREFIX + 'api.gotuktuk.in?requestState=1&token=' + token, {
-            path: '/tk',
+            path: '/ws',
             transports: ['websocket']
         });
         addHandlers(socket)
