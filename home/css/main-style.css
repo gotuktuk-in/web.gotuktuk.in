@@ -238,10 +238,11 @@ h6 {
 }
 p {
     margin: 10px 0;
+}
+.home-page p{margin: 10px 0;
     line-height: 24px;
     font-size: 16px;
-    font-weight:300;
-}
+    font-weight:300;}
 .b47TT-mApp-img {
     margin-top: -75px;
 }
