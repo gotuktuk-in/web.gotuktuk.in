@@ -1,6 +1,6 @@
 body {
     font-family: 'Lato', sans-serif !important;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.6;
     color: #333;
     /*padding-top: 95px;*/
@@ -8,6 +8,10 @@ body {
     /*background-position: center top;*/
     /*background-repeat: no-repeat;*/
 }
+table, th, tr, td {    font-size: 16px;
+    font-weight: 300;}
+th{
+    font-weight: 400;}
 header {
     background-attachment: scroll;
     background-image: url("../images/header-bg.jpg");
@@ -35,6 +39,8 @@ header .intro-text .intro-heading {
     margin-bottom: 50px;
     text-transform: uppercase;
 }
+footer{
+    font-size:14px;}
 .printOnly {
     display: none;
     visibility: hidden;
@@ -234,6 +240,9 @@ h6 {
 }
 p {
     margin: 10px 0;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight:300;
 }
 .b47TT-mApp-img {
     margin-top: -75px;
@@ -291,14 +300,11 @@ footer {
 }
 .b47TT-footer-quad li {
     color: #333;
-    font-size: 13px;
     margin-top: 8px
 }
 .b47TT-footer-quad li a,
 .b47TT-footer-quad a,
 .b47TT-footer-quad span {
-    font-size: 13px;
-    line-height: 26px;
     padding: 0 4px;
 }
 .b47TT-footer-quad li a:hover {
@@ -310,12 +316,10 @@ footer {
 .b47TT-copyrightText {
     color: #333;
     display: block;
-    font-size: 14px;
     margin-top: 5px
 }
 .b47TT-footer-quad li a {
     color: #333;
-    font-size: 14px;
     line-height: 22px;
 }
 .b47TT-footer-quad li a:hover {
@@ -374,10 +378,10 @@ footer {
 /******************************/
 
 ::-moz-selection {
-    background: white;
+    background: #eee;
 }
 ::selection {
-    background: white;
+    background: #eee;
 }
 /*** form validation classes starts***/
 
