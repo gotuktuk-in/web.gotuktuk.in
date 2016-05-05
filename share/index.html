@@ -874,7 +874,10 @@
         //https://api.gotuktuk.in/rest/o/v1/trips/tNeLV-jayb/snap?size=450x320
         var url = 'https://' + PREFIX + 'api.gotuktuk.in/rest/o/v1/trips/' + id + '/snap?size=' + containerWidth + 'x' + containerHeight
         var imgTag = '<img class="img-responsive" src="' + url + '" />'
-        $('#map').html(imgTag)
+        setTimeout(function(){
+            $('#map').html(imgTag)
+        }, 200);
+
     }
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
