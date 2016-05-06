@@ -19,6 +19,10 @@
             padding: 0px;
             font-family: 'Lato', sans-serif !important;
         }
+        .hideMap {
+           opacity: 0;
+            visibility: hidden;
+        }
 
         .wrapper {
             max-width: 768px;
@@ -355,73 +359,74 @@
 
 </head>
 <body>
-<div class="wrapper" id="loader" style="height: 600px">
-    <div id="fountainG">
-        <div id="fountainG_1" class="fountainG"></div>
-        <div id="fountainG_2" class="fountainG"></div>
-        <div id="fountainG_3" class="fountainG"></div>
-        <div id="fountainG_4" class="fountainG"></div>
-        <div id="fountainG_5" class="fountainG"></div>
-        <div id="fountainG_6" class="fountainG"></div>
-        <div id="fountainG_7" class="fountainG"></div>
-        <div id="fountainG_8" class="fountainG"></div>
-    </div>
-</div>
-<div class="wrapper" id="mapContent">
-    <div class="trip-detail">
-        <div class="bx-1">
-            <table class="table">
-                <tbody>
-                <tr>
-                    <td>Trip Status</td>
-                    <td><b class="text-success" id="tripheading"></b></td>
-                </tr>
-                <tr>
-                    <td>Date</td>
-                    <td><span id="date"></span></td>
-                </tr>
-                <tr>
-                    <td>Passenger</td>
-                    <td><span id="riderName"></span></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="bx-2">
-            <table class="table">
-                <tbody>
-                <tr>
-                    <td>Driver</td>
-                    <td><a id="callme" href="tel:"><i class="glyphicon glyphicon-phone"></i> </a>
-                        <span id="driverVNOName"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Trip Id</td>
-                    <td><span id="tripid"></span></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="bx-3" id="map"></div>
-
-        <div class="bx-4">
-            <span class="text-success"><i></i>Pickup Location</span>
-            <span class="text-success pull-right" id="pickupTime"></span>
-
-            <p id="pickuploc"></p>
-        </div>
-        <div class="bx-5">
-            <span class="text-danger"><i></i>Drop Location</span>
-            <span class="text-danger pull-right" id="dropTime"></span>
-
-            <p id="droploc"></p>
+<div class="wrapper">
+    <div id="loader">
+        <div id="fountainG">
+            <div id="fountainG_1" class="fountainG"></div>
+            <div id="fountainG_2" class="fountainG"></div>
+            <div id="fountainG_3" class="fountainG"></div>
+            <div id="fountainG_4" class="fountainG"></div>
+            <div id="fountainG_5" class="fountainG"></div>
+            <div id="fountainG_6" class="fountainG"></div>
+            <div id="fountainG_7" class="fountainG"></div>
+            <div id="fountainG_8" class="fountainG"></div>
         </div>
     </div>
+    <div id="mapContent" class="hideMap">
+        <div class="trip-detail">
+            <div class="bx-1">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>Trip Status</td>
+                        <td><b class="text-success" id="tripheading"></b></td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td><span id="date"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Passenger</td>
+                        <td><span id="riderName"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="bx-2">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>Driver</td>
+                        <td><a id="callme" href="tel:"><i class="glyphicon glyphicon-phone"></i> </a>
+                            <span id="driverVNOName"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Trip Id</td>
+                        <td><span id="tripid"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="bx-3" id="map"></div>
 
+            <div class="bx-4">
+                <span class="text-success"><i></i>Pickup Location</span>
+                <span class="text-success pull-right" id="pickupTime"></span>
 
+                <p id="pickuploc"></p>
+            </div>
+            <div class="bx-5">
+                <span class="text-danger"><i></i>Drop Location</span>
+                <span class="text-danger pull-right" id="dropTime"></span>
+
+                <p id="droploc"></p>
+            </div>
+        </div>
+    </div>
     <p class="poweredBy">Powered by <a href="http://gotuktuk.in" target="_blank">Tuktuk</a></p>
 </div>
+
 </div>
 
 
@@ -432,8 +437,8 @@
 
 
 <script>
-    $('#mapContent').hide()
-    $('#loader').show()
+  ///  $('#mapContent').addClass("hideMap")
+ //   $('#loader').show()
     var search = window.location.search;
     var token;
     var tripId;
@@ -748,8 +753,8 @@
     }
 
     function setTripDetails(trip) {
-        $('#mapContent').show()
         $('#loader').hide()
+        $('#mapContent').removeClass('hideMap')
         if (trip.driver && trip.driver.id) {
             document.getElementById("driverVNOName").innerHTML = " " + trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " (" + trip.driver.vn + ")";
             document.getElementById("callme").setAttribute('href', 'tel:' + trip.driver.phn);
@@ -874,7 +879,10 @@
         //https://api.gotuktuk.in/rest/o/v1/trips/tNeLV-jayb/snap?size=450x320
         var url = 'https://' + PREFIX + 'api.gotuktuk.in/rest/o/v1/trips/' + id + '/snap?size=' + containerWidth + 'x' + containerHeight
         var imgTag = '<img class="img-responsive" src="' + url + '" />'
-        $('#map').html(imgTag)
+        setTimeout(function(){
+            $('#map').html(imgTag)
+        }, 200);
+
     }
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
