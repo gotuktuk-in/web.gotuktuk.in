@@ -13,3 +13,9 @@ invoice/package.json
 .idea/.name
 
 home/.DS_Store
+
+share/.idea/modules.xml
+
+share/.idea/share.iml
+
+share/.idea/workspace.xml
