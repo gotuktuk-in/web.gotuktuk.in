@@ -67,7 +67,7 @@
 	</div>
 <div class="row" style="margin: 0px;">
 	<div class="col-md-12" style="padding: 0px;">
-		<div class="heading"><img src="images/tcash.png" title="" alt="" height="20px"> <span id="tHead"></span> </div>
+		<div class="heading"><img src="images/tcash.png" title="" alt="" height="30px"> <span id="tHead"></span> </div>
 		<ul class="list-group" id="content">
 		</ul>
 		<!--<div class="loading" id="nomoreresults">Sorry, no more results to display.</div>-->
@@ -127,7 +127,7 @@
 				//$(obj).append(data);
 				var newData =JSON.parse(data)
 
-				if(newData.left && newData.left!=0)
+				if(newData.total && newData.total!=0)
 				{
 					$("#w").show();
 					$("#w #tHead").text(newData.left);
