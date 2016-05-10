@@ -264,9 +264,9 @@
         }
 
         /*.img-responsive {*/
-        /*display: block;*/
-        /*width: 100%;*/
-        /*height: auto;*/
+            /*display: block;*/
+            /*width: 100%;*/
+            /*height: auto;*/
         /*}*/
         #loader {
             background: #fff;
@@ -580,7 +580,7 @@
                     <p class="poweredBy">Powered by <a href="http://gotuktuk.in" target="_blank">Tuktuk</a></p>
                 </div>
             </div>
-        </div>
+            </div>
     </nav>
 
 </div>
@@ -670,9 +670,9 @@
         alert('Invalid token');
     }
 
-   var PREFIX = '';
-
-    var socket = io.connect('https://'+PREFIX+'api.gotuktuk.in?requestState=1&token=' + token, {path: '/ws', transports: ['websocket']});
+    console.log('showPath ', showPath)
+    //PROD - '', DEV - 'dev-', STAGE - 'stg'
+    var PREFIX = 'dev-';
 
     var socket //= io.connect('https://'+PREFIX+'api.gotuktuk.in?requestState=1&token=' + token, {path: '/tk', transports: ['websocket']});
 
@@ -713,7 +713,6 @@
             origin: new google.maps.Point(0, 0)
         }
 
-
         pickupIcon = {
             url: 'pickup.png',
             size: new google.maps.Size(20, 20),
@@ -747,7 +746,6 @@
         return true;
     }
     function initMap() {
-
         socket = io.connect('https://' + PREFIX + 'api.gotuktuk.in?requestState=1&token=' + token, {
             path: '/ws',
             transports: ['websocket']
@@ -799,7 +797,6 @@
                     }
 
                 }, 3000
-
         );
     }
     function addHandlers(socket) {
@@ -822,7 +819,6 @@
                 var latlng = new google.maps.LatLng(track.lt, track.ln);
                 //    autoMarker = new google.maps.Marker({position: latlng,map: map,icon:autoIcon });
                 moveMarker(map, autoMarker, latlng, 0)
-
                 angle = getAngle(currentLoc.lt, currentLoc.ln, track.lt, track.ln);
                 if (showPath) {
                     var line = new google.maps.Polyline({
@@ -845,7 +841,6 @@
                  autoMarker.setIconAngle(angle);
                  autoMarker.start();
                  L.polyline([new L.LatLng(currentLoc.lt, currentLoc.ln), newPoint], {color: 'red'}).addTo(map);*/
-
             }
             currentLoc = track;
 
@@ -919,7 +914,6 @@
                 document.getElementById("pickuploc").innerHTML = pickup;
             }
 
-
             var latlng = new google.maps.LatLng(data.location.lt, data.location.ln);
             if (pickUpMarker) {
                 pickUpMarker.setPosition(latlng);
@@ -931,7 +925,6 @@
             /* var dropMarker = L.marker([data.location.lt, data.location.ln]);
              dropMarker.bindPopup("<b>Actual Pickup Point!</b>").openPopup();
              map.addLayer(dropMarker);*/
-
             getDateWithoutTime(new Date().getTime());
         });
 
@@ -940,6 +933,7 @@
             document.getElementById('tripheading').innerHTML = 'TRIP CANCELED';
             socket.close();
         });
+
 
         socket.on('connect', function () {
             console.log('****CONNECTED*****');
@@ -972,6 +966,7 @@
         $('#wrapper').show();
         $('#loader').hide();
         if (trip.driver && trip.driver.id) {
+            // document.getElementById("driverVNOName").innerHTML = trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " - " + trip.driver.vn;
             document.getElementById("driverVNOName").innerHTML = " " + trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " (" + trip.driver.vn + ")";
             document.getElementById("callme").setAttribute('href', 'tel:' + trip.driver.phn);
             document.getElementById("dPic").setAttribute('src', trip.driver.pi);
@@ -1077,7 +1072,6 @@
              map.addLayer(marker);*/
         } else {
             var latlng = new google.maps.LatLng(trip.pickupPointRequest.lt, trip.pickupPointRequest.ln);
-
             if (pickUpMarker) {
                 pickUpMarker.setPosition(latlng);
             }
@@ -1090,6 +1084,7 @@
              map.addLayer(marker);*/
         }
 
+        // startMoving()
     }
     function showMapImage(id) {
         var containerHeight = $("#map").height()
