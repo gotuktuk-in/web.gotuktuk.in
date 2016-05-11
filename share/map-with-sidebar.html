@@ -28,6 +28,21 @@
         #map {
             position: relative;
         }
+        #callme {
+            background: #fff none repeat scroll 0 0;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            padding: 5px 8px;
+            display: inline-block;
+        }
+        #callme i.glyphicon{
+            color: #00d516 !important;
+        }
+        #callme:hover i.glyphicon{
+                     -webkit-transform: rotate(90deg);
+                     transform: rotate(90deg);
+        }
+
 
         /* Reset responsive Bootstrap elements */
         .container {
@@ -69,16 +84,14 @@
         }
 
         .navbar {
+            background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0 !important;
             border-radius: 0;
+            left: 0;
             margin-bottom: 0 !important;
             min-height: auto !important;
+            padding: 9px;
             position: absolute;
-            left: 0;
             top: 0;
-            z-index: 9999;
-            padding: 22px;
-            background: rgba(255,255,255,0.9) !important;
-            width: 64px;
         }
 
         .navbar-header {
@@ -537,10 +550,7 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-2">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <img height="30" width="30" src="drawable_menu_white_burger_icon.png" />
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
@@ -552,10 +562,10 @@
                                 <td>Trip Id</td>
                                 <td><span id="tripid"></span></td>
                             </tr>
-                            <tr>
-                                <td height="22">Trip Status </td>
-                                <td><b class="text-success" id="tripheading"></b></td>
-                            </tr>
+                            <!--<tr>-->
+                                <!--<td height="22">Trip Status </td>-->
+                                <!--<td><b class="text-success" id="tripheading"></b></td>-->
+                            <!--</tr>-->
                             <tr>
                                 <td height="22">Date</td>
                                 <td><span id="date"></span></td>
@@ -588,7 +598,7 @@
     <table class="table">
         <tbody>
         <tr>
-            <td>
+            <td style="text-align: left;">
                 <img id="dPic" height="30" width="30" style="
     border-radius: 50%;
     border: 1px solid #eee;
@@ -596,6 +606,8 @@
     background: #eee;
 " />
                 <span id="driverVNOName"></span>
+            </td>
+            <td>
                 <a id="callme" href="tel:"><i class="glyphicon glyphicon-earphone"></i> </a>
             </td>
         </tr>
@@ -606,14 +618,16 @@
     <table class="table">
         <tbody>
         <tr>
-            <td>
-                <img id="rPic" height="30" width="30" style="
-    border-radius: 50%;
-    border: 1px solid #eee;
-    margin-right: 5px;
-    background: #eee;
-" />
-                <span id="riderName"></span>
+            <td style="text-align: left; padding-left: 50px">
+                Trip Status: <b class="text-success" id="tripheading"></b>
+            </td><td>
+                <!--<img id="rPic" height="30" width="30" style="-->
+    <!--border-radius: 50%;-->
+    <!--border: 1px solid #eee;-->
+    <!--margin-right: 5px;-->
+    <!--background: #eee;-->
+<!--" />-->
+                    <span id="riderName"></span>
             </td>
         </tr>
         </tbody>
@@ -974,7 +988,7 @@
         //
         if (trip.rider && trip.rider.id) {
             document.getElementById("riderName").innerHTML = trip.rider.fnm;
-            document.getElementById("rPic").setAttribute('src', trip.rider.pi);
+            //document.getElementById("rPic").setAttribute('src', trip.rider.pi);
         }
         document.getElementById("tripid").innerHTML = trip.id;
         if (!isEmpty(trip.pickupPointActual)) {
