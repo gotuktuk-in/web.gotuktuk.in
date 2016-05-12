@@ -40,6 +40,14 @@
 			  success: function(data){
 				  var newData =JSON.parse(data)
 				  //var newData = [{"date":1461063365,"userId":"dEl8xXfDRe","name":"Branch 6","tCash":130,"type":"debit","action":"first_trip","actionDetail":"first_trip action tcash for - rVe_3agkeZ to dEl8xXfDRe"},{"date":1461063321,"userId":"dEl8xXfDRe","name":"Branch 6","tCash":20,"type":"credit","action":"rider_init","actionDetail":"rider_init action tcash for - rVe_3agkeZ to dEl8xXfDRe"},{"date":1461055316,"userId":"dEl8xXfDRe","name":"B Branch Rider","tCash":30,"type":"credit","action":"first_trip","actionDetail":"first_trip action tcash for - rElhn6AAkb to dEl8xXfDRe"},{"date":1461055133,"userId":"dEl8xXfDRe","name":"B Branch Rider","tCash":20,"type":"credit","action":"rider_init","actionDetail":"rider_init action tcash for - rElhn6AAkb to dEl8xXfDRe"}]
+
+				  if((newData.length>0))
+				  {
+					  $("#w").show();
+					  $("#w #tHead").text(newData.left);
+					  $("#empty").hide();
+				  }
+
 				  $("#tCashTemplate").tmpl(newData).appendTo("#content");
 				var objectsRendered = $(obj).children('[rel!=loaded]');
 

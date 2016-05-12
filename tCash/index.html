@@ -127,10 +127,11 @@
 				//$(obj).append(data);
 				var newData =JSON.parse(data)
 
-				if(newData.total && newData.total!=0)
+				$("#w #tHead").text(newData.left);
+
+				if((newData.total && newData.total!=0))
 				{
 					$("#w").show();
-					$("#w #tHead").text(newData.left);
 					$("#empty").hide();
 				}
 				else
