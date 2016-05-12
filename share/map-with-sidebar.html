@@ -20,14 +20,47 @@
         html, body, #map {
             font-family: 'allerregular', sans-serif !important;
         }
+        body{
+            overflow:hidden !important;
+        }
         p, table, ul, li, a, h1, h2, h3, h4, h5, h6, div, span{
             font-family: 'aller_lightregular', sans-serif !important;
         }
 
+        #loader {
+            height: 100%;
+            position: fixed;
+            width: 100%;
+            z-index: 199;
+            background: url("ring.svg") #fff;
+            background-position:  center center;
+            background-repeat: no-repeat;
+        }
 
         #map {
-            position: relative;
+            visibility: hidden;
         }
+        #map.visible {
+            visibility: visible;
+        }
+        #callme {
+            background: #00d516 none repeat scroll 0 0;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            padding: 5px 8px;
+            display: inline-block;
+            margin: 10px 5px 0 0;
+            height: 30px;
+            width: 30px;
+        }
+        #callme i.glyphicon {
+            color: #fff !important;
+            top: 1px;
+        }
+        #callme:hover i.glyphicon{
+            color: #f9ff4c !important;
+        }
+
 
         /* Reset responsive Bootstrap elements */
         .container {
@@ -69,16 +102,14 @@
         }
 
         .navbar {
+            background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0 !important;
             border-radius: 0;
+            left: 0;
             margin-bottom: 0 !important;
             min-height: auto !important;
+            padding: 9px;
             position: absolute;
-            left: 0;
             top: 0;
-            z-index: 9999;
-            padding: 22px;
-            background: rgba(255,255,255,0.9) !important;
-            width: 64px;
         }
 
         .navbar-header {
@@ -117,23 +148,24 @@
             /*height: 100%;*/
             position: absolute;
             right: 0;
-            -webkit-transition:all 0.1s ease-in-out;
-            -moz-transition:all 0.1s ease-in-out;
-            -o-transition:all 0.1s ease-in-out;
-            transition:all 0.1s ease-in-out;
+            /*-webkit-transition:all 0.1s ease-in-out;*/
+            /*-moz-transition:all 0.1s ease-in-out;*/
+            /*-o-transition:all 0.1s ease-in-out;*/
+            /*transition:all 0.1s ease-in-out;*/
             width: 100%;
             z-index: 100;
         }
 
         #navbar .navbar-collapse {
+            color: #fff;
             position: fixed;
             top: 0;
-            left: -40%;
+            left: -291px;
             display: block;
-            width: 40%;
+            width: 290px;
             height: 100% !important;
             margin: 0;
-            background-color: #f8f8f8;
+            background-color: #212121;
             -webkit-transition:all 0.1s ease-in-out;
             -moz-transition:all 0.1s ease-in-out;
             -o-transition:all 0.1s ease-in-out;
@@ -155,15 +187,15 @@
             overflow: hidden;
         }
 
-        body.menu-slider #wrapper {
+        body.menu-slider #wrapper #navbar{
             -webkit-transition:all 0.1s ease-in-out;
             -moz-transition:all 0.1s ease-in-out;
             -o-transition:all 0.1s ease-in-out;
             transition:all 0.1s ease-in-out;
         }
 
-        body.menu-slider.in #wrapper {
-            left: 40%;
+        body.menu-slider.in #wrapper #navbar{
+            left: 20%;
         }
 
         .bx-2 {
@@ -175,9 +207,11 @@
             top: 0;
             width: 100%;
             z-index: 10;
+            min-height:50px;
+            color: #333;
         }
         .bx-22 {
-            background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
+            background: rgba(255, 255, 255, 1) none repeat scroll 0 0;
             bottom: 0;
             left: 0;
             padding: 14px 4px;
@@ -185,6 +219,11 @@
             text-align: right;
             width: 100%;
             z-index: 22;
+            color: #333;
+        }
+        .bx-2 span, .bx-22 span{
+            font-size: 14px;
+            font-family: 'allerregular', sans-serif !important;
         }
 
         .trip-detail .bx-1 {
@@ -192,16 +231,16 @@
             width: 100%;
         }
         .trip-detail .bx-4 {
-            border: solid 1px #e2e2e2;
+            border: 1px solid #343434;
             padding: 10px;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            margin-top: 0px;
+            margin-bottom: 10px;
             width: 100%;
         }
 
         .trip-detail .bx-4 span i {
             display: inline-block;
-            padding: 6px;
+            padding: 5px;
             border-radius: 100%;
             background-color: #5cb85c;
             margin-right: 8px;
@@ -213,11 +252,11 @@
 
         .trip-detail .bx-4 p, .trip-detail .bx-5 p {
             font-size: 12px;
-            margin-top: 5px;
+            margin: 5px 0 0 20px;
         }
 
         .trip-detail .bx-5 {
-            border: solid 1px #e2e2e2;
+            border: 1px solid #343434;
             padding: 10px;
             margin-bottom: 20px;
             width: 100%;
@@ -225,7 +264,7 @@
 
         .trip-detail .bx-5 span i {
             display: inline-block;
-            padding: 6px;
+            padding: 5px;
             border-radius: 100%;
             background-color: #d9534f;
             margin-right: 8px;
@@ -234,10 +273,6 @@
         .table tbody tr td {
             border: none;
             padding: 0px 6px;
-        }
-
-        .table tbody tr td:first-child {
-            color: #666;
         }
 
         .poweredBy {
@@ -268,219 +303,34 @@
             height: auto;
             margin: 0 auto;
         }
-        #loader {
-            background: #fff;
-            height: 100%;
-            position: fixed;
-            width: 100%;
-            z-index: 199;
-        }
 
         #myMap_canvas img {
             max-width: none;
             display: none;
         }
 
-        #fountainG {
-            height: 28px;
-            margin: 10px auto;
-            opacity: 0.2;
-            position: relative;
-            width: 234px;
-        }
-
-        .fountainG {
-            position: absolute;
-            top: 0;
-            background-color: rgb(0, 0, 0);
-            width: 28px;
-            height: 28px;
-            animation-name: bounce_fountainG;
-            -o-animation-name: bounce_fountainG;
-            -ms-animation-name: bounce_fountainG;
-            -webkit-animation-name: bounce_fountainG;
-            -moz-animation-name: bounce_fountainG;
-            animation-duration: 1.5s;
-            -o-animation-duration: 1.5s;
-            -ms-animation-duration: 1.5s;
-            -webkit-animation-duration: 1.5s;
-            -moz-animation-duration: 1.5s;
-            animation-iteration-count: infinite;
-            -o-animation-iteration-count: infinite;
-            -ms-animation-iteration-count: infinite;
-            -webkit-animation-iteration-count: infinite;
-            -moz-animation-iteration-count: infinite;
-            animation-direction: normal;
-            -o-animation-direction: normal;
-            -ms-animation-direction: normal;
-            -webkit-animation-direction: normal;
-            -moz-animation-direction: normal;
-            transform: scale(.3);
-            -o-transform: scale(.3);
-            -ms-transform: scale(.3);
-            -webkit-transform: scale(.3);
-            -moz-transform: scale(.3);
-            border-radius: 19px;
-            -o-border-radius: 19px;
-            -ms-border-radius: 19px;
-            -webkit-border-radius: 19px;
-            -moz-border-radius: 19px;
-        }
-
-        #fountainG_1 {
-            left: 0;
-            animation-delay: 0.6s;
-            -o-animation-delay: 0.6s;
-            -ms-animation-delay: 0.6s;
-            -webkit-animation-delay: 0.6s;
-            -moz-animation-delay: 0.6s;
-        }
-
-        #fountainG_2 {
-            left: 29px;
-            animation-delay: 0.75s;
-            -o-animation-delay: 0.75s;
-            -ms-animation-delay: 0.75s;
-            -webkit-animation-delay: 0.75s;
-            -moz-animation-delay: 0.75s;
-        }
-
-        #fountainG_3 {
-            left: 58px;
-            animation-delay: 0.9s;
-            -o-animation-delay: 0.9s;
-            -ms-animation-delay: 0.9s;
-            -webkit-animation-delay: 0.9s;
-            -moz-animation-delay: 0.9s;
-        }
-
-        #fountainG_4 {
-            left: 88px;
-            animation-delay: 1.05s;
-            -o-animation-delay: 1.05s;
-            -ms-animation-delay: 1.05s;
-            -webkit-animation-delay: 1.05s;
-            -moz-animation-delay: 1.05s;
-        }
-
-        #fountainG_5 {
-            left: 117px;
-            animation-delay: 1.2s;
-            -o-animation-delay: 1.2s;
-            -ms-animation-delay: 1.2s;
-            -webkit-animation-delay: 1.2s;
-            -moz-animation-delay: 1.2s;
-        }
-
-        #fountainG_6 {
-            left: 146px;
-            animation-delay: 1.35s;
-            -o-animation-delay: 1.35s;
-            -ms-animation-delay: 1.35s;
-            -webkit-animation-delay: 1.35s;
-            -moz-animation-delay: 1.35s;
-        }
-
-        #fountainG_7 {
-            left: 175px;
-            animation-delay: 1.5s;
-            -o-animation-delay: 1.5s;
-            -ms-animation-delay: 1.5s;
-            -webkit-animation-delay: 1.5s;
-            -moz-animation-delay: 1.5s;
-        }
-
-        #fountainG_8 {
-            left: 205px;
-            animation-delay: 1.64s;
-            -o-animation-delay: 1.64s;
-            -ms-animation-delay: 1.64s;
-            -webkit-animation-delay: 1.64s;
-            -moz-animation-delay: 1.64s;
-        }
-
-        @keyframes bounce_fountainG {
-            0% {
-                transform: scale(1);
-                background-color: rgb(0, 0, 0);
-            }
-
-            100% {
-                transform: scale(.3);
-                background-color: rgb(255, 255, 255);
-            }
-        }
-
-        @-o-keyframes bounce_fountainG {
-            0% {
-                -o-transform: scale(1);
-                background-color: rgb(0, 0, 0);
-            }
-
-            100% {
-                -o-transform: scale(.3);
-                background-color: rgb(255, 255, 255);
-            }
-        }
-
-        @-ms-keyframes bounce_fountainG {
-            0% {
-                -ms-transform: scale(1);
-                background-color: rgb(0, 0, 0);
-            }
-
-            100% {
-                -ms-transform: scale(.3);
-                background-color: rgb(255, 255, 255);
-            }
-        }
-
-        @-webkit-keyframes bounce_fountainG {
-            0% {
-                -webkit-transform: scale(1);
-                background-color: rgb(0, 0, 0);
-            }
-
-            100% {
-                -webkit-transform: scale(.3);
-                background-color: rgb(255, 255, 255);
-            }
-        }
-
-        @-moz-keyframes bounce_fountainG {
-            0% {
-                -moz-transform: scale(1);
-                background-color: rgb(0, 0, 0);
-            }
-
-            100% {
-                -moz-transform: scale(.3);
-                background-color: rgb(255, 255, 255);
-            }
-        }
         @media only screen and (max-width: 768px) {
             /* Reposition elements affected by the sliding menu */
             #wrapper {
                 background: transparent none repeat scroll 0 0;
                 position: absolute;
                 right: 0;
-                -webkit-transition:all 0.1s ease-in-out;
-                -moz-transition:all 0.1s ease-in-out;
-                -o-transition:all 0.1s ease-in-out;
-                transition:all 0.1s ease-in-out;
+                /*-webkit-transition:all 0.1s ease-in-out;*/
+                /*-moz-transition:all 0.1s ease-in-out;*/
+                /*-o-transition:all 0.1s ease-in-out;*/
+                /*transition:all 0.1s ease-in-out;*/
                 width: 100%;
                 z-index: 100;
             }
 
             #navbar .navbar-collapse {
                 position: fixed;
-                top: 0;
-                left: -70%;
+                top: -2px;
+                left: -250px;
                 display: block;
-                width: 42%;
+                width: 250px;
                 height: 100% !important;
                 margin: 0;
-                background-color: #f8f8f8;
                 -webkit-transition:all 0.1s ease-in-out;
                 -moz-transition:all 0.1s ease-in-out;
                 -o-transition:all 0.1s ease-in-out;
@@ -502,15 +352,15 @@
                 overflow: hidden;
             }
 
-            body.menu-slider #wrapper {
+            body.menu-slider #wrapper #navbar{
                 -webkit-transition:all 0.1s ease-in-out;
                 -moz-transition:all 0.1s ease-in-out;
                 -o-transition:all 0.1s ease-in-out;
                 transition:all 0.1s ease-in-out;
             }
 
-            body.menu-slider.in #wrapper {
-                left: 70%;
+            body.menu-slider.in #wrapper #navbar {
+                left: 250px;
             }
         }
     </style>
@@ -520,16 +370,6 @@
 </head>
 <body>
 <div id="loader">
-    <div id="fountainG">
-        <div id="fountainG_1" class="fountainG"></div>
-        <div id="fountainG_2" class="fountainG"></div>
-        <div id="fountainG_3" class="fountainG"></div>
-        <div id="fountainG_4" class="fountainG"></div>
-        <div id="fountainG_5" class="fountainG"></div>
-        <div id="fountainG_6" class="fountainG"></div>
-        <div id="fountainG_7" class="fountainG"></div>
-        <div id="fountainG_8" class="fountainG"></div>
-    </div>
 </div>
 <div id="wrapper">
     <nav id="navbar" class="navbar navbar-default" role="navigation">
@@ -537,10 +377,7 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-2">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <img height="30" width="30" src="drawable_menu_white_burger_icon.png" />
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
@@ -549,15 +386,15 @@
                         <table class="table">
                             <tbody>
                             <tr>
-                                <td>Trip Id</td>
+                                <td>Trip Id: </td>
                                 <td><span id="tripid"></span></td>
                             </tr>
                             <tr>
-                                <td height="22">Trip Status </td>
-                                <td><b class="text-success" id="tripheading"></b></td>
+                                <td height="5"></td>
+                                <td></td>
                             </tr>
                             <tr>
-                                <td height="22">Date</td>
+                                <td height="22">Date:</td>
                                 <td><span id="date"></span></td>
                             </tr>
                             </tbody>
@@ -580,7 +417,7 @@
                     <p class="poweredBy">Powered by <a href="http://gotuktuk.in" target="_blank">Tuktuk</a></p>
                 </div>
             </div>
-            </div>
+        </div>
     </nav>
 
 </div>
@@ -588,15 +425,21 @@
     <table class="table">
         <tbody>
         <tr>
-            <td>
+            <td style="text-align: left;">
                 <img id="dPic" height="30" width="30" style="
     border-radius: 50%;
     border: 1px solid #eee;
     margin-right: 5px;
     background: #eee;
 " />
-                <span id="driverVNOName"></span>
-                <a id="callme" href="tel:"><i class="glyphicon glyphicon-earphone"></i> </a>
+                <span id="driverName" style="font-size: 16px;"></span>
+                <br>
+                <span id="driverVno" style="margin:0 0 0 40px; font-size: 13px;"></span>
+            </td>
+            <td>
+                <a id="callme" href="tel:">
+                    <i class="glyphicon glyphicon-earphone"></i>
+                </a>
             </td>
         </tr>
         </tbody>
@@ -606,15 +449,17 @@
     <table class="table">
         <tbody>
         <tr>
-            <td>
-                <img id="rPic" height="30" width="30" style="
-    border-radius: 50%;
-    border: 1px solid #eee;
-    margin-right: 5px;
-    background: #eee;
-" />
-                <span id="riderName"></span>
-            </td>
+            <td style="text-align: left; padding-left: 45px">
+                <b class="text-success" id="tripheading"></b>
+            </td><td>
+            <!--<img id="rPic" height="30" width="30" style="-->
+            <!--border-radius: 50%;-->
+            <!--border: 1px solid #eee;-->
+            <!--margin-right: 5px;-->
+            <!--background: #eee;-->
+            <!--" />-->
+            <span id="riderName"></span>
+        </td>
         </tr>
         </tbody>
     </table>
@@ -751,20 +596,33 @@
             transports: ['websocket']
         });
         addHandlers(socket)
-        if (!map) {
-            map = new google.maps.Map(document.getElementById('map'), {
-                // center: {lat: 22.7228 , lng: 75.8737},22.719744474937276,75.86874961853027
-                center: {lat: 22.719744474937276, lng: 75.86874961853027},
-                zoom: 14,
-                maxZoom: 16,
-                mapTypeControl: false,
-                zoomControlOptions: {
-                    position: google.maps.ControlPosition.RIGHT_CENTER
-                }
 
-            });
-            setIcons()
-        }
+        var mapProp = {
+            center: {lat: 22.719744474937276, lng: 75.86874961853027},
+            zoom: 15,
+            maxZoom: 18,
+            mapTypeControl: false,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.RIGHT_CENTER
+            }
+        };
+        map = new google.maps.Map(document.getElementById('map'), mapProp);
+
+        setIcons()
+//        if (!map) {
+//            map = new google.maps.Map(document.getElementById('map'), {
+//                // center: {lat: 22.7228 , lng: 75.8737},22.719744474937276,75.86874961853027
+//                center: {lat: 22.719744474937276, lng: 75.86874961853027},
+//                zoom: 14,
+//                maxZoom: 16,
+//                mapTypeControl: false,
+//                zoomControlOptions: {
+//                    position: google.maps.ControlPosition.RIGHT_CENTER
+//                }
+//
+//            });
+//            setIcons()
+//        }
     }
     var myInterval
     var markers_arr = []
@@ -962,19 +820,19 @@
     }
 
     function setTripDetails(trip) {
-        $('#map').show();
+        $('#map').addClass('visible');
         $('#wrapper').show();
         $('#loader').hide();
         if (trip.driver && trip.driver.id) {
-            // document.getElementById("driverVNOName").innerHTML = trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " - " + trip.driver.vn;
-            document.getElementById("driverVNOName").innerHTML = " " + trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " (" + trip.driver.vn + ")";
+            document.getElementById("driverName").innerHTML = " " + trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "");
+            document.getElementById("driverVno").innerHTML = " " + trip.driver.vn;
             document.getElementById("callme").setAttribute('href', 'tel:' + trip.driver.phn);
             document.getElementById("dPic").setAttribute('src', trip.driver.pi);
         }
         //
         if (trip.rider && trip.rider.id) {
             document.getElementById("riderName").innerHTML = trip.rider.fnm;
-            document.getElementById("rPic").setAttribute('src', trip.rider.pi);
+            //document.getElementById("rPic").setAttribute('src', trip.rider.pi);
         }
         document.getElementById("tripid").innerHTML = trip.id;
         if (!isEmpty(trip.pickupPointActual)) {
