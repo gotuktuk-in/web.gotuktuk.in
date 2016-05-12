@@ -20,6 +20,9 @@
         html, body, #map {
             font-family: 'allerregular', sans-serif !important;
         }
+        body{
+            overflow:hidden !important;
+        }
         p, table, ul, li, a, h1, h2, h3, h4, h5, h6, div, span{
             font-family: 'aller_lightregular', sans-serif !important;
         }
@@ -46,7 +49,7 @@
             border-radius: 50%;
             padding: 5px 8px;
             display: inline-block;
-            margin-right: 3px;
+            margin: 10px 5px 0 0;
             height: 30px;
             width: 30px;
         }
@@ -145,10 +148,10 @@
             /*height: 100%;*/
             position: absolute;
             right: 0;
-            -webkit-transition:all 0.1s ease-in-out;
-            -moz-transition:all 0.1s ease-in-out;
-            -o-transition:all 0.1s ease-in-out;
-            transition:all 0.1s ease-in-out;
+            /*-webkit-transition:all 0.1s ease-in-out;*/
+            /*-moz-transition:all 0.1s ease-in-out;*/
+            /*-o-transition:all 0.1s ease-in-out;*/
+            /*transition:all 0.1s ease-in-out;*/
             width: 100%;
             z-index: 100;
         }
@@ -157,9 +160,9 @@
             color: #fff;
             position: fixed;
             top: 0;
-            left: -20%;
+            left: -291px;
             display: block;
-            width: 20%;
+            width: 290px;
             height: 100% !important;
             margin: 0;
             background-color: #212121;
@@ -184,14 +187,14 @@
             overflow: hidden;
         }
 
-        body.menu-slider #wrapper {
+        body.menu-slider #wrapper #navbar{
             -webkit-transition:all 0.1s ease-in-out;
             -moz-transition:all 0.1s ease-in-out;
             -o-transition:all 0.1s ease-in-out;
             transition:all 0.1s ease-in-out;
         }
 
-        body.menu-slider.in #wrapper {
+        body.menu-slider.in #wrapper #navbar{
             left: 20%;
         }
 
@@ -312,10 +315,10 @@
                 background: transparent none repeat scroll 0 0;
                 position: absolute;
                 right: 0;
-                -webkit-transition:all 0.1s ease-in-out;
-                -moz-transition:all 0.1s ease-in-out;
-                -o-transition:all 0.1s ease-in-out;
-                transition:all 0.1s ease-in-out;
+                /*-webkit-transition:all 0.1s ease-in-out;*/
+                /*-moz-transition:all 0.1s ease-in-out;*/
+                /*-o-transition:all 0.1s ease-in-out;*/
+                /*transition:all 0.1s ease-in-out;*/
                 width: 100%;
                 z-index: 100;
             }
@@ -349,14 +352,14 @@
                 overflow: hidden;
             }
 
-            body.menu-slider #wrapper {
+            body.menu-slider #wrapper #navbar{
                 -webkit-transition:all 0.1s ease-in-out;
                 -moz-transition:all 0.1s ease-in-out;
                 -o-transition:all 0.1s ease-in-out;
                 transition:all 0.1s ease-in-out;
             }
 
-            body.menu-slider.in #wrapper {
+            body.menu-slider.in #wrapper #navbar {
                 left: 250px;
             }
         }
@@ -429,10 +432,14 @@
     margin-right: 5px;
     background: #eee;
 " />
-                <span id="driverVNOName"></span>
+                <span id="driverName" style="font-size: 16px;"></span>
+                <br>
+                <span id="driverVno" style="margin:0 0 0 40px; font-size: 13px;"></span>
             </td>
             <td>
-                <a id="callme" href="tel:"><i class="glyphicon glyphicon-earphone"></i> </a>
+                <a id="callme" href="tel:">
+                    <i class="glyphicon glyphicon-earphone"></i>
+                </a>
             </td>
         </tr>
         </tbody>
@@ -817,8 +824,8 @@
         $('#wrapper').show();
         $('#loader').hide();
         if (trip.driver && trip.driver.id) {
-            // document.getElementById("driverVNOName").innerHTML = trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " - " + trip.driver.vn;
-            document.getElementById("driverVNOName").innerHTML = " " + trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "") + " (" + trip.driver.vn + ")";
+            document.getElementById("driverName").innerHTML = " " + trip.driver.fnm + " " + (trip.driver.lnm ? trip.driver.lnm : "");
+            document.getElementById("driverVno").innerHTML = " " + trip.driver.vn;
             document.getElementById("callme").setAttribute('href', 'tel:' + trip.driver.phn);
             document.getElementById("dPic").setAttribute('src', trip.driver.pi);
         }
