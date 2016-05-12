@@ -15,7 +15,7 @@
             margin: 0px;
             padding: 0px;
             font-family: 'allerregular', sans-serif !important;
-            font-size: 16px !important;
+            font-size: 12px;
         }
 
         p {
@@ -57,6 +57,22 @@
             font-family: 'aller_lightregular', sans-serif !important;
         }
         .text-bold{font-weight: bold;font-family: 'allerregular', sans-serif !important;}
+        .title {font-size: 22px;}
+        .baseFare {font-size: 14px;  margin: 25% 0px 10px;}
+        .baseFare span {display: block; font-size: 22px;}
+        .other-charges {font-size: 12px; text-align: center;}
+        .other-charges span {display: block;  font-size: 15px;     margin-top: 8px;}
+        .circle-plus {background-color: #ffffff; color: #666;
+            border-radius: 100%;
+            display: block;
+            font-size: 25px;
+            height: 32px;
+            left: 45%;
+            position: absolute;
+            text-align: center;
+            top: -16px;
+            width: 42px;}
+        hr {border-color: #666;}
 
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -74,41 +90,70 @@
             <table class="table table-condensed ng-scope ng-table" width="100%">
                 <tbody>
                 <tr>
-                    <td colspan="2" style="font-size: 24px; padding:15px 0px 0px 20px;"><span>इंदौर</span></td>
+                    <td colspan="3" align="center"><div class="title">इंदौर</div></td>
+                </tr>
+                <tr><td colspan="3" align="center"><img src="img/auto.jpg" title=""></td></tr>
 
-                </tr>
-                <tr><td style="padding: 0px;">&nbsp;</td></tr>
                 <tr>
-                    <td class="text-bold" style="padding-left: 20px">आधार किराया</td>
-                    <td class="text-right">₹ 15</td>
+                    <td colspan="3" align="center">
+                        <div class="baseFare">
+                            आधार किराया <span>₹ <b>15</b></span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <div style="width: 100%; position: relative;">
+                            <hr>
+                            <span class="circle-plus">+</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="other-charges">
+                            0 - 5 किमी
+                            <span>₹<b>2/किमी</b></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="other-charges">
+                            5 - 10 किमी
+                            <span>₹<b>4/किमी</b></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="other-charges">
+                            10 किमी - अधिक
+                            <span>₹<b>9/किमी</b></span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <div style="width: 100%; position: relative;">
+                            <hr>
+                            <span class="circle-plus">+</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" class="text-center">
+                        <div class="baseFare" style="margin: 10px 0px;">
+                            प्रति मिनट <span>₹ <b>1</b></span>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="text-bold">+ प्रति मिनट</td>
-                    <td class="text-right">₹ 1</td>
+                    <td colspan="3" class="text-center">
+                        रात के चार्ज (रात 10बजे से सुबह 6बजे तक ) 1.5x
+                    </td>
                 </tr>
-                <tr>
-                    <td class="text-bold" colspan="2">+ दूरी</td>
-                </tr>
-                <tr>
-                    <td  style="padding-left: 20px">0 - 5 किमी</td>
-                    <td class="text-right">₹ 2/किमी</td>
-                </tr>
-                <tr>
-                    <td  style="padding-left: 20px">5 - 10 किमी</td>
-                    <td class="text-right">₹ 4/किमी</td>
-                </tr>
-                <tr>
-                    <td  style="padding-left: 20px">10 किमी - ऊपर</td>
-                    <td class="text-right">₹ 9/किमी</td>
-                </tr>
-                <tr>
-                    <td class="text-bold" style="padding-left: 20px" colspan="2"></td>
-                </tr>
-                <tr>
-                    <td  style="padding-left: 20px" colspan="2">
-                        रात के चार्ज
-                        <span style="font-size: 14px">(रात 10बजे से सुबह 6बजे )</span> <b>1.5x</b></td>
-                </tr>
+
                 </tbody>
             </table>
 
