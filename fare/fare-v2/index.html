@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="fonts/aller.css">
+    <!-- Latest compiled and minified CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+    <style type="text/css">
+        body {
+            background-color: #fff;
+            margin: 0px;
+            padding: 0px;
+            font-family: 'allerregular', sans-serif !important;
+            font-size: 14px !important;
+        }
+
+        p {
+            font-family: 'aller_lightregular', sans-serif !important;
+        }
+
+        .wrapper {
+            margin: 15px auto 0px;
+            background-color: #FFF;
+            padding: 14px 20px;
+        }
+        .table {
+            table-layout: fixed;
+        }
+        .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+            border-top: 0px solid #ddd;
+        }
+        .table-striped>tbody>tr:nth-of-type(odd) {
+            background-color: #fff;
+        }
+        .table-striped>tbody>tr:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+        .panel-default > .panel-heading {
+            background-color: #fff;
+            border:none;
+        }
+        .table, th, tr, td{
+            font-family: 'aller_lightregular', sans-serif !important;
+        }
+        .text-bold{font-weight: bold;font-family: 'allerregular', sans-serif !important;}
+        .title {font-size: 26px;}
+        .baseFare {font-size: 14px;  margin: 10% 0px 10px;}
+        .baseFare span {display: block; font-size: 26px;}
+        .other-charges {font-size: 12px; text-align: center;  color: #666; padding: 10px 0px;}
+        .other-charges p {font-size: 14px;  margin: 0px;}
+        .other-charges span {display: block;  font-size: 20px; color: #000;  margin:4px 0px 6px;}
+        .circle-plus {background-color: #ffffff; color: rgba(0,0,0,0.3);
+            border-radius: 100%;
+            display: block;
+            font-size: 25px;
+            height: 32px;
+            left: 44%;
+            position: absolute;
+            text-align: center;
+            top: -16px;
+            width: 42px;}
+        hr {border-color:rgba(0,0,0,0.2); border-width: 0 0 1px;}
+        table tr td {text-align: center;}
+
+    </style>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>-->
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed ng-scope ng-table" width="100%">
+                <tbody>
+
+                <tr><td colspan="3" align="center"><img src="img/auto.jpg" title=""></td></tr>
+                <tr>
+                    <td colspan="3" align="center"><div class="title">Indore</div></td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        <div class="baseFare">
+                            Base Fare <span>₹ <b>15</b></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div style="width: 100%; position: relative;">
+                            <hr>
+                            <span class="circle-plus">+</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td >
+                        <div class="other-charges">
+                            <p> 0 - 5 km</p>
+                            <span>₹ <b>2/km</b></span>
+                        </div>
+                    </td>
+                    <td  >
+                        <div class="other-charges">
+                            <p>5 - 10 km</p>
+                            <span>₹ <b>4/km</b></span>
+                        </div>
+                    </td>
+                    <td  >
+                        <div class="other-charges">
+                            <p>10 km - above</p>
+                            <span>₹ <b>9/km</b></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div style="width: 100%; position: relative;">
+                            <hr>
+                            <span class="circle-plus">+</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                   <td colspan="3" align="center">
+                       <table class="table" width="100%">
+                           <tr>
+                               <td>
+                                   <div class="other-charges">
+                                       <p> 0 - 10 min</p>
+                                       <span style="font-size: 13px; color: #000;"><b>₹ 2/min</b></span>
+                                   </div>
+                               </td>
+                               <td>
+                                   <div class="other-charges">
+                                       <p>10 min - onwards</p>
+                                       <span style="font-size: 13px; color: #000;"><b>₹ 1/min</b></span>
+                                   </div>
+                               </td>
+                           </tr>
+                       </table>
+                   </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div style="width: 100%; position: relative; margin-bottom: 15px;">
+                            <hr>
+                            <!--<span class="circle-plus">+</span>-->
+                        </div>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td colspan="3" class="text-center">
+                        <div class="baseFare" style="margin: 20px 0px;">
+                            Per Minute <span>₹ <b>1</b></span>
+                        </div>
+                    </td>
+                </tr>-->
+                <tr>
+                    <td colspan="3" class="text-center">
+                        Night Charges (10PM to 6AM) <b>1.5x</b>
+                    </td>
+                </tr>
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

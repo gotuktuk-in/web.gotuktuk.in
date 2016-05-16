@@ -50,9 +50,10 @@
         .title {font-size: 26px;}
         .baseFare {font-size: 14px;  margin: 10% 0px 10px;}
         .baseFare span {display: block; font-size: 26px;}
-        .other-charges {font-size: 12px; text-align: center;     padding: 10px 0px;}
-        .other-charges span {display: block;  font-size: 20px;}
-        .circle-plus {background-color: #ffffff; color: #666;
+        .other-charges {font-size: 12px; text-align: center;  color: #666; padding: 10px 0px;}
+        .other-charges p {font-size: 14px;  margin: 0px;}
+        .other-charges span {display: block;  font-size: 20px; color: #000;  margin:4px 0px 6px;}
+        .circle-plus {background-color: #ffffff; color: rgba(0,0,0,0.3);
             border-radius: 100%;
             display: block;
             font-size: 25px;
@@ -62,7 +63,7 @@
             text-align: center;
             top: -16px;
             width: 42px;}
-        hr {border-color:rgba(0,0,0,0.4)}
+        hr {border-color:rgba(0,0,0,0.2); border-width: 0 0 1px;}
         table tr td {text-align: center;}
 
     </style>
@@ -92,7 +93,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <div style="width: 100%; position: relative;">
+                        <div style="width: 100%; position: relative; margin-bottom: 15px;">
                             <hr>
                             <span class="circle-plus">+</span>
                         </div>
@@ -102,26 +103,29 @@
                 <tr>
                     <td >
                         <div class="other-charges">
-                            0 - 5 km
-                            <span>₹<b>2/km</b></span>
+                            <p> 0 - 5 km</p>
+                            <span>₹ <b>2/km</b></span>
+
                         </div>
                     </td>
                     <td  >
                         <div class="other-charges">
-                            5 - 10 km
-                            <span>₹<b>4/km</b></span>
+                            <p>5 - 10 km</p>
+                            <span>₹ <b>4/km</b></span>
+
                         </div>
                     </td>
                     <td  >
                         <div class="other-charges">
-                            10 km - above
-                            <span>₹<b>9/km</b></span>
+                            <p>10 km - above</p>
+                            <span>₹ <b>9/km</b></span>
+
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <div style="width: 100%; position: relative;">
+                        <div style="width: 100%; position: relative; margin-bottom: 10px;">
                             <hr>
                             <span class="circle-plus">+</span>
                         </div>

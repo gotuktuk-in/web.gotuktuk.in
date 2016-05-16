@@ -769,8 +769,10 @@
         });
 
         socket.on('on_trip_pickup', function (data) {
+            data = _transformTrip(data);
             console.log('on_trip_pickup', data);
             document.getElementById('tripheading').innerHTML = 'EN ROUTE';
+            data.location = data.pickupPointActual
             if (!isEmpty(data.location)) {
                 var pAdd = data.location.address;
                 var pickup = pAdd.line1 + ', ' + (pAdd.line2 ? pAdd.line2 + ', ' : '') + pAdd.city + ', ' + pAdd.state + ', ' + pAdd.country;
