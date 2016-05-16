@@ -29,8 +29,8 @@
         }
 
         .panel {
-            -webkit-border-radius:;
-            -moz-border-radius:;
+            -webkit-border-radius:0;
+            -moz-border-radius:0;
             border-radius: 0;
             border: none;
         }
@@ -72,8 +72,8 @@
         .title {font-size: 22px;}
         .baseFare {font-size: 14px;  margin: 10% 0px 20px;}
         .baseFare span {display: block; font-size: 22px;}
-        .other-charges {font-size: 12px; text-align: center;   padding: 10px 0px;}
-        .other-charges span {display: block;  font-size: 15px;     margin-top: 8px;}
+        .other-charges {font-size: 12px; text-align: center; color: #666;   padding: 10px 0px;}
+        .other-charges span {display: block;  font-size: 15px;     margin: 4px 0px 6px; color:#000;}
         .circle-plus {background-color: #ffffff; color: #666;
             border-radius: 100%;
             display: block;
@@ -128,18 +128,21 @@
                         <div class="other-charges">
                             0 - 5 किमी
                             <span>₹<b>2/किमी</b></span>
+                            ₹ 1 प्रति मिनट
                         </div>
                     </td>
                     <td>
                         <div class="other-charges">
                             5 - 10 किमी
                             <span>₹<b>4/किमी</b></span>
+                            ₹ 1.5 प्रति मिनट
                         </div>
                     </td>
                     <td>
                         <div class="other-charges">
                             10 किमी - अधिक
                             <span>₹<b>9/किमी</b></span>
+                            ₹ 2 प्रति मिनट
                         </div>
                     </td>
                 </tr>
@@ -156,9 +159,10 @@
 
                 <tr>
                     <td colspan="3" class="text-center">
-                        <div class="baseFare" style="margin: 20px 0px;">
+                        <!--<div class="baseFare" style="margin: 20px 0px;">
                             प्रति मिनट <span>₹ <b>1</b></span>
-                        </div>
+                        </div>-->
+                        &nbsp;
                     </td>
                 </tr>
                 <tr>
