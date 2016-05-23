@@ -61,9 +61,10 @@
 	<div class="loading" id="loading" style="position: fixed; bottom:0px; left: 0px; z-index: 11; width: 100%; border-radius: 0px;">Loading please wait...</div>-->
 
 	<div class="tFooter">
-		<p><span class="badge">FT</span> =  First Trip</p>
-		<p><span class="badge">INS</span> =  Rider Init</p>
-		<p><span class="badge">RD</span> =  Redeem</p>
+		<p><span class="badge">FT</span>First Trip</p>
+		<p><span class="badge">INS</span>Install</p>
+		<p><span class="badge">RD</span>Redeem</p>
+		<p><span class="badge">BNS</span>Bonus</p>
 	</div>
 <div class="row" style="margin: 0px;">
 	<div class="col-md-12" style="padding: 0px;">
@@ -78,20 +79,31 @@
 <script id="tCashTemplate" type="text/x-jQuery-tmpl">
 		<li class="list-group-item">
 			<span class="badge">
-				{{if type==='credit'}} <i class="text-success">+</i>{{/if}}
-				{{if type==='debit'}} <i class="text-danger">-</i>{{/if}}
+				{{if type==='credit'}}
+					<i class="text-success">+</i>
+				{{/if}}
+				
+				{{if type==='debit'}}
+					<i class="text-danger">-</i>
+				{{/if}}
 
 				{{if type==='credit'}}
-					{{if tCash}} <i class="text-success">${tCash}</i>{{/if}}
+					{{if tCash}}
+						<i class="text-success">${tCash}</i>
+					{{/if}}
             	{{/if}}
+            	
             	{{if type==='debit'}}
-					{{if tCash}}<i class="text-danger">${tCash}</i>{{/if}}
+					{{if tCash}}
+						<i class="text-danger">${tCash}</i>
+					{{/if}}
             	{{/if}}
 			</span>
 			<span class="badge label label-default">
 				{{if action==='first_trip'}}FT {{/if}}
 				{{if action==='rider_init'}}Ins {{/if}}
 				{{if action==='redeem'}}RD {{/if}}
+				{{if action==='bonus'}}BNS {{/if}}
 				{{if action==='redeem_trip'}}RDT {{/if}}
 			</span>
 			<span class="date">${formattedDate(date)}</span>
@@ -122,7 +134,7 @@
 				'Authorization':"Basic " + token,
 				'content-type':'application/json'
 			},
-			url: "https://dev-api.gotuktuk.in/support/rest/v1/tcash",
+			url: "https://api.gotuktuk.in/support/rest/v1/tcash",
 			success: function(data){
 				//$(obj).append(data);
 				var newData =JSON.parse(data)
@@ -147,7 +159,7 @@
 		});
 
 		$('#content').scrollPagination({
-			'contentPage': 'https://dev-api.gotuktuk.in/support/rest/v1/tcash/ledger',
+			'contentPage': 'https://api.gotuktuk.in/support/rest/v1/tcash/ledger',
 			'contentData': { 'start': start, 'end': end },
 			'scrollTarget': $(window),
 			'heightOffset': 10,
