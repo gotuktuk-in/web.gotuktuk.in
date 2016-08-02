@@ -99,7 +99,7 @@ appModule.controller('MainCtrl', function($scope) {
   <div class="card-block">
     <h4 class="card-title">{{ module.title }}</h4>
     <p class="card-text">{{ module.description }}</p>
-    <a class="btn btn-success" onclick="app.applyOffer('VALIDONE')">Apply Offer</a>
+    <a class="btn btn-success" onclick="app.applyOffer()">Apply Offer</a>
   </div>
 </div>
 <div class="well well-sm text-center" onclick="app.updateOfferCount(5)"> Total Offers: {{ data.modules.length }}</div>
