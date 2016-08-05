@@ -56,17 +56,10 @@ appModule.controller('MainCtrl', function($scope) {
 
   		$scope.data = json;
 
-//   		$scope.applyOffer = function (index) {
-//             alert(index);
-//         }
 
 });
 
-// var applyOffer;
-//
-// applyOffer = function () {
-//             alert();
-//         }
+
 
 </script>
 
@@ -74,24 +67,7 @@ appModule.controller('MainCtrl', function($scope) {
 <div class="container" ng-controller="MainCtrl">
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12">
-<!--
- <table>
-<tr class="table table-bordered table-success" ng-repeat="module in data.modules">
-    <td>
-        <div>{{ module.title }}</div>
-        <div>{{ module.description }}</div>
-    </td>
-
-</tr>
-<tfoot>
-	<tr>
-		<td>
-			{{ data.modules.length }}
-		</td>
-	</tr>
-</tfoot>
-</table>
- -->
+ <br>
 <div class="bd-example" data-example-id="">
 <div class="card" ng-repeat="module in data.modules">
   <img class="card-img-top" style="width: 100%; display: block;" src="{{module.link}}" data-holder-rendered="true">
