@@ -70,7 +70,7 @@ appModule.controller('MainCtrl', function($scope) {
 
 </script>
 
-<body ng-app="myApp">
+<body ng-app="myApp" onload="app.updateOfferCount(5)">
 <div class="container" ng-controller="MainCtrl">
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -102,7 +102,7 @@ appModule.controller('MainCtrl', function($scope) {
     <p class="card-text">{{ module.description }}</p>
   </div>
 </div>
-<div class="well well-sm text-center" onclick="app.updateOfferCount(5)"> Total {{ data.modules.length }} Offers</div>
+<!-- <div class="well well-sm text-center" onclick="app.updateOfferCount(5)"> Total {{ data.modules.length }} Offers</div> -->
 <div></div>
 </div>
 </div>
