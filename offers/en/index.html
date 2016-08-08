@@ -64,8 +64,40 @@ appModule.controller('MainCtrl', function($scope) {
 
 
 </script>
-<body ng-app="myApp">
+<body>
 <!-- <body ng-app="myApp" onload="app.updateOfferCount(5)"> -->
+<div class="container" onload="app.updateOfferCount(2)">
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12">
+ <br>
+<div class="bd-example" data-example-id="">
+<!-- ngRepeat: module in data.modules --><div class="card">
+  <img class="card-img-top" style="width: 100%; display: block;" src="img/promotion-1.jpg" data-holder-rendered="true">
+  <div class="card-block">
+  
+    <h4 class="card-title">Watch Rustom for FREE this Independence Day!</h4>
+    <button class="btn btn-success col-xs-3 col-sm-3 col-md-3 pull-right" onclick="app.useOffer('VALIDONE1')">Use Offer</button>
+    <p class="card-text">Ride TukTuk to Win free couple movie tickets.</p>
+  </div>
+</div><!-- end ngRepeat: module in data.modules --><div class="card">
+  <img class="card-img-top" style="width: 100%; display: block;" src="img/promotion-2.jpg" data-holder-rendered="true">
+  <div class="card-block">
+  
+    <h4 class="card-title">WANT FREE RIDES?</h4>
+    <button class="btn btn-success col-xs-3 col-sm-3 col-md-3 pull-right" onclick="app.applyOffer('VALIDONE')">Apply Offer</button>
+    <p class="card-text">Refer friends and Rs. 25 worth of tCASH free.</p>
+  </div>
+</div><!-- end ngRepeat: module in data.modules -->
+<!-- <div class="well well-sm text-center" onclick="app.updateOfferCount(5)"> Total {{ data.modules.length }} Offers</div> -->
+<div></div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<!-- 
+<body ng-app="myApp">
+<!~~ <body ng-app="myApp" onload="app.updateOfferCount(5)"> ~~>
 <div class="container" ng-controller="MainCtrl">
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -76,15 +108,16 @@ appModule.controller('MainCtrl', function($scope) {
   <div class="card-block">
   
     <h4 class="card-title">{{ module.title }}</h4>
-    <!-- <button class="btn btn-success col-xs-3 col-sm-3 col-md-3 pull-right" onclick="app.useOffer('VALIDONE1')">Use</button> -->
+    <button class="btn btn-success col-xs-3 col-sm-3 col-md-3 pull-right" onclick="app.useOffer('VALIDONE1')">Use</button>
     <p class="card-text">{{ module.description }}</p>
   </div>
 </div>
-<!-- <div class="well well-sm text-center" onclick="app.updateOfferCount(5)"> Total {{ data.modules.length }} Offers</div> -->
+<!~~ <div class="well well-sm text-center" onclick="app.updateOfferCount(5)"> Total {{ data.modules.length }} Offers</div> ~~>
 <div></div>
 </div>
 </div>
 </div>
 </div>
 </body>
+ -->
 </html>
