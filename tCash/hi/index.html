@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -61,9 +60,10 @@
 	<div class="loading" id="loading" style="position: fixed; bottom:0px; left: 0px; z-index: 11; width: 100%; border-radius: 0px;">Loading please wait...</div>-->
 
 	<div class="tFooter">
-		<p><span class="badge">FT</span> =  First Trip</p>
-		<p><span class="badge">INS</span> =  Rider Init</p>
-		<p><span class="badge">RD</span> =  Redeem</p>
+		<p><span class="badge">FT</span> First Trip</p>
+		<p><span class="badge">INS</span> Rider Init</p>
+		<p><span class="badge">RD</span> Redeem</p>
+		<p><span class="badge">BNS</span> Bonus</p>
 	</div>
 <div class="row" style="margin: 0px;">
 	<div class="col-md-12" style="padding: 0px;">
@@ -92,6 +92,7 @@
 				{{if action==='first_trip'}}FT {{/if}}
 				{{if action==='rider_init'}}Ins {{/if}}
 				{{if action==='redeem'}}RD {{/if}}
+				{{if action==='bonus'}}BNS {{/if}}
 				{{if action==='redeem_trip'}}RDT {{/if}}
 			</span>
 			<span class="date">${formattedDate(date)}</span>
@@ -106,9 +107,7 @@
 	var totalRecords;
 	var token;
 	$('#error').hide();
-
 	$(function(){
-
 		$.urlParam = function(name){
 			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
 			return results[1] || 0;
@@ -126,7 +125,6 @@
 			success: function(data){
 				//$(obj).append(data);
 				var newData =JSON.parse(data)
-
 				if(newData.left && newData.left!=0)
 				{
 					$("#w").show();
@@ -144,9 +142,8 @@
 			},
 			dataType: 'html'
 		});
-
 		$('#content').scrollPagination({
-			'contentPage': 'https://qa-api.gotuktuk.in/rest/v2/tcash/ledger',
+			'contentPage': 'https://api.gotuktuk.in/support/rest/v1/tcash/ledger',
 			'contentData': { 'start': start, 'end': end },
 			'scrollTarget': $(window),
 			'heightOffset': 10,
@@ -164,7 +161,6 @@
 				}
 			}
 		});
-
 		// code for fade in element by element
 		$.fn.fadeInWithDelay = function(){
 			var delay = 0;
@@ -173,7 +169,6 @@
 				delay += 100;
 			});
 		};
-
 	});
 </script>
 </body>
