@@ -63,6 +63,7 @@
 	<div class="loading" id="loading" style="position: fixed; bottom:0px; left: 0px; z-index: 11; width: 100%; border-radius: 0px;">Loading please wait...</div>-->
 
 	<div class="tFooter">
+		<p><span class="badge">CB</span> Cash Back</p>
 		<p><span class="badge">FT</span> First Trip</p>
 		<p><span class="badge">INS</span> Install</p>
 		<p><span class="badge">RD</span> Redeem</p>
@@ -102,10 +103,11 @@
             	{{/if}}
 			</span>
 			<span class="badge label label-default">
-				{{if action==='first_trip'}}FT {{/if}}
+				{{if action==='cashback'}}CB {{/if}}
 				{{if action==='rider_init'}}Ins {{/if}}
 				{{if action==='redeem'}}RD {{/if}}
 				{{if action==='bonus'}}BNS {{/if}}
+				{{if action==='redeem_trip'}}RDT {{/if}}
 				{{if action==='redeem_trip'}}RDT {{/if}}
 			</span>
 			<span class="date">${formattedDate(date)}</span>
