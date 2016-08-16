@@ -65,43 +65,35 @@ appModule.controller('MainCtrl', function($scope) {
 
 
 </script>
-<body ng-app="myApp" onload="app.updateOfferCount(5)" class="ng-scope">
-<div class="container ng-scope" ng-controller="MainCtrl">
+<body ng-app="myApp" onload="app.updateOfferCount(5)">
+<div class="container" ng-controller="MainCtrl">
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12">
  <br>
 <div class="bd-example" data-example-id="">
-<div class="card">
+<div class="card" >
   <div class="card-block">
-  <p class="card-text ng-binding">16-08-2016</p>
-    <h4 class="card-title">Get minimum Rs 900 on 15 rides in a day	
-
-</h4>
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में १५ सवारी पर ९०० रूपए ले जाओ </h4>
   </div>
-</div><div class="card">
+</div><div class="card" >
   <div class="card-block">
-  <p class="card-text ng-binding">16-08-2016</p>
-    <h4 class="card-title">Get minimum Rs 1100 on 20 rides in a day	
-
-</h4>
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में २० सवारी पर ११०० रूपए ले जाओ </h4>
 
   </div>
-</div><div class="card"> 
+</div><div class="card" > 
 
   <div class="card-block">
-  <p class="card-text ng-binding">16-08-2016</p>
-    <h4 class="card-title">Get minimum Rs 1300 on 25 rides in a day	
-
-</h4>
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में २५   सवारी पर १३०० रूपए ले जाओ </h4>
 
   </div>
 </div>
-<div class="card">
+<div class="card" >
   <div class="card-block">
-  <p class="card-text ng-binding">16-08-2016</p>
-    <h4 class="card-title">Get 100 rs everyday on 5 rides between 6 to 9 am	
-
-</h4>
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में १५ सवारी पर ९०० रूपए ले जाओ </h4>
 
   </div>
 </div>
@@ -111,7 +103,5 @@ appModule.controller('MainCtrl', function($scope) {
 </div>
 </div>
 </div>
-
-
 </body>
 </html>
