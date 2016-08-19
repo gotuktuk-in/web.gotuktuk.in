@@ -7,8 +7,8 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/angular.min.js"></script>
 
 <style>
 .card-block {
@@ -39,20 +39,15 @@
 var appModule = angular.module('myApp', []);
 
 appModule.controller('MainCtrl', function($scope) {
-	$scope.date = new Date();
+	$scope.date = moment().format('DD-MM-YYYY');
+
 	var json = {
     "modules":
         [
                 {
-                	"title":"एक दिन में १५ सवारी पर ९०० रूपए ले जाओ",
-                   "description":"Ride TukTuk to Win free couple movie tickets."
+                	"title":" ",
+                   "description":" "
                    
-                },
-
-                {
-                	"title":"एक दिन में १५ सवारी पर ९०० रूपए ले जाओ ",
-                   "description":"Refer your friends and earn Rs. 25 worth of tCASH."
-                  
                 }
 		]
   	};
@@ -65,7 +60,7 @@ appModule.controller('MainCtrl', function($scope) {
 
 
 </script>
-<body ng-app="myApp" onload="app.updateOfferCount(5)">
+<body ng-app="myApp" onload="app.updateOfferCount(4)">
 <div class="container" ng-controller="MainCtrl">
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -73,26 +68,26 @@ appModule.controller('MainCtrl', function($scope) {
 <div class="bd-example" data-example-id="">
 <div class="card" >
   <div class="card-block">
-  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+  <p class="card-text">{{date}}</p>
     <h4 class="card-title">एक दिन में १५ सवारी पर ९०० रूपए ले जाओ </h4>
   </div>
 </div><div class="card" >
   <div class="card-block">
-  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+  <p class="card-text">{{date}}</p>
     <h4 class="card-title">एक दिन में २० सवारी पर ११०० रूपए ले जाओ </h4>
 
   </div>
 </div><div class="card" > 
 
   <div class="card-block">
-  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+  <p class="card-text">{{date}}</p>
     <h4 class="card-title">एक दिन में २५   सवारी पर १३०० रूपए ले जाओ </h4>
 
   </div>
 </div>
 <div class="card" >
   <div class="card-block">
-  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+  <p class="card-text">{{date}}</p>
     <h4 class="card-title">एक दिन में १५ सवारी पर ९०० रूपए ले जाओ </h4>
 
   </div>
