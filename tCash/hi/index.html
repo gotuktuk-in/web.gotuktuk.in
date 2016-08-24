@@ -37,8 +37,20 @@
 		.heading {font-size:32px; text-align: center; font-weight: 700; margin: 10px 0px; border-bottom: solid 1px #e2e2e2; padding-bottom: 10px;}
 		.alert-danger {position: fixed;	z-index: 12; top: 9%; width: 100%; left: 0px; border-radius: 0px; text-align: center; border: none;}
 		.tFooter {position: fixed; z-index: 999; bottom: 0px; background-color: #FFF; border-top: solid 1px #e2e2e2; width: 100%; left: 0px; padding-top: 5px; text-align: center;}
-		.tFooter p {display: inline-block; font-size: 11px; color: #666; padding: 0px 10px; }
-		.tFooter .badge {background-color: #ccc!important; font-size: 10px; padding: 2px 4px; color: #FFF; font-style: normal; font-weight: normal;}
+		.tFooter p {
+    display: inline-block;
+    font-size: 10px;
+    color: #666;
+    padding: 0px 2px;
+}
+		.tFooter .badge {
+    background-color: #ccc!important;
+    font-size: 9px;
+    padding: 2px 3px;
+    color: #FFF;
+    font-style: normal;
+    font-weight: normal;
+}
 		.label-default {position: absolute;	right: 55px; background-color: #ccc!important; font-size: 10px!important; font-weight: normal; color: #FFF; text-transform: uppercase; padding:3px 6px 2px!important; margin-top: 18px!important; display: inline-block;}
 		.text-success {color: #5cb85c; font-style: normal;}
 		.text-danger {color: #d9534f; font-style: normal;}
@@ -61,6 +73,7 @@
 	<div class="loading" id="loading" style="position: fixed; bottom:0px; left: 0px; z-index: 11; width: 100%; border-radius: 0px;">Loading please wait...</div>-->
 
 	<div class="tFooter">
+	<p><span class="badge">CB</span> Cash Back</p>
 		<p><span class="badge">FT</span> First Trip</p>
 		<p><span class="badge">INS</span> Rider Init</p>
 		<p><span class="badge">RD</span> Redeem</p>
@@ -90,7 +103,8 @@
             	{{/if}}
 			</span>
 			<span class="badge label label-default">
-				{{if action==='first_trip'}}FT {{/if}}
+			{{if action==='first_trip'}}FT {{/if}}
+			{{if action==='cashback'}}CB {{/if}}
 				{{if action==='rider_init'}}Ins {{/if}}
 				{{if action==='redeem'}}RD {{/if}}
 				{{if action==='bonus'}}BNS {{/if}}

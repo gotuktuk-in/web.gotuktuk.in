@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html>
+<html dir="ltr" lang="he">
+  <head>
+    <meta charset="utf-8">
+    </head>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -37,19 +39,18 @@
 var appModule = angular.module('myApp', []);
 
 appModule.controller('MainCtrl', function($scope) {
+	$scope.date = new Date();
 	var json = {
     "modules":
         [
                 {
-                	"link":"img/promotion-1.jpg",
-                	 "title":"Watch Rustom for FREE this Independence Day!",
+                	"title":"एक दिन में १५ सवारी पर ९०० रूपए ले जाओ",
                    "description":"Ride TukTuk to Win free couple movie tickets."
                    
                 },
 
                 {
-                	"link":"img/promotion-2.jpg",
-                	"title":"WANT FREE RIDES?",
+                	"title":"एक दिन में १५ सवारी पर ९०० रूपए ले जाओ ",
                    "description":"Refer your friends and earn Rs. 25 worth of tCASH."
                   
                 }
@@ -64,24 +65,40 @@ appModule.controller('MainCtrl', function($scope) {
 
 
 </script>
-<body ng-app="myApp">
-<!-- <body ng-app="myApp" onload="app.updateOfferCount(5)"> -->
+<body ng-app="myApp" onload="app.updateOfferCount(5)">
 <div class="container" ng-controller="MainCtrl">
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12">
  <br>
 <div class="bd-example" data-example-id="">
-<div class="card" ng-repeat="module in data.modules">
-  <img class="card-img-top" style="width: 100%; display: block;" src="{{module.link}}" data-holder-rendered="true">
+<div class="card" >
   <div class="card-block">
-  
-    <h4 class="card-title">{{ module.title }}</h4>
-    <!-- <button class="btn btn-success col-xs-3 col-sm-3 col-md-3 pull-right" onclick="app.useOffer('VALIDONE1')">Use</button> -->
-    <p class="card-text">{{ module.description }}</p>
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में १५ सवारी पर ९०० रूपए ले जाओ </h4>
+  </div>
+</div><div class="card" >
+  <div class="card-block">
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में २० सवारी पर ११०० रूपए ले जाओ </h4>
+
+  </div>
+</div><div class="card" > 
+
+  <div class="card-block">
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में २५   सवारी पर १३०० रूपए ले जाओ </h4>
+
   </div>
 </div>
-<!-- <div class="well well-sm text-center" onclick="app.updateOfferCount(5)"> Total {{ data.modules.length }} Offers</div> -->
-<div></div>
+<div class="card" >
+  <div class="card-block">
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में १५ सवारी पर ९०० रूपए ले जाओ </h4>
+
+  </div>
+</div>
+<div>
+</div>
 </div>
 </div>
 </div>
