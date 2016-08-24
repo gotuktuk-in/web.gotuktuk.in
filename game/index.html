@@ -10539,7 +10539,7 @@
         if (event.type === "touchend") {
             //$("#arrow").animate({top: topPos+"px"},"fast");
             if (arrow === event.target) {
-                if ((topPos + first.clientY - offsetY) >= (topPos + parseInt($("#imgarrow").css("height")))) {
+                if ((topPos + first.clientY - offsetY) >= (topPos + parseInt($("#imgarrow").css("height"))) -100     ) {
                     //var lastTop = (parseInt( $(".b47TT-text-block1").css("top")) + parseInt($("#imgMatki").css("height"))) + parseInt($("#matkiContainer").css("top"))
                     var lastTop = -150;
                     //$("#arrow").hide();
@@ -10550,7 +10550,7 @@
                     setTimeout(function () {
                         $('.gifplayer').gifplayer('stop');
                         $('ins').hide();
-                    }, 1300);
+                    }, 1600);
                     $("#arrow").animate({top: lastTop + "px"}, "slow", function () {
                         // Animation complete.
                         //$("#arrow").hide();
@@ -10569,15 +10569,17 @@
         $('.gifplayer').gifplayer();
         $('ins').hide();
         /*$('.gifplayer').gifplayer({
-         onPlay: function(){
-         console.log('GIF started',this);
-         setTimeout(function(){$('.gifplayer').gifplayer('stop');},1280);
-         },
-         onStop: function(){
-         $('ins').hide();
-         console.log('GIF stopped',this);
-         },
-         });*/
+            onPlay: function () {
+                console.log('GIF started', this);
+                /!*setTimeout(function () {
+                    $('.gifplayer').gifplayer('stop');
+                }, 1280);*!/
+            },
+            onStop: function () {
+                //$('ins').hide();
+                console.log('GIF stopped', this);
+            },
+        });*/
         arrow = document.getElementById("imgarrow");
         topPos = parseInt($("#arrow").css("top"));
         document.addEventListener("touchstart", touchHandler, true);
