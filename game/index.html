@@ -10147,13 +10147,16 @@
         if (event.type === "touchstart") {
             offsetY = first.clientY;
             //console.log(window)
-            userTapCount++;
-            if(userTapCount===houMuchTap)
+            if(gamestatus != "done")
             {
-                $("#matkifodo").attr("src", "images/" + winTcash + ".gif");
-                saveTcash();
+                userTapCount++;
+                if(userTapCount===houMuchTap)
+                {
+                    $("#matkifodo").attr("src", "images/" + winTcash + ".gif");
+                    saveTcash();
+                }
+                console.log(userTapCount);
             }
-            console.log(userTapCount);
         }
         /*if (event.type === "touchmove") {
          //console.log((topPos+first.clientY-offsetY) + "  =  " +   (topPos  + parseInt($("#imgarrow").css("height"))) )
