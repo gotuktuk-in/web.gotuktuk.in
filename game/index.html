@@ -10201,7 +10201,7 @@
             $.ajax({
                 type: "GET",
                 headers: {'Authorization': 'Bearer ' + token},
-                url: "https://qa-api.gotuktuk.in/rest/v1/promos/JANMASHTMI2016/status",
+                url: "https://dev-api.gotuktuk.in/rest/v1/promos/JANMASHTMI2016/status",
                 success: function (data) {
                     console.log(data);
                     gamestatus = data.status;
@@ -10234,7 +10234,7 @@
                 type: "POST",
                 headers: {'Authorization': 'Bearer ' + token},
                 data: {"tCash": winTcash},
-                url: "https://qa-api.gotuktuk.in/rest/v1/promos/JANMASHTMI2016/apply",
+                url: "https://dev-api.gotuktuk.in/rest/v1/promos/JANMASHTMI2016/apply",
                 success: function (data) {
                     console.log(data);
                 },
