@@ -10205,7 +10205,7 @@
                 success: function (data) {
                     console.log(data);
                     gamestatus = data.status;
-                    if (gamestatus != "done") {
+                    if (gamestatus == "done") {
                         $("#matkifodo").attr("src", "images/won.jpg");
                         $("#arrow").hide();
                         $("#congrat").hide();
