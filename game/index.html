@@ -10025,6 +10025,7 @@
 </head>
 <body style="background: #f7de08;">
 <div id="cover"></div>
+<img style="width: 1px;height: 1px;" onload="gifloaded()" src="images/11.gif" alt="" >
 <div class="b47TT-wrapper">
     <div class="b47TT-text-block1" style="z-index: 9">
         <img class="img-responsive" src="images/12.jpg" alt="" id="matkifodo">
@@ -10134,11 +10135,14 @@
         document.addEventListener("touchmove", touchHandler, true);
         document.addEventListener("touchend", touchHandler, true);
         document.addEventListener("touchcancel", touchHandler, true);
-
-        $('#cover').fadeOut(1000);
     }
     window.onload = function () {
         init()
+    }
+
+    function gifloaded()
+    {
+        $('#cover').fadeOut(1000);
     }
     //var arrow ;
 
