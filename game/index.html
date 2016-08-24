@@ -10021,6 +10021,7 @@
             z-index: 999;
             opacity: 1;
         }
+
         #won {
             background: #000;
             position: absolute;
@@ -10029,15 +10030,22 @@
             z-index: 999;
             opacity: .8;
         }
-        .b47TT-text-block1 img.letsgo{    width: 340px;
+
+        .b47TT-text-block1 img.letsgo {
+            width: 340px;
             display: block;
-            margin: 335px auto 0;}
-        .b47TT-text-block1 img.congrat{    width: 80%;
+            margin: 335px auto 0;
+        }
+
+        .b47TT-text-block1 img.congrat {
+            width: 80%;
             display: block;
-            margin: 335px auto 0;}
+            margin: 335px auto 0;
+        }
+
         img.won {
             display: block;
-            margin: 30vh auto 0;
+            margin: 16vh auto 0;
             width: 90%;
         }
     </style>
@@ -10050,8 +10058,8 @@
 <div class="b47TT-wrapper">
     <div class="b47TT-text-block1" style="z-index: 9">
         <img class="img-responsive" src="images/12.jpg" alt="" id="matkifodo">
-        <img class="img-responsive congrat" src="images/congratulation.png" alt="" id="congrat">
-        <img class="img-responsive letsgo" src="images/let's-go.png" alt="" id="letsgo">
+        <img class="img-responsive congrat" style="display: none;" src="images/congratulation.png" alt="" id="congrat">
+        <img class="img-responsive letsgo" style="display: none;" src="images/let's-go.png" alt="" id="letsgo">
         <!--<div class="col-xs-10 col-xs-offset-2">
             <img class="img-responsive" src="images/fodo-mataki-text.png" alt="">
             <div class="b47TT-mataki-block1" id="matkiContainer">
@@ -10059,7 +10067,7 @@
             </div>
         </div>-->
     </div>
-    <div class="b47TT-arrow-block1" style="z-index: 0" id="arrow">
+    <div class="b47TT-arrow-block1" style="z-index: 0;display: none" id="arrow">
         <img src="images/arrow.png" alt="" id="imgarrow">
     </div>
 </div>
@@ -10072,9 +10080,28 @@
     var topPos;
     var offsetY;
     var tcash = [20, 20, 20, 20, 30, 30, 30, 40, 40, 50, 50];
-    var winTcash = tcash[parseInt(Math.random() * 10)];
-    console.log("winTcash " + winTcash)
+    var winTcash;
+
+
+    try {
+        var winTcash = tcash[parseInt(Math.random() * 10)];
+    } catch (e) {
+        winTcash = 20;
+    }
+
+    console.log("winTcash " + winTcash);
     var gamestatus = "pending";
+
+    var tapCount = [3, 4, 5];
+    var houMuchTap;
+
+    try {
+        houMuchTap = tapCount[parseInt(Math.random() * 3)];
+    } catch (e) {
+        houMuchTap = 3
+    }
+    console.log("houMuchTap " + houMuchTap);
+    var userTapCount = 0;
     $("#won").hide();
     function touchHandler(event) {
         var touches = event.changedTouches,
@@ -10109,58 +10136,66 @@
 
         if (event.type === "touchstart") {
             offsetY = first.clientY;
-            console.log(window)
-        }
-        if (event.type === "touchmove") {
-            //console.log((topPos+first.clientY-offsetY) + "  =  " +   (topPos  + parseInt($("#imgarrow").css("height"))) )
-            if (arrow === event.target) {
-                if (first.clientY >= topPos) {
-                    $("#arrow").css("top", (topPos + first.clientY - offsetY) + 'px');
-                }
+            //console.log(window)
+            userTapCount++;
+            if(userTapCount===houMuchTap)
+            {
+                $("#matkifodo").attr("src", "images/" + winTcash + ".gif");
+                saveTcash();
             }
-            //console.log(first.clientY)
+            console.log(userTapCount);
         }
-        if (event.type === "touchend") {
-            //$("#arrow").animate({top: topPos+"px"},"fast");
-            if (arrow === event.target) {
-                if ((topPos + first.clientY - offsetY) >= (topPos + parseInt($("#imgarrow").css("height"))) - 150) {
-                    var lastTop = (parseInt($(".b47TT-text-block1").css("top")) + 300 )
-                    //var lastTop = -150;
-                    $("#matkifodo").attr("src", "images/" + winTcash + ".gif");
-                    $("#arrow").animate({top: lastTop + "px"}, 500, function () {
-                        // Animation complete.
-                        $("#arrow").hide();
-                        $("#congrat").show('slow');
-                        saveTcash();
-                    });
+        /*if (event.type === "touchmove") {
+         //console.log((topPos+first.clientY-offsetY) + "  =  " +   (topPos  + parseInt($("#imgarrow").css("height"))) )
+         if (arrow === event.target) {
+         if (first.clientY >= topPos) {
+         $("#arrow").css("top", (topPos + first.clientY - offsetY) + 'px');
+         }
+         }
+         //console.log(first.clientY)
+         }
+         if (event.type === "touchend") {
+         //$("#arrow").animate({top: topPos+"px"},"fast");
+         if (arrow === event.target) {
+         if ((topPos + first.clientY - offsetY) >= (topPos + parseInt($("#imgarrow").css("height"))) - 150) {
+         var lastTop = (parseInt($(".b47TT-text-block1").css("top")) + 300 )
+         //var lastTop = -150;
+         $("#matkifodo").attr("src", "images/" + winTcash + ".gif");
+         $("#arrow").animate({top: lastTop + "px"}, 500, function () {
+         // Animation complete.
+         $("#arrow").hide();
+         $("#congrat").show('slow');
+         saveTcash();
+         });
 
-                    $("#letsgo").animate({opacity:  "0"},500, function () {
+         $("#letsgo").animate({opacity:  "0"},500, function () {
 
-                    });
-                }
-                else {
-                    $("#arrow").animate({top: topPos + "px"}, "fast");
-                }
-            }
-        }
+         });
+         }
+         else {
+         $("#arrow").animate({top: topPos + "px"}, "fast");
+         }
+         }
+         }*/
         event.preventDefault();
     }
     var h
     var w
     function init() {
-        arrow = document.getElementById("imgarrow");
+        //arrow = document.getElementById("imgarrow");
         h = window.innerHeight
                 || document.documentElement.clientHeight
                 || document.body.clientHeight;
         w = window.innerWidth
                 || document.documentElement.clientWidth
                 || document.body.clientWidth;
-        var ah = $("#arrow").height() || 227;
-        topPos = h - $("#arrow").height() // parseInt($("#arrow").css("top"));
+        //var ah = $("#arrow").height() || 227;
+        //topPos = h - $("#arrow").height() // parseInt($("#arrow").css("top"));
         document.addEventListener("touchstart", touchHandler, true);
-        document.addEventListener("touchmove", touchHandler, true);
-        document.addEventListener("touchend", touchHandler, true);
-        document.addEventListener("touchcancel", touchHandler, true);
+        /*document.addEventListener("touchstart", touchHandler, true);
+         document.addEventListener("touchmove", touchHandler, true);
+         document.addEventListener("touchend", touchHandler, true);
+         document.addEventListener("touchcancel", touchHandler, true);*/
     }
     window.onload = function () {
         init();
@@ -10207,9 +10242,9 @@
                     gamestatus = data.status;
                     if (gamestatus == "done") {
                         $("#matkifodo").attr("src", "images/won.jpg");
-                        $("#arrow").hide();
+                        /*$("#arrow").hide();
                         $("#congrat").hide();
-                        $("#letsgo").hide();
+                        $("#letsgo").hide();*/
                         //data.tcash = 20
                         setTimeout(function () {
                             $('#cover').fadeOut(1000);
@@ -10218,9 +10253,9 @@
                         }, 500);
                     }
                     else {
-                        $("#letsgo").show();
+                        /*$("#letsgo").show();
                         $("#congrat").hide();
-                        $("#arrow").show();
+                        $("#arrow").show();*/
                         $('#cover').fadeOut(1000);
                     }
                 }
