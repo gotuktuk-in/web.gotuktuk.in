@@ -7223,7 +7223,7 @@
 
         .b47TT-text-block1 {
             position: relative;
-            top: 19%;
+            top: 8%;
         }
 
         @media only screen and (min-width: 320px) {
@@ -10025,24 +10025,17 @@
 </head>
 <body style="background: #f7de08;">
 <div id="cover"></div>
-<div class="b47TT-wrapper1">
-    <img style="width: 100%;height: auto;position: absolute;
-    z-index: -3;" src="images/bg.jpg" alt="">
-    <!-- <img class="gifplayer" data-mode="video"
-          data-webm="images/matki.webm"
-          data-mp4="images/matki.mp4" style="width: 100%;height: auto;" src="images/matki.jpg" alt="" id="imgMatki">-->
-    <video id="video1" poster="images/banner.jpg">
-        <source id="mp4_src" src="images/matki.mp4" type="video/mp4">
-    </video>
-    <!--<div class="b47TT-text-block1">
-			<div class="col-xs-10 col-xs-offset-2">
+<div class="b47TT-wrapper">
+    <div class="b47TT-text-block1" style="z-index: 9">
+        <img class="img-responsive" src="images/12.jpg" alt="" id="matkifodo">
+			<!--<div class="col-xs-10 col-xs-offset-2">
 				<img class="img-responsive" src="images/fodo-mataki-text.png" alt="">
 				<div class="b47TT-mataki-block1" id="matkiContainer">
 					<img class="gifplayer" class="img-responsive" src="images/matki-img1.png" alt="" id="imgMatki">
 				</div>
-			</div>
-		</div>-->
-    <div class="b47TT-arrow-block1" id="arrow">
+			</div>-->
+		</div>
+    <div class="b47TT-arrow-block1" style="z-index: 0" id="arrow">
         <img src="images/arrow.png" alt="" id="imgarrow">
     </div>
 </div>
@@ -10102,14 +10095,19 @@
             //$("#arrow").animate({top: topPos+"px"},"fast");
             if (arrow === event.target) {
                 if ((topPos + first.clientY - offsetY) >= (topPos + parseInt($("#imgarrow").css("height"))) - 100) {
-                    //var lastTop = (parseInt( $(".b47TT-text-block1").css("top")) + parseInt($("#imgMatki").css("height"))) + parseInt($("#matkiContainer").css("top"))
-                    var lastTop = -150;
-                    $("#arrow").hide();
-                    myVideo.play();
-                    console.log("my video status " + myVideo.readyState);
-                    $("#arrow").animate({top: lastTop + "px"}, "slow", function () {
+                    var lastTop = (parseInt( $(".b47TT-text-block1").css("top")) + 300 )
+                    //var lastTop = -150;
+                    //$("#arrow").hide();
+                    $("#matkifodo").attr("src","images/11.gif")
+                    $("#arrow").animate({top: lastTop + "px"}, "fast", function () {
                         // Animation complete.
-                        //$("#arrow").hide();
+                        $("#arrow").hide();
+                        /*$("#matkiContainer").animate({top:  "-700px"}, "slow", function () {
+
+                        });
+                        $("#arrow").animate({top:  "-300px"}, "slow", function () {
+
+                        });*/
                         //$('.gifplayer').gifplayer('play');
                     });
                 }
@@ -10136,37 +10134,13 @@
         document.addEventListener("touchmove", touchHandler, true);
         document.addEventListener("touchend", touchHandler, true);
         document.addEventListener("touchcancel", touchHandler, true);
-        myVideo.height = h;
+
+        $('#cover').fadeOut(1000);
     }
     window.onload = function () {
         init()
     }
     //var arrow ;
-    var myVideo = document.getElementById("video1");
-    console.log( "images/matki" + winTcash + ".mp4?time=" + Date.now())
-    document.getElementById("mp4_src").src = "images/matki" + winTcash + ".mp4?time=" + Date.now();
-    //myVideo.width = 300;
-    myVideo.preload = "auto";
-    myVideo.load();
-    console.log("my video status " + myVideo.readyState);
-    myVideo.onended = function () {
-        //alert("The video1 has ended");
-    };
-    myVideo.oncanplaythrough = function () {
-        //alert("Can canplaythrough playing video");
-        console.log("Can canplaythrough playing video " + h)
-        console.log("my video status " + myVideo.readyState);
-        this.height = h;
-        $('#cover').fadeOut(1000);
-    };
-     myVideo.oncanplay = function() {
-         console.log("Can start playing video")
-         console.log("my video status " + myVideo.readyState);
-     //alert("Can start playing video");
-     };
-    myVideo.onerror = function () {
-        alert("Error! Something went wrong, Please try again");
-    };
 
 </script>
 
