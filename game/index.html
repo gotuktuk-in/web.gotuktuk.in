@@ -10139,6 +10139,7 @@
     var myVideo = document.getElementById("video1");
     console.log( "images/matki" + winTcash + ".mp4?time=" + Date.now())
     document.getElementById("mp4_src").src = "images/matki" + winTcash + ".mp4?time=" + Date.now();
+    myVideo.load();
     myVideo.onended = function () {
         //alert("The video1 has ended");
     };
