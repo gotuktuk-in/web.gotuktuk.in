@@ -91,18 +91,132 @@
         }
 
     </style>
+    <!-- Bootstrap core JavaScript
+        ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"
+            integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"
+            crossorigin="anonymous"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"
+            integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB"
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+        //jQuery.noConflict();
+        var submitShareCode;
+        var saveAnswers;
+        var nextQuestion
+        var addChoices;
+        var currentQuestion = 0;
+        jQuery(document).ready( function($) {
+
+            var host = "https://dev-api-analytics.gotuktuk.in/rest/o/v1/campaigns/MIKA2016/"
+            var shareCode = "RDEVE69015";
+            var profileId = ""
+            var questions = [];
+            var answers = [];
+            var screenShareCode = true;
+            var screenQuestions = false;
+            var screenAlreadyUsed = false;
+
+            $(".success-section").hide()
+            $(".question-section").hide()
+
+
+            submitShareCode = function ()
+            {
+
+                var shareCode = $("#shareCodes").val()
+                if(shareCode=="")
+                {
+                    $("shareCodes").addClass('.error-outline')
+                    return;
+                }
+                else
+                {
+
+                    $("shareCodes").removeClass('.error-outline')
+                    $.get(host +shareCode , function(data, status){
+                        $(".share-code-section").hide()
+                        $(".question-section").show()
+                        questions = data.questions
+                        nextQuestion()
+                        console.log("Data: " , data + "\nquestions: " , questions);
+                    }).fail(function() {
+                        alert( "error getting questions" );
+                    });
+                }
+
+            }
+             saveAnswers = function()
+            {
+                $.post(host + profileId +  "/answer",
+                        {
+                            name: "Donald Duck",
+                            city: "Duckburg"
+                        },
+                        function(data, status){
+                            alert("Data: " , data + "\nStatus: " , status);
+                        });
+            }
+             nextQuestion = function() {
+                submt = true;
+                $('#question').text(questions[currentQuestion]['question']);
+                $('#pager').text('Question ' + Number(currentQuestion + 1) + ' of ' + questions.length);
+               /* if (questions[currentQuestion].hasOwnProperty('image') && questions[currentQuestion]['image'] != "") {
+                    if ($('#question-image').length == 0) {
+                        $(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', questions[currentQuestion]['image']).attr('alt', htmlEncode(questions[currentquestion]['question'])).insertAfter('#question');
+                    } else {
+                        $('#question-image').attr('src', questions[currentQuestion]['image']).attr('alt', htmlEncode(quiz[currentQuestion]['question']));
+                    }
+                } else {
+                    $('#question-image').remove();
+                }*/
+                addChoices(questions[currentQuestion]['options']);
+            //    setupButtons();
+
+
+            }
+             addChoices = function(choices) {
+                if (typeof choices !== "undefined" && $.type(choices) == "array") {
+                    $('#options-block').empty();
+                    for (var i = 0; i < choices.length; i++) {
+                        $("#options-block").append(
+                                $('<label />', {
+                                    'text': choices[i]
+                                }).append(
+                                        $('<input />', {
+                                            type: 'radio',
+                                            name: 'optionsRadios',
+                                            id: 'optionsRadios' + i,
+                                          //  value: this.Id
+                                        } )
+                                )
+                        );
+                        //   $(document.createElement('li')).addClass('choice choice-box').attr('data-index', i).text(choices[i]).appendTo('#options-block');
+                    }
+                }
+            }
+
+        });
+    </script>
 </head>
 <body>
-<div class="container share-code-section" style="display: none">
+<div class="container share-code-section">
     <div class="row">
         <div class="col-lg-12">
             <form class="form">
                 <div class="form-group">
                     <label class="sr-only" for="shareCodes">Share Codes</label>
-                    <input type="text" class="form-control text-xs-center" id="shareCodes" placeholder="Share Codes">
+                    <input type="text" value="RDEVE69015" class="form-control text-xs-center" id="shareCodes" placeholder="Share Codes">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-danger btn-block">Submit</button>
+                    <button type="button" class="btn btn-danger btn-block" onclick="submitShareCode()">Submit</button>
                 </div>
                 <div class="checkbox text-center">
                     <label style="color:#000;">
@@ -123,8 +237,11 @@
         <div class="col-lg-12">
             <form class="form">
                 <fieldset class="form-group">
-                    <legend>Do you visit theater?</legend>
-                    <div class="radio">
+                    <legend id="question">--</legend>
+                    <div id="options-block">
+
+                    </div>
+                    <!--<div class="radio">
                         <label>
                             <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
                             Option one is this and that&mdash;be sure to include why it's great
@@ -141,7 +258,7 @@
                             <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
                             Option three is disabled
                         </label>
-                    </div>
+                    </div>-->
                 </fieldset>
                 <span class="pull-left" style="font-size:20px">&#10094;</span>
                 <span class="pull-right" style="font-size:20px">&#10095;</span>
@@ -267,56 +384,7 @@
 </div>
 
 
-<!-- Bootstrap core JavaScript
-    ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"
-        integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"
-        crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"
-        integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB"
-        crossorigin="anonymous"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="js/ie10-viewport-bug-workaround.js"></script>
-<script>
-    $( document ).ready(function() {
-        var host = "https://dev-api-analytics.gotuktuk.in/rest/o/v1/campaigns/MIKA2016/"
-        var shareCode = "RDEVE69015";
-        var profileId = ""
-        var questions = [];
-        var answers = [];
-        var screenShareCode = true;
-        var screenQuestions = false;
-        var screenAlreadyUsed = false;
-        getQuestions()
-        function getQuestions()
-        {
-            $.get(host +shareCode , function(data, status){
-                console.log("Data: " + data + "\nStatus: " + status);
-            }).fail(function() {
-                alert( "error getting questions" );
-            });
-        }
-        function saveAnswers()
-        {
-            $.post(host + profileId +  "/answer",
-                    {
-                        name: "Donald Duck",
-                        city: "Duckburg"
-                    },
-                    function(data, status){
-                        alert("Data: " + data + "\nStatus: " + status);
-                    });
-        }
 
 
-
-    });
-</script>
 </body>
 </html>
