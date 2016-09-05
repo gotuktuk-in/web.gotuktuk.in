@@ -71,5 +71,41 @@
 <script src="js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="js/ie10-viewport-bug-workaround.js"></script>
+<script>
+    $( document ).ready(function() {
+        var host = "https://dev-api-analytics.gotuktuk.in/rest/o/v1/campaigns/MIKA2016"
+        var ANSWERS_API = host + "MIKA2016/"
+        var shareCode = "RDEVE69015";
+        var profileId = ""
+        var questions = [];
+        var answers = [];
+        var screenShareCode = true;
+        var screenQuestions = false;
+        var screenAlreadyUsed = false;
+        getQuestions()
+        function getQuestions()
+        {
+            $.get(host +shareCode , function(data, status){
+                console.log("Data: " + data + "\nStatus: " + status);
+            }).fail(function() {
+                alert( "error getting questions" );
+            });
+        }
+        function saveAnswers()
+        {
+            $.post(host + profileId +  "/answer",
+                    {
+                        name: "Donald Duck",
+                        city: "Duckburg"
+                    },
+                    function(data, status){
+                        alert("Data: " + data + "\nStatus: " + status);
+                    });
+        }
+
+
+
+    });
+</script>
 </body>
 </html>
