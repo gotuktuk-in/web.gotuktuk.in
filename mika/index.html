@@ -133,11 +133,37 @@
             $("#prevBtn").on('click', function () {
                 currentQuestion--
                 nextQuestion()
+                if(currentQuestion==0)
+                {
+                    $(this).hide()
+                }
+                if(currentQuestion>=0){
+                    $("#nextBtn").show()
+                }
+                if((answers[currentQuestion] && answers[currentQuestion].answer) && currentQuestion>0)
+                {
+                    $(this).show()
+                }
             })
 
             $("#nextBtn").on('click', function () {
+
                 currentQuestion++
                 nextQuestion()
+                console.log('cur ', currentQuestion + ' len ', questions.length)
+                if(currentQuestion<=questions.length-1)
+                {
+                    $(this).hide()
+                }
+                if(currentQuestion>0){
+                    $("#prevBtn").show()
+                }
+                 if((answers[currentQuestion] && answers[currentQuestion].answer) && currentQuestion<questions.length-1)
+                {
+                    $(this).show()
+                }
+
+
             })
             $('#nextBtn').hide()
             $('#prevBtn').hide()
@@ -192,36 +218,17 @@
             }
             nextQuestion = function () {
                 submt = true;
-                checkButtons()
+
 
                 $('#question').text(questions[currentQuestion]['question']);
                 $('#pager').text('Question ' + Number(currentQuestion + 1) + ' of ' + questions.length);
                 addChoices(questions[currentQuestion]['options']);
             }
-            checkButtons = function () {
-                if (currentQuestion != 0) {
-                    $('#prevBtn').show()
-                }
-                else {
-                    $('#prevBtn').hide()
-                }
-                if (currentQuestion == questions.length - 1) {
-                    $('#nextBtn').hide()
-                }
-                else {
-                    $('#nextBtn').show()
-                }
-                if (answers.length == questions.length) {
-                    $("#saveBtn").prop("disabled", false);
-                }
-            }
+
             addChoices = function (choices) {
                 if (typeof choices !== "undefined" && $.type(choices) == "array") {
                     $('#options-block').empty();
-                    $('#nextBtn').hide()
-                    if (currentQuestion != 0) {
-                        $('#prevBtn').hide()
-                    }
+
 
                     for (var i = 0; i < choices.length; i++) {
 
@@ -256,7 +263,19 @@
                             obj.answer = $('input[name=optionsRadios]:checked').val()
                             answers[currentQuestion] = obj;
                             console.log(answers)
-                            checkButtons()
+                            if((answers && answers[currentQuestion].answer) && currentQuestion<questions.length-1)
+                            {
+                                $('#nextBtn').show()
+                            }
+                            if((answers && answers[currentQuestion].answer) && currentQuestion>0)
+                            {
+                                $('#prevBtn').show()
+                            }
+                            if(answers.length==questions.length)
+                            {
+                                $("#saveBtn").prop("disabled", false);
+                            }
+
                         })
                         //   $(document.createElement('li')).addClass('choice choice-box').attr('data-index', i).text(choices[i]).appendTo('#options-block');
                     }
@@ -273,7 +292,7 @@
             <form class="form">
                 <div class="form-group">
                     <label class="sr-only" for="shareCodes">Share Codes</label>
-                    <input type="text" value="RDEVE69015" class="form-control text-xs-center" id="shareCodes"
+                    <input type="text" value="RPAWA237744" class="form-control text-xs-center" id="shareCodes"
                            placeholder="Share Codes">
                 </div>
                 <div class="form-group">
