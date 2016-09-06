@@ -97,7 +97,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"
             integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"
             crossorigin="anonymous"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"
             integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB"
             crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
@@ -112,8 +112,9 @@
         var saveAnswers;
         var nextQuestion
         var addChoices;
+        var checkButtons
         var currentQuestion = 0;
-        jQuery(document).ready( function($) {
+        jQuery(document).ready(function ($) {
 
             var host = "https://dev-api-analytics.gotuktuk.in/rest/o/v1/campaigns/MIKA2016/"
             var shareCode = "RDEVE69015";
@@ -126,67 +127,107 @@
 
             $(".success-section").hide()
             $(".question-section").hide()
+            $("#saveBtn").prop("disabled", true);
 
 
-            submitShareCode = function ()
-            {
+            $("#prevBtn").on('click', function () {
+                currentQuestion--
+                nextQuestion()
+            })
+
+            $("#nextBtn").on('click', function () {
+                currentQuestion++
+                nextQuestion()
+            })
+            $('#nextBtn').hide()
+            $('#prevBtn').hide()
+            submitShareCode = function () {
 
                 var shareCode = $("#shareCodes").val()
-                if(shareCode=="")
-                {
+                if (shareCode == "") {
                     $("shareCodes").addClass('.error-outline')
                     return;
                 }
-                else
-                {
+                else {
 
                     $("shareCodes").removeClass('.error-outline')
-                    $.get(host +shareCode , function(data, status){
+                    $.get(host + shareCode, function (data, status) {
                         $(".share-code-section").hide()
                         $(".question-section").show()
                         questions = data.questions
+                        profileId = data.profile.id
                         nextQuestion()
-                        console.log("Data: " , data + "\nquestions: " , questions);
-                    }).fail(function() {
-                        alert( "error getting questions" );
+                        console.log("Data: ", data + "\nquestions: ", questions);
+                    }).fail(function (error) {
+                        console.log(error)
+                        if(error.responseJSON.code==69)
+                        {
+                            $('#alreadySubmitted').modal('show');
+                        }
+                        else if(error.responseJSON.code==402)
+                        {
+                            $('#invalidShareCode').modal('show');
+                        }
+
                     });
                 }
 
             }
-             saveAnswers = function()
-            {
-                $.post(host + profileId +  "/answer",
-                        {
-                            name: "Donald Duck",
-                            city: "Duckburg"
-                        },
-                        function(data, status){
-                            alert("Data: " , data + "\nStatus: " , status);
-                        });
+            $("#saveBtn").on('click', function () {
+                saveAnswers()
+            })
+            saveAnswers = function () {
+                var data = {answers: answers};
+                var json = JSON.stringify(data );
+                $.ajax({
+                    type: "POST",
+                    url: host + profileId + "/answer",
+                    data: json,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(msg) {
+                        alert('In Ajax');
+                    }
+                })
             }
-             nextQuestion = function() {
+            nextQuestion = function () {
                 submt = true;
+                checkButtons()
+
                 $('#question').text(questions[currentQuestion]['question']);
                 $('#pager').text('Question ' + Number(currentQuestion + 1) + ' of ' + questions.length);
-               /* if (questions[currentQuestion].hasOwnProperty('image') && questions[currentQuestion]['image'] != "") {
-                    if ($('#question-image').length == 0) {
-                        $(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', questions[currentQuestion]['image']).attr('alt', htmlEncode(questions[currentquestion]['question'])).insertAfter('#question');
-                    } else {
-                        $('#question-image').attr('src', questions[currentQuestion]['image']).attr('alt', htmlEncode(quiz[currentQuestion]['question']));
-                    }
-                } else {
-                    $('#question-image').remove();
-                }*/
                 addChoices(questions[currentQuestion]['options']);
-            //    setupButtons();
-
-
             }
-             addChoices = function(choices) {
+            checkButtons = function () {
+                if (currentQuestion != 0) {
+                    $('#prevBtn').show()
+                }
+                else {
+                    $('#prevBtn').hide()
+                }
+                if (currentQuestion == questions.length - 1) {
+                    $('#nextBtn').hide()
+                }
+                else {
+                    $('#nextBtn').show()
+                }
+                if (answers.length == questions.length) {
+                    $("#saveBtn").prop("disabled", false);
+                }
+            }
+            addChoices = function (choices) {
                 if (typeof choices !== "undefined" && $.type(choices) == "array") {
                     $('#options-block').empty();
+                    $('#nextBtn').hide()
+                    if (currentQuestion != 0) {
+                        $('#prevBtn').hide()
+                    }
+
                     for (var i = 0; i < choices.length; i++) {
-                        $("#options-block").append(
+
+
+                        var $div1 = $("<div></div>").addClass('radio');
+                        $($div1).append(
                                 $('<label />', {
                                     'text': choices[i]
                                 }).append(
@@ -194,10 +235,29 @@
                                             type: 'radio',
                                             name: 'optionsRadios',
                                             id: 'optionsRadios' + i,
-                                          //  value: this.Id
-                                        } )
+                                            value: choices[i]
+                                        })
                                 )
                         );
+
+                        $("#options-block").append($div1)
+                        if (answers[currentQuestion]) {
+                            console.log(answers[currentQuestion])
+                            if (choices[i] == answers[currentQuestion].answer) {
+                                $('#optionsRadios' + i).attr('checked', true);
+                                //    $('#optionsRadios3').attr('checked', true)
+                            }
+
+                        }
+                        $('#optionsRadios' + i).on('click', function () {
+                            var obj = {}
+                            obj.questionId = questions[currentQuestion].id
+                            obj.question = questions[currentQuestion].question
+                            obj.answer = $('input[name=optionsRadios]:checked').val()
+                            answers[currentQuestion] = obj;
+                            console.log(answers)
+                            checkButtons()
+                        })
                         //   $(document.createElement('li')).addClass('choice choice-box').attr('data-index', i).text(choices[i]).appendTo('#options-block');
                     }
                 }
@@ -213,7 +273,8 @@
             <form class="form">
                 <div class="form-group">
                     <label class="sr-only" for="shareCodes">Share Codes</label>
-                    <input type="text" value="RDEVE69015" class="form-control text-xs-center" id="shareCodes" placeholder="Share Codes">
+                    <input type="text" value="RDEVE69015" class="form-control text-xs-center" id="shareCodes"
+                           placeholder="Share Codes">
                 </div>
                 <div class="form-group">
                     <button type="button" class="btn btn-danger btn-block" onclick="submitShareCode()">Submit</button>
@@ -260,18 +321,18 @@
                         </label>
                     </div>-->
                 </fieldset>
-                <span class="pull-left" style="font-size:20px">&#10094;</span>
-                <span class="pull-right" style="font-size:20px">&#10095;</span>
-
+                <span class="pull-left" style="font-size:20px" id="prevBtn">&#10094;</span>
+                <span class="pull-right" style="font-size:20px" id="nextBtn">&#10095;</span>
+            </form>
                 <div class='clearfix'></div>
                 <div class="final-submit-btn">
                     <hr>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                        <button id="saveBtn" type="input" class="btn btn-primary pull-right">Save</button>
                         <div class='clearfix'></div>
                     </div>
                 </div>
-            </form>
+
         </div>
     </div>
     <!-- /question-section -->
@@ -284,6 +345,7 @@
             <h3 style="font-weight: 300; line-height: 30px" class="text-success">
                 Congratulations!
             </h3>
+
             <h3 style="font-weight: 100; line-height: 30px">
                 You are now eligible for the lucky draw. We will notify you on 16th Sept. on your
                 TukTuk App.
@@ -382,8 +444,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 </body>
