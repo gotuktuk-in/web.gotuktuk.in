@@ -1,0 +1,107 @@
+<html dir="ltr" lang="he">
+  <head>
+    <meta charset="utf-8">
+    </head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+<style>
+.card-block {
+    padding: 1.25rem;
+}
+.card {
+    background-color: #fff;
+    border: 2px dashed #5cb85c;
+    border-radius: 1rem;
+    display: block;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow:hidden;
+    padding:4px;
+}
+.bd-example {
+    border-width: 0.2rem;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1.5rem;
+}
+.container {
+    width: 100% !important;
+}
+</style>
+<script>
+var appModule = angular.module('myApp', []);
+
+appModule.controller('MainCtrl', function($scope) {
+	$scope.date = new Date();
+	var json = {
+    "modules":
+        [
+                {
+                	"title":"एक दिन में १५ सवारी पर ९०० रूपए ले जाओ",
+                   "description":"Ride TukTuk to Win free couple movie tickets."
+                   
+                },
+
+                {
+                	"title":"एक दिन में १५ सवारी पर ९०० रूपए ले जाओ ",
+                   "description":"Refer your friends and earn Rs. 25 worth of tCASH."
+                  
+                }
+		]
+  	};
+
+  		$scope.data = json;
+
+
+});
+
+
+
+</script>
+<body ng-app="myApp" onload="app.updateOfferCount(5)">
+<div class="container" ng-controller="MainCtrl">
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12">
+ <br>
+<div class="bd-example" data-example-id="">
+<div class="card" >
+  <div class="card-block">
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में १५ सवारी पर ९०० रूपए ले जाओ </h4>
+  </div>
+</div><div class="card" >
+  <div class="card-block">
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में २० सवारी पर ११०० रूपए ले जाओ </h4>
+
+  </div>
+</div><div class="card" > 
+
+  <div class="card-block">
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में २५   सवारी पर १३०० रूपए ले जाओ </h4>
+
+  </div>
+</div>
+<div class="card" >
+  <div class="card-block">
+  <p class="card-text">{{date | date:'dd-MM-yyyy'}}</p>
+    <h4 class="card-title">एक दिन में १५ सवारी पर ९०० रूपए ले जाओ </h4>
+
+  </div>
+</div>
+<div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
