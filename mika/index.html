@@ -48,39 +48,39 @@
 
             var host = "https://dev-api-analytics.gotuktuk.in/rest/o/v1/campaigns/MIKA2016/"
             var shareCode = "RDEVE69015";
-            var profileId = ""
+            var profileId = "";
             var questions = [];
             var answers = [];
             var screenShareCode = true;
             var screenQuestions = false;
             var screenAlreadyUsed = false;
 
-            $(".success-section").hide()
-            $(".question-section").hide()
+            $(".success-section").hide();
+            $(".question-section").hide();
+            $(".question-header").hide();
             $("#saveBtn").prop("disabled", true);
 
 
             $("#prevBtn").on('click', function () {
-                currentQuestion--
-                nextQuestion()
+                currentQuestion--;
+                nextQuestion();
                 if (currentQuestion == 0) {
                     $(this).hide()
                 }
                 if (currentQuestion >= 0) {
-                    $("#nextBtn").show()
+                    $("#nextBtn").show();
                 }
                 if ((answers[currentQuestion] && answers[currentQuestion].answer) && currentQuestion > 0) {
-                    $(this).show()
+                    $(this).show();
                 }
             })
 
             $("#nextBtn").on('click', function () {
-
-                currentQuestion++
-                nextQuestion()
-                console.log('cur ', currentQuestion + ' len ', questions.length)
+                currentQuestion++;
+                nextQuestion();
+                console.log('cur ', currentQuestion + ' len ', questions.length);
                 if (currentQuestion <= questions.length - 1) {
-                    $(this).hide()
+                    $(this).hide();
                 }
                 if (currentQuestion > 0) {
                     $("#prevBtn").show()
@@ -91,27 +91,29 @@
 
 
             })
-            $('#nextBtn').hide()
-            $('#prevBtn').hide()
+            $('#nextBtn').hide();
+            $('#prevBtn').hide();
+            $("#saveBtn").hide();
             submitShareCode = function () {
 
                 var shareCode = $("#shareCodes").val().toUpperCase();
                 if (shareCode == "") {
-                    $("shareCodes").addClass('.error-outline')
+                    $("shareCodes").addClass('.error-outline');
                     return;
                 }
                 else {
 
-                    $("shareCodes").removeClass('.error-outline')
+                    $("shareCodes").removeClass('.error-outline');
                     $.get(host + shareCode, function (data, status) {
-                        $(".share-code-section").hide()
-                        $(".question-section").show()
-                        questions = data.questions
-                        profileId = data.profile.id
-                        nextQuestion()
+                        $(".share-code-section").hide();
+                        $(".question-section").show();
+                        $(".question-header").show();
+                        questions = data.questions;
+                        profileId = data.profile.id;
+                        nextQuestion();
                         console.log("Data: ", data + "\nquestions: ", questions);
                     }).fail(function (error) {
-                        console.log(error)
+                        console.log(error);
                         if (error.responseJSON.code == 69) {
                             $('#alreadySubmitted').modal('show');
                         }
@@ -122,10 +124,10 @@
                     });
                 }
 
-            }
+            };
             $("#saveBtn").on('click', function () {
                 saveAnswers()
-            })
+            });
             saveAnswers = function () {
                 var data = {answers: answers};
                 var json = JSON.stringify(data);
@@ -136,19 +138,17 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (msg) {
-                        $(".question-section").hide()
+                        $(".question-section").hide();
                         $('.success-section').show()
                     }
                 })
-            }
+            };
             nextQuestion = function () {
                 submt = true;
-
-
                 $('#question').text(questions[currentQuestion]['question']);
                 $('#pager').text('Question ' + Number(currentQuestion + 1) + ' of ' + questions.length);
                 addChoices(questions[currentQuestion]['options']);
-            }
+            };
 
             addChoices = function (choices) {
                 if (typeof choices !== "undefined" && $.type(choices) == "array") {
@@ -172,9 +172,9 @@
                                 )
                         );
 
-                        $("#options-block").append($div1)
+                        $("#options-block").append($div1);
                         if (answers[currentQuestion]) {
-                            console.log(answers[currentQuestion])
+                            console.log(answers[currentQuestion]);
                             if (choices[i] == answers[currentQuestion].answer) {
                                 $('#optionsRadios' + i).attr('checked', true);
                                 //    $('#optionsRadios3').attr('checked', true)
@@ -182,23 +182,24 @@
 
                         }
                         $('#optionsRadios' + i).on('click', function () {
-                            var obj = {}
-                            obj.questionId = questions[currentQuestion].id
-                            obj.question = questions[currentQuestion].question
-                            obj.answer = $('input[name=optionsRadios]:checked').val()
+                            var obj = {};
+                            obj.questionId = questions[currentQuestion].id;
+                            obj.question = questions[currentQuestion].question;
+                            obj.answer = $('input[name=optionsRadios]:checked').val();
                             answers[currentQuestion] = obj;
-                            console.log(answers)
+                            console.log(answers);
                             if ((answers && answers[currentQuestion].answer) && currentQuestion < questions.length - 1) {
-                                $('#nextBtn').show()
+                                $('#nextBtn').show();
                             }
                             if ((answers && answers[currentQuestion].answer) && currentQuestion > 0) {
-                                $('#prevBtn').show()
+                                $('#prevBtn').show();
                             }
                             if (answers.length == questions.length) {
-                                $("#saveBtn").prop("disabled", false);
+//                                $('#nextBtn').hide();
+                                $("#saveBtn").show();
                             }
 
-                        })
+                        });
                         //   $(document.createElement('li')).addClass('choice choice-box').attr('data-index', i).text(choices[i]).appendTo('#options-block');
                     }
                 }
@@ -216,20 +217,19 @@
                     <div class="form-group">
                         <label class="sr-only" for="shareCodes">Share Codes</label>
                         <input type="text" value="" class="form-control text-xs-center" id="shareCodes"
-                               placeholder="Share Code" style="text-transform: uppercase;" autocomplete="off">
+                               placeholder="Enter Referral Code" style="text-transform: uppercase;" autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-danger btn-block" onclick="submitShareCode()">Enter Quiz
-                        </button>
+                        <button type="button" class="btn btn-danger btn-block" onclick="submitShareCode()">Enter</button>
                     </div>
-                    <div class="checkbox text-center">
+                    <div class="checkbox text-center" style="font-size: 12px">
                         <label style="color:#000;padding-left: 0;">
                             <a class="nav-link" data-toggle="modal" data-target="#termsConditions">
                                 Terms & Conditions
                             </a>
                             &nbsp; | &nbsp;
                             <a class="nav-link" data-toggle="modal" data-target="#getCode">
-                                Find Code
+                                Find Referral Code
                             </a>
                         </label>
                     </div>
@@ -241,22 +241,23 @@
     </div>
 
     <!--questions-->
+    <div class="question-header">Take a small quiz to win VIP passes.</div>
     <div class="question-section">
         <div class="row">
             <div class="col-lg-12">
-                <form class="form" style="min-height: 250px;">
+                <form class="form" style="min-height: 260px;">
                     <fieldset class="form-group">
                         <legend id="question">--</legend>
                         <div id="options-block"></div>
                     </fieldset>
                     <span class="pull-left" style="font-size:20px" id="prevBtn">&#10094;</span>
-                    <span class="pull-right" style="font-size:20px" id="nextBtn">&#10095;</span>
+                    <span class="pull-right btn btn-default" id="nextBtn">Next</span>
                 </form>
                 <div class='clearfix'></div>
-                <div class="final-submit-btn">
+                <div class="final-submit-btn" id="saveBtn">
                     <hr>
                     <div class="form-group">
-                        <button id="saveBtn" type="input" class="btn btn-success pull-right btn-block">Submit</button>
+                        <button type="input" class="btn btn-success pull-right btn-block">Submit</button>
                         <div class='clearfix'></div>
                     </div>
                 </div>
@@ -270,18 +271,22 @@
     <div class="success-section">
         <div class="row">
             <div class="col-lg-12">
-                <h2 style="font-weight: 300; line-height: 30px" class="text-default">
+                <h2 style="line-height: 30px; margin-top: 60px;" class="text-default">
                     Congratulations!
                 </h2>
                 <br>
-                <h4 style="font-weight: 100; line-height: 30px">
+                <h4 style="line-height: 30px">
                     You are now eligible for the lucky draw. We will notify you on 16th Sept. on your
                     TukTuk App.
                 </h4>
                 <br>
-                <h4 style="font-weight: 300; line-height: 30px">
+                <h4 style="line-height: 30px">
                     Invite your friends for the show!
                 </h4>
+                <p>
+                    <a href="http://facebook.com/"><img src="https://cdn2.iconfinder.com/data/icons/social-media-network-fill-flat-icon/512/Facebook-2-48.png" /></a>
+                    <a href="http://twitter.com/"><img src="https://cdn2.iconfinder.com/data/icons/social-media-network-fill-flat-icon/512/Twitter-2-48.png" /></a>
+                </p>
 
             </div>
         </div>
