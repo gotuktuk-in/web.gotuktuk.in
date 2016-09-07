@@ -142,7 +142,8 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function(msg) {
-                        alert('In Ajax');
+                        $(".question-section").hide()
+                        $('.success-section').show()
                     }
                 })
             }
