@@ -63,15 +63,13 @@
             $("#prevBtn").on('click', function () {
                 currentQuestion--
                 nextQuestion()
-                if(currentQuestion==0)
-                {
+                if (currentQuestion == 0) {
                     $(this).hide()
                 }
-                if(currentQuestion>=0){
+                if (currentQuestion >= 0) {
                     $("#nextBtn").show()
                 }
-                if((answers[currentQuestion] && answers[currentQuestion].answer) && currentQuestion>0)
-                {
+                if ((answers[currentQuestion] && answers[currentQuestion].answer) && currentQuestion > 0) {
                     $(this).show()
                 }
             })
@@ -81,15 +79,13 @@
                 currentQuestion++
                 nextQuestion()
                 console.log('cur ', currentQuestion + ' len ', questions.length)
-                if(currentQuestion<=questions.length-1)
-                {
+                if (currentQuestion <= questions.length - 1) {
                     $(this).hide()
                 }
-                if(currentQuestion>0){
+                if (currentQuestion > 0) {
                     $("#prevBtn").show()
                 }
-                if((answers[currentQuestion] && answers[currentQuestion].answer) && currentQuestion<questions.length-1)
-                {
+                if ((answers[currentQuestion] && answers[currentQuestion].answer) && currentQuestion < questions.length - 1) {
                     $(this).show()
                 }
 
@@ -99,7 +95,7 @@
             $('#prevBtn').hide()
             submitShareCode = function () {
 
-                var shareCode = $("#shareCodes").val()
+                var shareCode = $("#shareCodes").val().toUpperCase();
                 if (shareCode == "") {
                     $("shareCodes").addClass('.error-outline')
                     return;
@@ -116,12 +112,10 @@
                         console.log("Data: ", data + "\nquestions: ", questions);
                     }).fail(function (error) {
                         console.log(error)
-                        if(error.responseJSON.code==69)
-                        {
+                        if (error.responseJSON.code == 69) {
                             $('#alreadySubmitted').modal('show');
                         }
-                        else if(error.responseJSON.code==402)
-                        {
+                        else if (error.responseJSON.code == 402) {
                             $('#invalidShareCode').modal('show');
                         }
 
@@ -134,14 +128,14 @@
             })
             saveAnswers = function () {
                 var data = {answers: answers};
-                var json = JSON.stringify(data );
+                var json = JSON.stringify(data);
                 $.ajax({
                     type: "POST",
                     url: host + profileId + "/answer",
                     data: json,
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
-                    success: function(msg) {
+                    success: function (msg) {
                         $(".question-section").hide()
                         $('.success-section').show()
                     }
@@ -194,16 +188,13 @@
                             obj.answer = $('input[name=optionsRadios]:checked').val()
                             answers[currentQuestion] = obj;
                             console.log(answers)
-                            if((answers && answers[currentQuestion].answer) && currentQuestion<questions.length-1)
-                            {
+                            if ((answers && answers[currentQuestion].answer) && currentQuestion < questions.length - 1) {
                                 $('#nextBtn').show()
                             }
-                            if((answers && answers[currentQuestion].answer) && currentQuestion>0)
-                            {
+                            if ((answers && answers[currentQuestion].answer) && currentQuestion > 0) {
                                 $('#prevBtn').show()
                             }
-                            if(answers.length==questions.length)
-                            {
+                            if (answers.length == questions.length) {
                                 $("#saveBtn").prop("disabled", false);
                             }
 
@@ -218,163 +209,203 @@
 </head>
 <body>
 <div class="container">
-<div class="share-code-section">
-    <div class="row">
-        <div class="col-lg-12">
-            <form class="form">
-                <div class="form-group">
-                    <label class="sr-only" for="shareCodes">Share Codes</label>
-                    <input type="text" value="RPAWA237744" class="form-control text-xs-center" id="shareCodes"
-                           placeholder="Share Codes">
-                </div>
-                <div class="form-group">
-                    <button type="button" class="btn btn-danger btn-block" onclick="submitShareCode()">Submit</button>
-                </div>
-                <div class="checkbox text-center">
-                    <label style="color:#000;">
-                        <a class="nav-link" data-toggle="modal" data-target="#termsConditions"
-                           style="color:darkblue;">Terms & Conditions</a> | <a href="tk://in.gotuktuk/TCashActivity">Find Code</a>
-                    </label>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- /share-code-section -->
-
-</div>
-
-<!--questions-->
-<div class="question-section">
-    <div class="row">
-        <div class="col-lg-12">
-            <form class="form" style="min-height: 250px;">
-                <fieldset class="form-group">
-                    <legend id="question">--</legend>
-                    <div id="options-block"></div>
-                </fieldset>
-                <span class="pull-left" style="font-size:20px" id="prevBtn">&#10094;</span>
-                <span class="pull-right" style="font-size:20px" id="nextBtn">&#10095;</span>
-            </form>
-            <div class='clearfix'></div>
-            <div class="final-submit-btn">
-                <hr>
-                <div class="form-group">
-                    <button id="saveBtn" type="input" class="btn btn-primary pull-right">Save</button>
-                    <div class='clearfix'></div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <!-- /question-section -->
-</div>
-
-<!--successful-->
-<div class="success-section">
-    <div class="row">
-        <div class="col-lg-12">
-            <h3 style="font-weight: 300; line-height: 30px" class="text-success">
-                Congratulations!
-            </h3>
-
-            <h3 style="font-weight: 100; line-height: 30px">
-                You are now eligible for the lucky draw. We will notify you on 16th Sept. on your
-                TukTuk App.
-            </h3>
-            <br>
-            <h4 style="font-weight: 300; line-height: 30px">
-                Invite your friends for the show!
-            </h4>
-
-        </div>
-    </div>
-    <!-- /question-section -->
-</div>
-
-<!-- /container -->
-<!-- Modal -->
-<div class="modal fade" id="termsConditions" tabindex="-1" role="dialog" aria-labelledby="termsConditionsLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="termsConditionslLabel">Terms & Conditions</h4>
-            </div>
-            <div class="modal-body">
-                <ol class="list-styled">
-                    <li> TukTuk app download is mandatory. Go to your play store on your android phone, type TukTuk and
-                        download the app.
-                    </li>
-
-                    <li> After the download, select tCASH option from your TukTuk app’s side menu.</li>
-
-                    <li> Enter your referral code from the app and start answering.</li>
-
-                    <li> The quiz contains 5 questions; answering all questions is mandatory.</li>
-
-                    <li> Winners will be selected through lucky draw.
-                    </li>
-
-                    <li> We will select five student volunteers who will be given certificate of participation with the
-                        passes for the concert.
-                    </li>
-
-                    <li> The winners (both- volunteers & others) will be announced on 16th September 2016 through push
-                        notification on TukTuk app.
-                    </li>
-                </ol>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <div class="share-code-section">
+        <div class="row" style="background: rgba(255,255,255,0.95)">
+            <div class="col-lg-12">
+                <form class="form">
+                    <div class="form-group">
+                        <label class="sr-only" for="shareCodes">Share Codes</label>
+                        <input type="text" value="" class="form-control text-xs-center" id="shareCodes"
+                               placeholder="Share Code" style="text-transform: uppercase;" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-danger btn-block" onclick="submitShareCode()">Enter Quiz
+                        </button>
+                    </div>
+                    <div class="checkbox text-center">
+                        <label style="color:#000;padding-left: 0;">
+                            <a class="nav-link" data-toggle="modal" data-target="#termsConditions">
+                                Terms & Conditions
+                            </a>
+                            &nbsp; | &nbsp;
+                            <a class="nav-link" data-toggle="modal" data-target="#getCode">
+                                Find Code
+                            </a>
+                        </label>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-</div>
+        <!-- /share-code-section -->
 
-<!--already submitted-->
-<div class="modal fade" id="alreadySubmitted" tabindex="-1" role="dialog" aria-labelledby="subimttedLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="subimttedLabel">Alert</h4>
+    </div>
+
+    <!--questions-->
+    <div class="question-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <form class="form" style="min-height: 250px;">
+                    <fieldset class="form-group">
+                        <legend id="question">--</legend>
+                        <div id="options-block"></div>
+                    </fieldset>
+                    <span class="pull-left" style="font-size:20px" id="prevBtn">&#10094;</span>
+                    <span class="pull-right" style="font-size:20px" id="nextBtn">&#10095;</span>
+                </form>
+                <div class='clearfix'></div>
+                <div class="final-submit-btn">
+                    <hr>
+                    <div class="form-group">
+                        <button id="saveBtn" type="input" class="btn btn-success pull-right btn-block">Submit</button>
+                        <div class='clearfix'></div>
+                    </div>
+                </div>
+
             </div>
-            <div class="modal-body">
-                Already Submitted.
+        </div>
+        <!-- /question-section -->
+    </div>
+
+    <!--successful-->
+    <div class="success-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 style="font-weight: 300; line-height: 30px" class="text-default">
+                    Congratulations!
+                </h2>
+                <br>
+                <h4 style="font-weight: 100; line-height: 30px">
+                    You are now eligible for the lucky draw. We will notify you on 16th Sept. on your
+                    TukTuk App.
+                </h4>
+                <br>
+                <h4 style="font-weight: 300; line-height: 30px">
+                    Invite your friends for the show!
+                </h4>
+
+            </div>
+        </div>
+        <!-- /question-section -->
+    </div>
+
+    <!-- /container -->
+
+    <!-- Terms Conditions -->
+    <div class="modal fade" id="termsConditions" tabindex="-1" role="dialog" aria-labelledby="termsConditionsLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="termsConditionslLabel">Terms & Conditions</h4>
+                </div>
+                <div class="modal-body">
+                    <ol class="list-styled">
+                        <li> TukTuk app download is mandatory. Go to your play store on your android phone, type TukTuk
+                            and
+                            download the app.
+                        </li>
+
+                        <li> After the download, select tCASH option from your TukTuk app’s side menu.</li>
+
+                        <li> Enter your referral code from the app and start answering.</li>
+
+                        <li> The quiz contains 5 questions; answering all questions is mandatory.</li>
+
+                        <li> Winners will be selected through lucky draw.
+                        </li>
+
+                        <li> We will select five student volunteers who will be given certificate of participation with
+                            the
+                            passes for the concert.
+                        </li>
+
+                        <li> The winners (both- volunteers & others) will be announced on 16th September 2016 through
+                            push
+                            notification on TukTuk app.
+                        </li>
+                    </ol>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!--share code error-->
-<div class="modal fade" id="invalidShareCode" tabindex="-1" role="dialog" aria-labelledby="shareCodeLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="shareCodeLabel">Alert</h4>
-            </div>
-            <div class="modal-body">
-                Invalid Share Code
+    <!-- Terms Conditions -->
+    <div class="modal fade" id="getCode" tabindex="-1" role="dialog" aria-labelledby="getCodeLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="getCodeLabel">How to get code?</h4>
+                </div>
+                <div class="modal-body">
+                    <ol class="list-styled">
+                        <li> Select tCASH option from your TukTuk app's side menu on your downloaded TukTuk app.
+                            <br>
+                            <img src="images/tcash.png" style="width: 70%;padding: 10px;display: block;margin: 0 auto;">
+                        </li>
+                        <li> Enter your referral code visible at the bottom and you are good to go to enter the quiz.
+                        </li>
+                    </ol>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <!--already submitted-->
+    <div class="modal fade" id="alreadySubmitted" tabindex="-1" role="dialog" aria-labelledby="subimttedLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="subimttedLabel">Alert</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Already Submitted.</p>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--share code error-->
+    <div class="modal fade" id="invalidShareCode" tabindex="-1" role="dialog" aria-labelledby="shareCodeLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="shareCodeLabel">Alert</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Invalid Share Code</p>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 </body>

@@ -14,6 +14,25 @@ body {
     font-size: 12px;
     background: #333;
 }
+ol, ul {
+    padding: 0 10px;
+}
+*::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ccc !important;
+    text-transform: capitalize;
+}
+*::-moz-placeholder { /* Firefox 19+ */
+    color: #ccc !important;
+    text-transform: capitalize;
+}
+*:-ms-input-placeholder { /* IE 10+ */
+    color: #ccc !important;
+    text-transform: capitalize;
+}
+*:-moz-placeholder { /* Firefox 18- */
+    color: #ccc !important;
+    text-transform: capitalize;
+}
 
 .container {
     background-color: #fff;
@@ -44,11 +63,9 @@ body {
 }
 
 .success-section {
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.9);
-    position: absolute;
-    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
     height: 100%;
+    padding: 30px;
 }
 
 legend {
@@ -83,7 +100,7 @@ label {
 .navbar {
     margin-bottom: 20px;
 }
-
+#prevBtn , #nextBtn { cursor: pointer;}
 
 @media only screen and (max-width: 767px) {
     body {
