@@ -1,0 +1,18 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "in.gotuktuk.rider",
+    "sha256_cert_fingerprints":
+    ["D3:32:23:8E:70:48:54:38:C7:88:27:E2:C1:47:46:90:9C:1A:DC:8D:4B:06:EC:1E:19:B4:6F:BB:30:67:AC:7A", "FB:65:A8:48:E5:B9:CF:3E:74:BB:4D:45:7C:EA:8E:85:D8:65:DE:EB:E4:F0:07:27:72:40:98:AB:37:CC:11:C6"]
+  }
+},
+{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "in.gotuktuk.driver",
+    "sha256_cert_fingerprints":
+    ["D3:32:23:8E:70:48:54:38:C7:88:27:E2:C1:47:46:90:9C:1A:DC:8D:4B:06:EC:1E:19:B4:6F:BB:30:67:AC:7A", "FB:65:A8:48:E5:B9:CF:3E:74:BB:4D:45:7C:EA:8E:85:D8:65:DE:EB:E4:F0:07:27:72:40:98:AB:37:CC:11:C6"]
+  }
+}]
