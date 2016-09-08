@@ -17,7 +17,7 @@ body {
     margin-top: 5%;
 }
 ol, ul {
-    padding: 0 10px;
+    padding: 0 15px;
 }
 *::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #ccc !important;
