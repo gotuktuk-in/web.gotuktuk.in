@@ -31,6 +31,11 @@
         td {
             font-size: 13px;
         }
+        th {
+    text-align: left;
+    background: #333;
+    color: #fff;
+}
     </style>
     <script>
         var appModule = angular.module('myApp', []);
@@ -57,35 +62,73 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <br>
                 <p style="color:#999">Date: {{date}}</p>
-                <h4 class="text-default">Minimum Guarantee Program</h4>
-                <table class="table table-striped table-bordered">
+                <h4 class="text-default" style="margin-bottom:20px;">Minimum Guarantee Program<br>
+                <small style="
+    font-size: 11px;
+    padding: 3px 0;
+    display: block;
+    color: #999;
+">(Offer Applicable From 10-09-2016)</small></h4>
+                <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td>05 Rides</td>
-                            <td>10 Rides </td>
-                            <td>15 Rides</td>
-                            <td>20 Rides</td>
-                            <td>25 Rides</td>
+                            <th>05 Rides</th>
+                            <th>10 Rides </th>
+                            <th>15 Rides</th>
                         </tr>
                         <tr>
                             <td>300/- </td>
                             <td>700/-</td>
                             <td>1000/-</td>
-                            <td>1200/-</td>
-                            <td>1400/-</td>
+                        </tr>
+                        <tr>
+                            <td><small>Below 15% Cancellation</small></td>
+                            <td><small>Below 15% Cancellation</small></td>
+                            <td><small>Below 15% Cancellation</small></td>
+
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td><small>Min 7 Hours</small></td>
+                            <td><small>Min 8.5 Hours</small></td>
                         </tr>
                     </tbody>
                 </table>
-                <p>Note - Number of cancellation must be below 15%.</p>
-                <br>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>20 Rides</th>
+                            <th>25 Rides</th>
+                            <th>30 Rides</th>
+                        </tr>
+                        <tr>
+                            <td>1200/-</td>
+                            <td>1400/-</td>
+                            <td>1700/-</td>
+                        </tr>
+                        <tr>
+                            <td><small>Below 15% Cancellation</small></td>
+                            <td><small>Below 15% Cancellation</small></td>
+                            <td><small>Below 15% Cancellation</small></td>
+                        </tr>
+                        <tr>
+                            <td><small>Min 9.5 Hours</small></td>
+                            <td><small>Min 10.5 Hours</small></td>
+                            <td><small>Min 12 Hours</small></td>
+                        </tr>
+                    </tbody>
+                </table>
                 <h4 class="text-primary">Bonus</h4>
-                <ol>
-                    <li> Max earning - 200/- </li>
-                    <li> Max For Trip distance - 200/- </li>
-                </ol>
-                <br>
+
+                <ul>
+                    <li> Max Earning - 200/- </li>
+                    <li> Max For Trip Distance - 200/- </li>
+                </ul>
+                <!-- 
+<br>
                 <h4 style="color:green">Bumper Offer</h4>
                 <p>Online for 8 hours. Accept 85% of all trips within 2.5 km. Cancellation below 15%. Reward of 200/- </p>
+ -->
             </div>
         </div>
     </div>
