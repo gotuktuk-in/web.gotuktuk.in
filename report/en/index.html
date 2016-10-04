@@ -169,6 +169,7 @@
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
             crossorigin="anonymous"></script>
     <script>
+        var hideAll;
         $(function () {
 
             var complaintURL= "https://dev-api.gotuktuk.in/rest/v2/trips/";
@@ -219,7 +220,7 @@
             $("#hideAll").click(function () {
                 hideAll()
             })
-            window.hideAll = function() {
+             hideAll = function() {
                 $(".subQuestion .btn-link").click()
                 alert("hideAll")
             }
