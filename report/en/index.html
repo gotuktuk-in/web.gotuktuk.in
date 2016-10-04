@@ -221,10 +221,20 @@
                 hideAll()
             })
              hideAll = function() {
-                $(".subQuestion .btn-link").click()
+                $(".subQuestion .btn-link").click();
+                $(".subset .detail .btn-link").click()
                 alert("hideAll")
             }
             //
+
+            $(".subset .detail .btn-link").click(function () {
+                console.log("clicked", $(this).parent().parent())
+                $(this).parent().parent().children(".subQuestion").slideDown();
+                $(this).parent().hide();
+            });
+
+
+
 
             $("#questions a").click(function () {
                 data.subject = $(this).text()
