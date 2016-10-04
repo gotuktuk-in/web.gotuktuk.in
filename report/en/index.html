@@ -219,7 +219,7 @@
             $("#hideAll").click(function () {
                 hideAll()
             })
-            function hideAll() {
+            window.hideAll = function() {
                 $(".subQuestion .btn-link").click()
                 alert("hideAll")
             }
