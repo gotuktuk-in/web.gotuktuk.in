@@ -88,7 +88,7 @@ a:hover {
 .nav-tabs {
     position: absolute;
     z-index: 99999999999999999;
-    left: 110px;
+    left: 98px;
     top: -6px;
     border-bottom: none;
 }
@@ -99,14 +99,14 @@ a:hover {
     float: left;
     border: 1px solid #ddd;
     border-radius: 4px 0 0 4px;
-    width: 80px;
+    width: 95px;
 }
 .nav-tabs > li:last-child {
     float: left;
     border: 1px solid #ddd;
     border-radius: 0 4px 4px 0;
     margin-left: -1px;
-    width: 80px;
+    width: 88px;
 }
 .nav-tabs > li a {
     border: none;

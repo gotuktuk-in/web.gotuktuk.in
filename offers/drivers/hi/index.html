@@ -1,0 +1,95 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+    <script src="js/moment.js"></script>
+    <script src="js/angular.min.js"></script>
+
+    <style>
+        body {
+            padding: 0;
+            font-size: 13px;
+            background: #fff;
+            font-weight: 400;
+            margin-top: 5%;
+            font-family: 'Roboto', sans-serif !important;
+        }
+        
+        table,
+        tr,
+        td {
+            font-size: 13px;
+        }
+    </style>
+    <script>
+        var appModule = angular.module('myApp', []);
+
+        appModule.controller('MainCtrl', function($scope) {
+            $scope.date = moment().format('DD-MM-YYYY');
+            var json = {
+                "modules": [{
+                    "title": " ",
+                    "description": " "
+
+                }]
+            };
+
+            $scope.data = json;
+
+        });
+    </script>
+</head>
+
+<body ng-app="myApp" onload="app.updateOfferCount(1)">
+    <div class="container ng-scope" ng-controller="MainCtrl">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <br>
+                <p style="color:#999">Date: {{date}}</p>
+                <h4 class="text-default">Minimum Guarantee Program</h4>
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>05 Rides</td>
+                            <td>10 Rides </td>
+                            <td>15 Rides</td>
+                            <td>20 Rides</td>
+                            <td>25 Rides</td>
+                        </tr>
+                        <tr>
+                            <td>300/- </td>
+                            <td>700/-</td>
+                            <td>1000/-</td>
+                            <td>1200/-</td>
+                            <td>1400/-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Note - Number of cancellation must be below 15%.</p>
+                <br>
+                <h4 class="text-primary">Bonus</h4>
+                <ol>
+                    <li> Max earning - 200/- </li>
+                    <li> Max For Trip distance - 200/- </li>
+                </ol>
+                <br>
+                <h4 style="color:green">Bumper Offer</h4>
+                <p>Online for 8 hours. Accept 85% of all trips within 2.5 km. Cancellation below 15%. Reward of 200/- </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

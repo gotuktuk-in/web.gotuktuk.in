@@ -171,8 +171,7 @@
     <script>
         $(function () {
 
-            var complaintURL= "https://dev-api.gotuktuk.in/support/rest/v1/trips/";
-
+            var complaintURL= "https://dev-api.gotuktuk.in/rest/v2/trips/";
             $('.wrapper-alert').hide();
             $('.wrapper-alert-success').hide();
             $('.submitButton').addClass('disableClick');
@@ -215,6 +214,15 @@
                     $(this).hide()
                 });
             }
+            //Added new function for bak button
+            hideAll
+            $("#hideAll").click(function () {
+                hideAll()
+            })
+            function hideAll() {
+                $(".subQuestion .btn-link").click()
+            }
+            //
 
             $("#questions a").click(function () {
                 data.subject = $(this).text()

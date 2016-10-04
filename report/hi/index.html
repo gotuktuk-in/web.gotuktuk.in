@@ -215,6 +215,15 @@
                     $(this).hide()
                 });
             }
+            //Added new function for bak button
+            hideAll
+            $("#hideAll").click(function () {
+                hideAll()
+            })
+            function hideAll() {
+                $(".subQuestion .btn-link").click()
+            }
+            //
 
             $("#questions a").click(function () {
                 data.subject = $(this).text()
