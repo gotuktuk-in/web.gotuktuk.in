@@ -170,6 +170,8 @@
             crossorigin="anonymous"></script>
     <script>
         var hideAll;
+        var Ques = 0;
+        var index
         $(function () {
 
             var complaintURL= "https://dev-api.gotuktuk.in/rest/v2/trips/";
@@ -220,11 +222,34 @@
             $("#hideAll").click(function () {
                 hideAll()
             })
-             hideAll = function() {
-                $(".subQuestion .btn-link").click();
-                $(".subset .detail .btn-link").click()
-                alert("hideAll")
-            }
+            hideAll = function() {
+
+
+                if(Ques==4)
+                {
+                    var str = "#ques"+Ques+""+index+" .btn-link"
+                    $(str).trigger("click")
+                    console.log(str)
+                    Ques =1
+                }
+                else if(Ques==5)
+                {
+                    var str = "#ques"+Ques+""+index+" .btn-link"
+                    $(str).trigger("click")
+                    console.log(str)
+                    Ques =1
+                }
+                else if(Ques==1){
+
+                    $(".subQuestion .btn-link").trigger('click')
+                    Ques =0
+                }
+                else{
+                    finish()
+                    console.log("Exit all")
+                }
+
+           }
             //
 
             $(".subset .detail .btn-link").click(function () {
@@ -237,22 +262,26 @@
 
 
             $("#questions a").click(function () {
+
                 data.subject = $(this).text()
                 hideSubQuestions()
                 $('#questions').hide()
                 $('#ques' + this.id).slideDown();
+                Ques = 1
             });
             $("#ques4 a").click(function () {
                 data.subject = $(this).text()
+                Ques = 4
                 $('#ques4').hide()
-                var index = $("#ques4 a").index(this)
+                index = $("#ques4 a").index(this)
                 hideDetails()
                 $('#ques4' + index).slideDown();
             });
             $("#ques5 a").click(function () {
+                Ques = 5
                 data.subject = $(this).text()
                 $('#ques5').hide()
-                var index = $("#ques5 a").index(this)
+                index = $("#ques5 a").index(this)
                 hideDetails()
                 $('#ques5' + index).slideDown();
             });
