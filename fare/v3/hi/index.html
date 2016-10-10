@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700,500' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
     <style type="text/css">
         body {
             background-color: #fff;
@@ -19,39 +19,26 @@
             font-family: 'Ubuntu', sans-serif !important;
         }
         
+        ol,
+        ul {
+            margin: 0 0 0 10px;
+            padding: 0;
+            color: #999;
+        }
+        
+        li {
+            line-height: 20px;
+            list-style: outside none circle;
+            margin-bottom: 5px;
+        }
+        
         .wrapper {
             margin: 15px auto 0px;
             background-color: #FFF;
             padding: 14px 20px;
         }
         
-        .table {
-            table-layout: fixed;
-        }
-        
-        .table>tbody>tr>td,
-        .table>tbody>tr>th,
-        .table>tfoot>tr>td,
-        .table>tfoot>tr>th,
-        .table>thead>tr>td,
-        .table>thead>tr>th {
-            border-top: 0px solid #ddd;
-        }
-        
-        .table-striped>tbody>tr:nth-of-type(odd) {
-            background-color: #fff;
-        }
-        
-        .table-striped>tbody>tr:nth-of-type(even) {
-            background-color: #f9f9f9;
-        }
-        
-        .panel-default > .panel-heading {
-            background-color: #fff;
-            border: none;
-        }
-        
-        .table,
+        table,
         th,
         tr,
         td {
@@ -59,46 +46,56 @@
         }
         
         .text-bold {
-            font-weight:500;
+            font-weight: 500;
             font-family: 'Ubuntu', sans-serif !important;
         }
         
         .title {
             font-size: 22px;
         }
-        .title b{
-        	font-weight:500;
+        
+        .title b {
+            font-weight: 500;
             font-size: 26px;
         }
+        
         .sub-title {
             font-size: 14px;
         }
+        
         .sub-title-2 {
             font-size: 14px;
         }
+        
         .text-info {
-    		color: #398fda;
-		}
-		.pipe {
-			font-weight:300;
-    		color: #666;
-    		padding:0 10px
-		}
-		small {
-			font-size: 11px;
-		}
+            color: #398fda;
+        }
+        
+        .pipe {
+            font-weight: 300;
+            color: #666;
+            padding: 0 10px
+        }
+        
+        small {
+            font-size: 11px;
+        }
+        
         hr {
-            border-color: rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 0, 0, 0.1);
             border-width: 0 0 1px;
         }
+        
         .hr-small {
-       		border-color: rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 0, 0, 0.1);
             border-width: 0 0 1px;
             /* Rotate div */
-    		-ms-transform: rotate(90deg); /* IE 9 */
-			-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
-    		transform: rotate(90deg);
-    		max-width: 80px;
+            -ms-transform: rotate(90deg);
+            /* IE 9 */
+            -webkit-transform: rotate(90deg);
+            /* Chrome, Safari, Opera */
+            transform: rotate(90deg);
+            max-width: 80px;
         }
         
         table tr td {
@@ -106,86 +103,92 @@
         }
     </style>
 </head>
+
 <body>
 
-<div class="wrapper">
-    <div class="row">
-        <div class="col-md-12">
-         <table class="table table-condensed ng-scope ng-table" width="100%">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <table width="100%">
                     <tbody>
-						<tr>
+                        <tr>
                             <td colspan="5" style="height:30px;"></td>
                         </tr>
                         <tr>
                             <td colspan="5" align="center">
-                                <div class="title">ऑटो <span class="pipe">|</span> इंदौर</div>
+                                <div class="title">AUTO <span class="pipe">|</span> INDORE</div>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="5" style="height:40px; vertical-align:top;"><hr></td>
+                            <td colspan="5" style="height:40px; vertical-align:middle;">
+                                <hr>
+                            </td>
                         </tr>
 
                         <tr>
-                            <td>
-                                    <div class="title">₹ <b>15</b></div>
-                                    <div class="sub-title">   आधार किराया </div>
+                            <td style="
+    vertical-align: bottom;
+">
+                                <div class="title">₹ <b style="
+">10</b>
+                                </div>
+                                <div class="sub-title">BASE</div>
                             </td>
-                            <td style="height:30; width:2px;"><hr class="hr-small"></td>
-                            <td>
-                                    <div class="title">₹ <b>2</b><small>/ किमी</small></div>
-                                    <div class="sub-title">0 - 5  किमी</div>
-                            </td>
-                            <td style="height:30; width:2px;"><hr class="hr-small"></td>
-                            <td>
-                                    <div class="title">₹ <b>1</b><small>/मिनट </small></div>
-                                    <div class="sub-title"> समय</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="5" style="height:20"></td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="5" class="text-center">
-                                    <div class="title">₹ <b>4</b><small>/ किमी</small></div>
-                                    <div class="sub-title">5 - 10  किमी</div>
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <td colspan="5" style="height:20"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="5" class="text-center">
-                                    <div class="title">₹ <b>9</b><small>/ किमी</small></div>
-                                    <div class="sub-title">10 किमी - अधिक </div>
+                            <td style="height:30;width:2px;vertical-align: bottom;color: #999;">|</td>
+                            <td style="
+    vertical-align: bottom;
+">
+                                <div class="title">₹ <b style="
+">9</b>
+                                </div>
+                                <div class="sub-title">/KM</div>
+                            </td><td style="height:30;width:2px;vertical-align: bottom;color: #999;">|</td>
+                           <td style="
+    vertical-align: bottom;
+">
+                                <div class="title">₹ <b style="
+">0</b>
+                                </div>
+                                <div class="sub-title">/Min</div>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="5" style="height:20"></td>
+                            <td colspan="5" style="height:10"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="height:40px; vertical-align:middle;">
+                                <hr>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="5" class="text-center">
-                                <div class="sub-title-2">बुकिंग शुल्क - ₹ <b>10 
-                                <a href="https://goo.gl/S6aE5W" target="_blank" style="float:right;text-decoration:none; font-weight:normal;" class="text-info">क्यों ?</div>
+                                <div class="sub-title-2" style="
+    color: #999;
+"><span>Waiting ₹ 1/Min</span>
+                                    <br>
+                                    <br> MAX 3 PEOPLE</div>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="5" style="height:40px; vertical-align:middle;"><hr></td>
+                            <td colspan="5" style="height:40px; vertical-align:middle;">
+                                <hr>
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="5" class="text-center">
-                                    <div class="sub-title-2">अधिकतम 3 लोग</div>
+                            <td colspan="5"><small style="text-align:center;color: #999;text-transform: uppercase;">
+  Night Charges (10PM to 6AM) <b>1.5x</b>
+    </small>
                             </td>
                         </tr>
 
                     </tbody>
                 </table>
-</div>
 
+            </div>
+
+        </div>
     </div>
-</div>
-
 
 </body>
+
 </html>
