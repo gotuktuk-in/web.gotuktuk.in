@@ -1,0 +1,155 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+    <script src="js/moment.js"></script>
+    <script src="js/angular.min.js"></script>
+<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <style>
+        body {
+            padding: 0;
+            font-size: 13px;
+            background: #fff;
+            font-weight: 400;
+            margin-top: 5%;
+            font-family: 'Roboto', sans-serif !important;
+        }
+        
+        table,
+        tr,
+        td {
+            font-size: 14px;
+        }
+        td, th {
+            padding:4px 8px !important;
+        }
+        th {
+        font-size: 16px;
+        font-weight: 100;
+    text-align: left;
+    background: #666;
+    color: #fff;
+}
+    </style>
+    <script>
+        var appModule = angular.module('myApp', []);
+
+        appModule.controller('MainCtrl', function($scope) {
+            $scope.date = moment().format('DD-MM-YYYY');
+            var json = {
+                "modules": [{
+                    "title": " ",
+                    "description": " "
+
+                }]
+            };
+
+            $scope.data = json;
+
+        });
+    </script>
+</head>
+
+<body ng-app="myApp" onload="app.updateOfferCount(1)" class="ng-scope">
+    <div class="container ng-scope" ng-controller="MainCtrl">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <br>
+                
+                <h4 class="text-default" style="margin-bottom:20px;">टुकटुक योजना <br>
+                <small style="
+    font-size: 11px;
+    padding: 3px 0;
+    display: block;
+    color: #999;
+">(अक्टूबर 11, 2016 से प्रभावी)</small></h4>
+                
+                
+                
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                            <th colspan="3" class="text-center">दीवाली बोनस </th>
+                        </tr>
+                        <tr>
+                            <td width="33%">250 ट्रिप्स या<br> 1200 किमी </td>
+                            <td width="33%">दैनिक ट्रिप रद्द<br> 15% से कम</td>
+                            <td width="33%">2000 ₹ </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-left">11 अक्टूबर से 31 अक्टूबर के मध्य मान्य </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                            <th colspan="3" class="text-center">साप्ताहिक बोनस </th>
+                        </tr>
+                        <tr>
+                            <td width="33%">100 ट्रिप्स या<br> 400 किमी </td>
+                            <td width="33%">ट्रिप रद्द<br> 15% से कम</td>
+                            <td width="33%">500  ₹ </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th class="text-center">दैनिक ऑफर </th>
+                        </tr>
+                        <tr>
+                            <td>
+                            
+                            <b>शाम 5 से रात 10 बजे के मध्य </b><br>
+                            <ul>
+                            <li> कम से कम 2 ट्रिप या</li>
+                             <li>5 किमी यात्रा में चलें </li>
+                            </ul>
+                            दिन के सारे ट्रिप का कमीशन वापस हो जायेगा <br>
+                            <b>नोट:</b> ट्रिप रद्द 15% से कम होना चाहिए 
+                            </td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th colspan="3" class="text-center">रेट कार्ड</th>
+                        </tr>
+                        <tr>
+                            <td>20  ₹ </td>
+                            <td>9   ₹ </td>
+                            <td>1  ₹  </td>
+                        </tr>
+                        <tr>
+                            <td>बेस </td>
+                            <td>/ किमी</td>
+                            <td>/ मिनट (प्रतीक्षा)</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-center">1.5  ₹ /किमी पिकअप के लिए (1 किमी के बाद लागू)</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-center">टुकटुक कमीशन - 5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+</body></html>
