@@ -13,7 +13,7 @@
         var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
         return results[1] || 0;
     }
-    var token = $.urlParam('token');
+    var token = $.urlParam('tk');
     if (token || !token == "") {
         $(document).ready(function(){ 
     		// $("#token").replaceWith(token);
@@ -65,19 +65,11 @@
                         <a id="a-easymedico-link">
                         	<img id="img-easymedico" class="card-img-top" style="width: 100%; display: block;" data-holder-rendered="true">
                         </a>
-                        <div class="card-block">
-                            <h4 class="card-title">Surprise Cashbacks</h4>
-                            <p class="card-text">Win surprise cashbacks on your TukTuk trips. You must have the latest TukTuk app.</p>
-                        </div>
                     </div>
                     <div class="card">
                     	<a id="a-urbangumti-link">
                         	<img id="img-urbangumti" class="card-img-top" style="width: 100%; display: block;" data-holder-rendered="true">
                         </a>
-                        <div class="card-block">
-                            <h4 class="card-title">Surprise Cashbacks</h4>
-                            <p class="card-text">Win surprise cashbacks on your TukTuk trips. You must have the latest TukTuk app.</p>
-                        </div>
                     </div>
                     <div class="card">
                         <img class="card-img-top" style="width: 100%; display: block;" src="img/promotion-3.jpg" data-holder-rendered="true">
