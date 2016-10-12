@@ -5,130 +5,91 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-
-<style>
-.card-block {
-    padding: 1.25rem;
-}
-.card {
-    background-color: #fff;
-    border: 2px dashed #5cb85c;
-    border-radius: 1rem;
-    display: block;
-    margin-bottom: 2rem;
-    position: relative;
-    overflow:hidden;
-    padding:4px;
-}
-.bd-example {
-    border-width: 0.2rem;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 1.5rem;
-}
-.container {
-    width: 100% !important;
-}
-</style>
-<!-- 
 <script>
-var appModule = angular.module('myApp', []);
-
-appModule.controller('MainCtrl', function($scope) {
-	var json = {
-    "modules":
-        [
-                {
-                	"link":"img/promotion-3.jpg",
-                	 "title":"Surprise Cashbacks",
-                   "description":"Win surprise cashbacks on your TukTuk trips. You must have the latest TukTuk app."
-                   
-                },
-                {
-                	"link":"img/promotion-1.jpg",
-                	 "title":"Watch Rustom for FREE this Independence Day!",
-                   "description":"Ride TukTuk to Win free couple movie tickets."
-                   
-                },
-
-                {
-                	"link":"img/promotion-2.jpg",
-                	"title":"WANT FREE RIDES?",
-                   "description":"Refer friends and Rs. 25 worth of tCASH free."
-                  
-                }
-		]
-  	};
-
-  		$scope.data = json;
-
-
-});
-
-
+    $.urlParam = function(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        return results[1] || 0;
+    }
+    var token = $.urlParam('token');
+    if (token || !token == "") {
+        $(document).ready(function(){
+    		// $("#token").replaceWith(token);
+    			$('#img-easymedico').attr('src', "https://campaign.gotuktuk.in/rest/o/v1/campaign/EASYMEDICO201610/offer/impression/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjVXJsIjoiaHR0cHM6Ly93d3cuZWFzeW1lZGljby5jb20vP3V0bV9zb3VyY2U9YXBwJnV0bV9jYW1wYWlnbj1HTyUyMHR1ayUyMHR1ayIsImlVcmwiOiJodHRwczovL3dlYi5nb3R1a3R1ay5pbi9zdGF0aWMvY2FtcGFpZ24vZW1lZGljby9vZmZlci5qcGciLCJjaWQiOiJFQVNZTUVESUNPMjAxNjEwIiwiaWF0IjoxNDc2MjY5NTM5fQ.MjVRDoss9_G7cxMVUh26iEFgiXQBB8bZPZCUQtIWz3A?tk="+token);
+    			$('#a-easymedico-link').attr('href', "https://campaign.gotuktuk.in/rest/o/v1/campaign/EASYMEDICO201610/offer/click/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjVXJsIjoiaHR0cHM6Ly93d3cuZWFzeW1lZGljby5jb20vP3V0bV9zb3VyY2U9YXBwJnV0bV9jYW1wYWlnbj1HTyUyMHR1ayUyMHR1ayIsImlVcmwiOiJodHRwczovL3dlYi5nb3R1a3R1ay5pbi9zdGF0aWMvY2FtcGFpZ24vZW1lZGljby9vZmZlci5qcGciLCJjaWQiOiJFQVNZTUVESUNPMjAxNjEwIiwiaWF0IjoxNDc2MjY5NTM5fQ.MjVRDoss9_G7cxMVUh26iEFgiXQBB8bZPZCUQtIWz3A?tk="+token);
+    			$('#img-urbangumti').attr('src', "https://campaign.gotuktuk.in/rest/o/v1/campaign/URBANGUMTI201610/offer/impression/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjVXJsIjoiaHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL1RoZVVyYmFuR3VtdGkvP2ZyZWY9dHMiLCJpVXJsIjoiaHR0cHM6Ly93ZWIuZ290dWt0dWsuaW4vc3RhdGljL2NhbXBhaWduL3VndW10aS9vZmZlci5qcGciLCJjaWQiOiJVUkJBTkdVTVRJMjAxNjEwIiwiaWF0IjoxNDc2MjcxOTczfQ.Cp3jJ99WCWrp41eP7pF2KZazBbPDYCsoA9n491NqbQE?tk="+token);
+    			$('#a-urbangumti-link').attr('href', "https://campaign.gotuktuk.in/rest/o/v1/campaign/URBANGUMTI201610/offer/click/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjVXJsIjoiaHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL1RoZVVyYmFuR3VtdGkvP2ZyZWY9dHMiLCJpVXJsIjoiaHR0cHM6Ly93ZWIuZ290dWt0dWsuaW4vc3RhdGljL2NhbXBhaWduL3VndW10aS9vZmZlci5qcGciLCJjaWQiOiJVUkJBTkdVTVRJMjAxNjEwIiwiaWF0IjoxNDc2MjcxOTczfQ.Cp3jJ99WCWrp41eP7pF2KZazBbPDYCsoA9n491NqbQE?tk="+token);
+    		});
+    }
 
 </script>
- -->
+
+<style>
+    .card-block {
+        padding: 1.25rem;
+    }
+
+    .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 0px;
+        display: block;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+        padding: 4px;
+    }
+    .card-title{ font-size:20px;}
+    .card-text{ font-size:18px;}
+
+    .bd-example {
+        border-width: 0.2rem;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1.5rem;
+    }
+
+    .container {
+        width: 100% !important;
+    }
+</style>
+
 <body>
-<div class="container">
-<div class="row">
-<div class="col-xs-12 col-sm-12 col-md-12">
- <br>
-<div class="bd-example" data-example-id="">
-<div class="card">
-  <img class="card-img-top" style="width: 100%; display: block;" src="img/promotion-3.jpg" data-holder-rendered="true">
-  <div class="card-block">
-  
-    <h4 class="card-title">Surprise Cashbacks</h4>
-    
-    <p class="card-text">Win surprise cashbacks on your TukTuk trips. You must have the latest TukTuk app.</p>
-    <!-- <button class="btn btn-success col-xs-4 col-sm-4 col-md-4" onclick="app.useOffer('VALIDONE1')">Use Offer</button> -->
-   <!--  <br><br> -->
-  </div>
-</div>
-<div class="card">
-  <img class="card-img-top" style="width: 100%; display: block;" src="img/promotion-2.jpg" data-holder-rendered="true">
-  <div class="card-block">
-  
-    <h4 class="card-title">WANT FREE RIDES?</h4>
-    
-    <p class="card-text">Refer friends and Rs. 25 worth of tCASH free.</p>
-   <!--  <button class="btn btn-success col-xs-4 col-sm-4 col-md-4" onclick="app.applyOffer('VALIDONE')">Apply Offer</button> -->
-   <!--  <br><br> -->
-  </div>
-</div>
-<div></div>
-</div>
-</div>
-</div>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <br>
+                <div class="bd-example" data-example-id="">
+                <div class="card">
+                        <a id="a-easymedico-link">
+                        	<img id="img-easymedico" class="card-img-top" style="width: 100%; display: block;" data-holder-rendered="true">
+                        </a>
+                    </div>
+                    <div class="card">
+                    	<a id="a-urbangumti-link">
+                        	<img id="img-urbangumti" class="card-img-top" style="width: 100%; display: block;" data-holder-rendered="true">
+                        </a>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" style="width: 100%; display: block;" src="img/promotion-3.png" data-holder-rendered="true">
+                        <div class="card-block">
+                            <h4 class="card-title">Festive season is on, so are our offers!</h4>
+                            <p class="card-text">Offer valid till 31st Oct. Let's Go.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" style="width: 100%; display: block;" src="img/promotion-2.jpg" data-holder-rendered="true">
+                        <div class="card-block">
+                            <h4 class="card-title">WANT FREE RIDES?</h4>
+                            <p class="card-text">Refer friends and Rs. 25 worth of tCASH free.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-<!-- 
-<body ng-app="myApp">
-<!~~ <body ng-app="myApp" onload="app.updateOfferCount(5)"> ~~>
-<div class="container" ng-controller="MainCtrl">
-<div class="row">
-<div class="col-xs-12 col-sm-12 col-md-12">
- <br>
-<div class="bd-example" data-example-id="">
-<div class="card" ng-repeat="module in data.modules">
-  <img class="card-img-top" style="width: 100%; display: block;" src="{{module.link}}" data-holder-rendered="true">
-  <div class="card-block">
-  
-    <h4 class="card-title">{{ module.title }}</h4>
-    <button class="btn btn-success col-xs-3 col-sm-3 col-md-3 pull-right" onclick="app.useOffer('VALIDONE1')">Use</button>
-    <p class="card-text">{{ module.description }}</p>
-  </div>
-</div>
-<!~~ <div class="well well-sm text-center" onclick="app.updateOfferCount(5)"> Total {{ data.modules.length }} Offers</div> ~~>
-<div></div>
-</div>
-</div>
-</div>
-</div>
-</body>
- -->
 </html>
