@@ -13,9 +13,6 @@
     <!-- Optional theme -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
-    <script src="js/moment.js"></script>
-    <script src="js/angular.min.js"></script>
-    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
     <style>
         body {
             padding: 0;
@@ -42,27 +39,10 @@
     color: #fff;
 }
 </style>
-<script>
-      var appModule = angular.module('myApp', []);
-
-      appModule.controller('MainCtrl', function($scope) {
-          $scope.date = moment().format('DD-MM-YYYY');
-          var json = {
-              "modules": [{
-                  "title": " ",
-                  "description": " "
-
-              }]
-          };
-
-          $scope.data = json;
-
-      });
-  </script>
 </head>
 
-<body ng-app="myApp" onload="app.updateOfferCount(1)" class="ng-scope">
-    <div class="container ng-scope" ng-controller="MainCtrl">
+<body>
+    <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <form class = "form-horizontal" role = "form">
