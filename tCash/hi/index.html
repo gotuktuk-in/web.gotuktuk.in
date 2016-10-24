@@ -125,6 +125,15 @@
 
 	$(function(){
 
+		var PREFIX = '';
+		if(window.location.hostname === 'dev-web.gotuktuk.in'){
+			PREFIX = 'dev-'
+		}else if(window.location.hostname === 'stg-web.gotuktuk.in'){
+			PREFIX = 'stg-'
+		}if(window.location.hostname === 'training-web.gotuktuk.in'){
+			PREFIX = 'training-'
+		}
+
 		$.urlParam = function(name){
 			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
 			return results[1] || 0;
@@ -138,7 +147,7 @@
 				'Authorization':"Basic " + token,
 				'content-type':'application/json'
 			},
-			url: "https://api.gotuktuk.in/support/rest/v1/tcash",
+			url: "https://"+PREFIX+"api.gotuktuk.in/support/rest/v1/tcash",
 			success: function(data){
 				//$(obj).append(data);
 				var newData =JSON.parse(data)
@@ -162,7 +171,7 @@
 		});
 
 		$('#content').scrollPagination({
-			'contentPage': 'https://api.gotuktuk.in/support/rest/v1/tcash/ledger',
+			'contentPage': 'https://'+PREFIX+'api.gotuktuk.in/support/rest/v1/tcash/ledger',
 			'contentData': { 'start': start, 'end': end },
 			'scrollTarget': $(window),
 			'heightOffset': 10,
