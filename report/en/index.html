@@ -174,7 +174,18 @@
         var index
         $(function () {
 
-            var complaintURL= "https://dev-api.gotuktuk.in/rest/v2/trips/";
+var PREFIX = '';
+if(window.location.hostname === 'dev-web.gotuktuk.in'){
+  PREFIX = 'dev-'
+}else if(window.location.hostname === 'stg-web.gotuktuk.in'){
+  PREFIX = 'stg-'
+}if(window.location.hostname === 'training-web.gotuktuk.in'){
+  PREFIX = 'training-'
+}
+
+
+            var complaintURL= "https://" + PREFIX + "api.gotuktuk.in/rest/v2/trips/";
+
             $('.wrapper-alert').hide();
             $('.wrapper-alert-success').hide();
             $('.submitButton').addClass('disableClick');

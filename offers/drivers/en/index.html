@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
     <script src="js/moment.js"></script>
     <script src="js/angular.min.js"></script>
-
+    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
     <style>
         body {
             padding: 0;
@@ -25,71 +25,130 @@
             margin-top: 5%;
             font-family: 'Roboto', sans-serif !important;
         }
-        
+
         table,
         tr,
         td {
-            font-size: 13px;
+            font-size: 14px;
         }
-    </style>
-    <script>
-        var appModule = angular.module('myApp', []);
+        td, th {
+            padding:4px 8px !important;
+        }
+        th {
+        font-size: 16px;
+        font-weight: 100;
+    text-align: left;
+    background: #666;
+    color: #fff;
+}
+</style>
+<script>
+      var appModule = angular.module('myApp', []);
 
-        appModule.controller('MainCtrl', function($scope) {
-            $scope.date = moment().format('DD-MM-YYYY');
-            var json = {
-                "modules": [{
-                    "title": " ",
-                    "description": " "
+      appModule.controller('MainCtrl', function($scope) {
+          $scope.date = moment().format('DD-MM-YYYY');
+          var json = {
+              "modules": [{
+                  "title": " ",
+                  "description": " "
 
-                }]
-            };
+              }]
+          };
 
-            $scope.data = json;
+          $scope.data = json;
 
-        });
-    </script>
+      });
+  </script>
 </head>
 
-<body ng-app="myApp" onload="app.updateOfferCount(1)">
+<body ng-app="myApp" onload="app.updateOfferCount(1)" class="ng-scope">
     <div class="container ng-scope" ng-controller="MainCtrl">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <br>
-                <p style="color:#999">Date: {{date}}</p>
-                <h4 class="text-default">Minimum Guarantee Program</h4>
-                <table class="table table-striped table-bordered">
+
+                <h4 class="text-default" style="margin-bottom:20px;">टुकटुक योजना <br>
+                <small style="
+    font-size: 11px;
+    padding: 3px 0;
+    display: block;
+    color: #999;
+">(अक्टूबर 11, 2016 से प्रभावी)</small></h4>
+
+
+
+                <table class="table table-bordered">
                     <tbody>
-                        <tr>
-                            <td>05 Rides</td>
-                            <td>10 Rides </td>
-                            <td>15 Rides</td>
-                            <td>20 Rides</td>
-                            <td>25 Rides</td>
+                    <tr>
+                            <th colspan="3" class="text-center">दीवाली बोनस </th>
                         </tr>
                         <tr>
-                            <td>300/- </td>
-                            <td>700/-</td>
-                            <td>1000/-</td>
-                            <td>1200/-</td>
-                            <td>1400/-</td>
+                            <td width="33%">250 ट्रिप्स या<br> 1200 किमी </td>
+                            <td width="33%">दैनिक ट्रिप रद्द<br> 15% से कम</td>
+                            <td width="33%">2000 ₹ </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-left">11 अक्टूबर से 31 अक्टूबर के मध्य मान्य </td>
                         </tr>
                     </tbody>
                 </table>
-                <p>Note - Number of cancellation must be below 15%.</p>
-                <br>
-                <h4 class="text-primary">Bonus</h4>
-                <ol>
-                    <li> Max earning - 200/- </li>
-                    <li> Max For Trip distance - 200/- </li>
-                </ol>
-                <br>
-                <h4 style="color:green">Bumper Offer</h4>
-                <p>Online for 8 hours. Accept 85% of all trips within 2.5 km. Cancellation below 15%. Reward of 200/- </p>
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                            <th colspan="3" class="text-center">साप्ताहिक बोनस </th>
+                        </tr>
+                        <tr>
+                            <td width="33%">100 ट्रिप्स या<br> 400 किमी </td>
+                            <td width="33%">ट्रिप रद्द<br> 15% से कम</td>
+                            <td width="33%">500  ₹ </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th class="text-center">दैनिक ऑफर </th>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            <b>शाम 5 से रात 10 बजे के मध्य </b><br>
+                            <ul>
+                            <li> कम से कम 2 ट्रिप या</li>
+                             <li>5 किमी यात्रा में चलें </li>
+                            </ul>
+                            दिन के सारे ट्रिप का कमीशन वापस हो जायेगा <br>
+                            <b>नोट:</b> ट्रिप रद्द 15% से कम होना चाहिए
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th colspan="3" class="text-center">रेट कार्ड</th>
+                        </tr>
+                        <tr>
+                            <td>20  ₹ </td>
+                            <td>9   ₹ </td>
+                            <td>1  ₹  </td>
+                        </tr>
+                        <tr>
+                            <td>बेस </td>
+                            <td>/ किमी</td>
+                            <td>/ मिनट (प्रतीक्षा)</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-center">1.5  ₹ /किमी पिकअप के लिए (1 किमी के बाद लागू)</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-center">टुकटुक कमीशन - 5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>
-
-</body>
-
-</html>
+</body></html>
