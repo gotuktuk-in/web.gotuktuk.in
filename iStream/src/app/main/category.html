@@ -1,0 +1,24 @@
+<div id="container" class="container">
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+    <!--videos cat-->
+    <div class="panel panel-default" style="margin-top: 51px;">
+      <div class="panel-heading text-uppercase" style="background: {{vm.catGroups.color}}">
+        {{vm.catGroups.category}}  ( {{vm.catGroups.items.length}} )
+      </div>
+      <div class="panel-body">
+        <div class="col-xs-6" style="padding: 0;" ng-repeat="row in vm.catGroups.items">
+          <div class="thumbnail">
+            <a ng-click="vm.playMe(row, vm.catGroups.color)"><img ng-src="{{row.thumbnail}}"></a>
+            <div class="caption">
+              <h5>{{row.title}}</h5>
+              <!--<p><span class="label label-default" ng-repeat="row1 in row.tags">{{row1}}</span></p>-->
+              <span class="duration">{{vm.secondsToTime(row.duration)}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

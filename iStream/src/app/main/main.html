@@ -1,0 +1,42 @@
+<div id="container" class="container" style="min-height: 680px;">
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+  <div class="jumbotron text-center" style="background-image: url({{vm.dataList.banner.iUrl}})"
+       ng-if="!vm.videoPlayer && !vm.videoAll">
+    <!--<h1></h1>-->
+    <!--<p class="lead">{{vm.dataList.banner.title}}</p>-->
+    <!--<p class="animated infinite" ng-class="main.classAnimation">-->
+    <!--<button type="button" class="btn btn-sm btn-success" ng-click="main.showToastr()">Play Now</button>-->
+    <!--</p>-->
+  </div>
+  <!--videos-->
+  <div>
+    <div class="panel panel-default" ng-if="!vm.videoAll" ng-repeat="cat in vm.catGroups" id="{{cat.category}}">
+      <div class="panel-heading text-uppercase" style="background: {{cat.color}}">
+        <span class="pull-right view-all" ng-click="vm.viewAll(cat)">
+          <span class="glyphicon glyphicon-menu-right"></span>
+        </span>
+        {{cat.category}} [ {{cat.items.length}} ]
+      </div>
+      <div class="panel-body">
+        <div class="col-xs-6" style="padding: 0;" ng-repeat="row in cat.items | limitTo:vm.count">
+          <!--<div class="col-xs-6" style="padding: 0;" ng-repeat="row in cat.items">-->
+          <div class="thumbnail">
+            <!--<a ng-click="vm.playMe(row)" ui-sref="video({videoData: row})"><img ng-src="{{row.thumbnail}}"></a>-->
+            <a ng-click="vm.playMe(row, cat.color, cat)">
+              <img ng-src="{{row.thumbnail}}">
+              <span class="glyphicon glyphicon glyphicon-play-circle play-icon"></span>
+            </a>
+
+            <div class="caption">
+              <h5>{{row.title}}</h5>
+              <!--<p><span class="label label-default" ng-repeat="row1 in row.tags">{{row1}}</span> </p>-->
+              <span class="duration">{{vm.secondsToTime(row.duration)}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

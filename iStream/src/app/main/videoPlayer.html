@@ -1,0 +1,91 @@
+<style>
+  .container {
+    position: relative;
+  }
+
+  .thumbnail .caption h5 {
+    color: #efde3e;
+    line-height: 30px;
+    font-size: 16px;
+  }
+
+  .category .thumbnail .caption h5 {
+    padding: 0px !important;
+    font-size: 12px;
+    color: #dadada;
+    font-weight: 400;
+    line-height: 14px;
+    margin: 0px !important;
+  }
+
+  .watch-later-popup {
+    background: rgba(0, 0, 0, 0.9);
+    height: 100%;
+    max-height: 680px;
+    z-index: 1;
+  }
+
+  .watch-later-popup .close-popup {
+    margin: 60px 0 0 0;
+    color: #c00;
+  }
+</style>
+<div id="container" class="container" style="min-height: 680px;">
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+  <!--watch later-->
+  <nav class="watch-later-popup navbar navbar-static-top" ng-if="vm.appLink">
+    <div class="col-xs-12">
+      <div class="close-popup pull-right" ng-click="vm.appLinkOff()">
+        <span class="glyphicon glyphicon-remove"></span>
+      </div>
+      <div class="text-center" style="margin-top: 200px">
+        <img src="assets/images/Google-Play-button.png" style="width: 60%">
+        <br><br><br>
+        <img src="assets/images/App-Store-Button.png" style="width: 60%">
+      </div>
+    </div>
+  </nav>
+  <!--player-->
+  <div class="row">
+    <div class="col-xs-12" style="margin-top: 51px;">
+      <div class="thumbnail" style="border: none !important;">
+        <div style="background: #000">
+          <video width="100%" controls id="video"></video>
+        </div>
+        <div class="caption" style="background: #111; padding: 15px !important;">
+          <h5><span class="pull-left category" style="background: {{vm.catColor}}">{{vm.PlayingData.category}}</span>{{vm.PlayingData.title}}
+          </h5>
+
+          <p><span class="label label-default" ng-repeat="row1 in vm.PlayingData.tags">{{row1}}</span></p>
+
+          <p class="duration">{{vm.secondsToTime(vm.PlayingData.duration)}}</p>
+
+          <p class="watch-later" ng-click="vm.appLinkOn()"><span class="glyphicon glyphicon-plus"></span> Watch Later
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--videos cat-->
+  <div class="panel panel-default category">
+    <div class="panel-heading text-uppercase" style="background: {{vm.catGroups.color}}">
+      {{vm.catGroups.category}} ( {{vm.catGroups.items.length}} )
+    </div>
+    <div class="panel-body">
+      <div class="col-xs-6" style="padding: 0;" ng-repeat="row in vm.catGroups.items">
+        <div class="thumbnail">
+          <a ng-click="vm.playOther(row, vm.catGroups.color)"><img ng-src="{{row.thumbnail}}"></a>
+
+          <div class="caption">
+            <h5>{{row.title}}</h5>
+            <span class="duration">{{vm.secondsToTime(row.duration)}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
