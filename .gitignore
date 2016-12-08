@@ -31,3 +31,13 @@ share/.idea/workspace.xml
 mika/.idea/workspace.xml
 
 *.xml
+
+iStream/bower_components/
+
+iStream/node_modules/
+
+iStream/.idea/iStream.iml
+
+iStream/.tmp/serve/index.html
+
+iStream/.tmp/partials/templateCacheHtml.js
