@@ -1,7 +1,9 @@
 .navbar {
   position: fixed;
-  min-width: 414px;
+  min-width: 320px;
   margin-left: 0px;
+  width: 100%;
+  max-width: 414px;
 }
 .container {
    max-width: 414px;
@@ -121,6 +123,7 @@ span.category {
     overflow: hidden;
   }
   .container {
+    min-height: 680px;
     max-height: 680px;
   }
 

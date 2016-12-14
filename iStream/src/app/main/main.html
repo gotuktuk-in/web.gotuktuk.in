@@ -1,14 +1,46 @@
+<style>
+  .container {
+    position: relative;
+  }
+  .watch-later-popup {
+    background: rgba(0, 0, 0, 0.9);
+    height: 100%;
+    max-height: 680px;
+    z-index: 1;
+  }
+
+  .watch-later-popup .close-popup {
+    margin: 60px 0 0 0;
+    color: #c00;
+  }
+  .donwload-app-btn{
+    margin-top: 30%;
+  }
+</style>
 <div id="container" class="container" style="min-height: 680px;">
   <div>
     <acme-navbar creation-date="main.creationDate"></acme-navbar>
   </div>
+  <!--download app-->
+  <nav class="watch-later-popup navbar navbar-static-top" ng-if="vm.appLink">
+    <div class="col-xs-12">
+      <div class="close-popup pull-right" ng-click="vm.appLinkOff()">
+        <span class="glyphicon glyphicon-remove"></span>
+      </div>
+      <div class="text-center" style="margin-top: 200px">
+        <img src="assets/images/Google-Play-button.png" style="width: 60%">
+        <br><br><br>
+        <img src="assets/images/App-Store-Button.png" style="width: 60%">
+      </div>
+    </div>
+  </nav>
   <div class="jumbotron text-center" style="background-image: url({{vm.dataList.banner.iUrl}})"
        ng-if="!vm.videoPlayer && !vm.videoAll">
     <!--<h1></h1>-->
     <!--<p class="lead">{{vm.dataList.banner.title}}</p>-->
-    <!--<p class="animated infinite" ng-class="main.classAnimation">-->
-    <!--<button type="button" class="btn btn-sm btn-success" ng-click="main.showToastr()">Play Now</button>-->
-    <!--</p>-->
+    <p class="donwload-app-btn">
+      <button type="button" class="btn btn-lg btn-success" ng-click="vm.appLinkOn()">Download App Now</button>
+    </p>
   </div>
   <!--videos-->
   <div>

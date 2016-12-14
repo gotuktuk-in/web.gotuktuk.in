@@ -12,6 +12,7 @@
     vm.banner = 'test';
     vm.videoPlayer = false;
     vm.videoAll = false;
+    vm.appLink = false;
     vm.colors = ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4'];
 
     vm.getVideos = function () {
@@ -44,6 +45,13 @@
       $localStorage.color = key;
       $localStorage.cat = cat;
       $state.go('video');
+    };
+
+    vm.appLinkOn = function () {
+      vm.appLink = true;
+    };
+    vm.appLinkOff = function () {
+      vm.appLink = false;
     };
 
     vm.viewAll = function (cat, key) {

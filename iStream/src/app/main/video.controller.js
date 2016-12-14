@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function VideoController($scope, $state, $localStorage, $sessionStorage, $stateParams, $timeout,
-                           toastr, $log, MainService, $sce, _, VideoHandler) {
+                           toastr, $log, MainService, $sce, _, VideoHandler, $window) {
 
     var vm = this;
     vm.appLink = false;
@@ -28,6 +28,11 @@
       }
     };
     vm.playMe();
+
+    vm.gotoTop = function() {
+      $window.scrollTo(0, 0);
+    };
+
     vm.playOther = function (item) {
       vm.PlayingData = item;
       if (hls) {
@@ -38,6 +43,7 @@
           video.play();
         });
       }
+      vm.gotoTop();
     };
 
     vm.appLinkOn = function () {

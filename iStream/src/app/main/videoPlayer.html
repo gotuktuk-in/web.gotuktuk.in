@@ -78,7 +78,6 @@
       <div class="col-xs-6" style="padding: 0;" ng-repeat="row in vm.catGroups.items">
         <div class="thumbnail">
           <a ng-click="vm.playOther(row, vm.catGroups.color)"><img ng-src="{{row.thumbnail}}"></a>
-
           <div class="caption">
             <h5>{{row.title}}</h5>
             <span class="duration">{{vm.secondsToTime(row.duration)}}</span>
