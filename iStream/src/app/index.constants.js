@@ -6,5 +6,5 @@
     .module('istream')
     .constant('malarkey', malarkey)
     .constant('moment', moment)
-    .constant('API', "http://dev-video.47billion.com/rest/o/v1/")
+    .constant('API', "http://video.47billion.com/rest/o/v1/")
 })();
