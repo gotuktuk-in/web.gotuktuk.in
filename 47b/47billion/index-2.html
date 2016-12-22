@@ -48,38 +48,114 @@
 </head>
 
 <body>
+
 <section id="home" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="">
-    <div class="parallax-overlay"></div>
-    <div class="home-container text-left">
-        <div class="home-title liquid-slider" id="slider-home" style="z-index:3;max-width: 520px;">
-            <div style="background: #2eb6d7;">
-                <h1><small class="black">Hey there! Welcome to 47Billion</small>
-                    <br><strong class="black">Glad to meet you</strong>
-                </h1>
-                <p class="lead black">We deliver awesomeness on mobile & web platforms</p>
-                <div class="home-btn">
-                    <h4 class="btn-home"><a href="#contact-form">LET'S TALK</a></h4>
-                </div>
-            </div>
-            <div style="background: #2eb6d7;display:none;" class="timeinterval1">
-                <h1><small class="black">UX - Mobile - Cloud</small>
-                    <br><strong class="black">We do it all</strong>
-                </h1>
-                <p class="lead black">We work hand-in-hand with you from ideation to delivery.</p>
-                <div class="home-btn">
-                    <h4 class="btn-home"><a href="#contact-form">LET'S TALK</a></h4>
-                </div>
-            </div>
-            <div style="background: #2eb6d7;display:none;" class="timeinterval2">
-                <h1><small class="black">Have an idea?</small>
-                    <br><strong class="black">We can make it a reality</strong>
-                </h1>
-                <p class="lead black">We are a product engineering shop. Use our expertise to build your next big product.</p>
-                <div class="home-btn">
-                    <h4 class="btn-home"><a href="#contact-form">LET'S TALK</a></h4>
-                </div>
-            </div>
+    <!--<div class="parallax-overlay"></div>-->
+    <div id="myvideo">
+        <div class="video-wrap hidden-xs">
+            <video autoplay="" loop="" id="usbvideo" tabindex="0" class="al-img100">
+                <source src="video/lollypop.webm" type="video/webm">
+                <source src="video/lollypop.mp4" type="video/mp4">
+            </video>
         </div>
+    </div>
+    <div class="home-container text-center">
+        <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000" >
+
+            <!-- Indicators -->
+            <!--<ol class="carousel-indicators">-->
+                <!--<li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>-->
+                <!--<li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>-->
+                <!--<li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>-->
+            <!--</ol>-->
+
+            <!-- Wrapper For Slides -->
+            <div class="carousel-inner animated flipInX" role="listbox">
+
+                <!-- Slide -->
+                <div class="item active">
+                    <!-- Slide Text Layer -->
+                    <div class="slide-text slide_style_center">
+                        <h1 data-animation="animated flipInX"><small class="white">Hi! Welcome to 47Billion</small>
+                            <br><strong class="white">Glad to see you</strong>
+                        </h1>
+                        <p data-animation="animated lightSpeedIn" class="lead white">We deliver awesomeness on mobile and web platforms.</p>
+                        <a href="#contact-form" target="_blank" class="btn btn-default" data-animation="animated fadeInUp">LET'S TALK</a>
+
+                    </div>
+                </div>
+                <!-- End of Slide -->
+                <!-- Slide -->
+                <div class="item">
+                    <!-- Slide Text Layer -->
+                    <div class="slide-text slide_style_center">
+                        <h1 data-animation="animated flipInX"><small class="white">UX - Mobile - Cloud</small>
+                            <br><strong class="white">We cover it all</strong>
+                        </h1>
+                        <p data-animation="animated lightSpeedIn" class="lead white">We work hand-in-hand with you from ideation to delivery </p>
+                        <a href="#contact-form" target="_blank" class="btn btn-default" data-animation="animated fadeInUp">LET'S TALK</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+                <!-- Slide -->
+                <div class="item">
+                    <!-- Slide Text Layer -->
+                    <div class="slide-text slide_style_center">
+                        <h1 data-animation="animated flipInX"><small class="white">Have an idea?</small>
+                            <br><strong class="white">We can make it a reality</strong>
+                        </h1>
+                        <p data-animation="animated lightSpeedIn" class="lead white">Use our expertise to build your next big product.</p>
+                        <a href="#contact-form" target="_blank" class="btn btn-default" data-animation="animated fadeInUp">LET'S TALK</a>
+
+                    </div>
+                </div>
+                <!-- End of Slide -->
+
+
+            </div><!-- End of Wrapper For Slides -->
+
+            <!-- Left Control -->
+            <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
+                <span class="fa fa-angle-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <!-- Right Control -->
+            <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
+                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+        <!--<div class="home-title liquid-slider" id="slider-home" style="z-index:3;margin: 15% 0 0 0;">-->
+            <!--<div style="background: rgba(46, 182, 215, 0.9); border: 2px solid transparent;">-->
+                <!--<h1><small class="white">Hi! Welcome to 47Billion</small>-->
+                    <!--<br><strong class="white">Glad to see you</strong>-->
+                <!--</h1>-->
+                <!--<p class="lead white">We deliver awesomeness on mobile and web platforms.</p>-->
+                <!--<div class="home-btn">-->
+                    <!--<h4 class="btn-home"><a href="#contact-form">LET'S TALK</a></h4>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div style="background: rgba(46, 182, 215, 0.9);display:none; border: 2px solid transparent;" class="timeinterval1">-->
+                <!--<h1><small class="white">UX - Mobile - Cloud</small>-->
+                    <!--<br><strong class="white">We cover it all</strong>-->
+                <!--</h1>-->
+                <!--<p class="lead white">We work hand-in-hand with you from ideation to delivery.</p>-->
+                <!--<div class="home-btn">-->
+                    <!--<h4 class="btn-home"><a href="#contact-form">LET'S TALK</a></h4>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div style="background: rgba(46, 182, 215, 0.9);display:none; border: 2px solid transparent;" class="timeinterval2">-->
+                <!--<h1><small class="white">Have an idea?</small>-->
+                    <!--<br><strong class="white">We can make it a reality</strong>-->
+                <!--</h1>-->
+                <!--<p class="lead white">Use our expertise to build your next big product.</p>-->
+                <!--<div class="home-btn">-->
+                    <!--<h4 class="btn-home"><a href="#contact-form">LET'S TALK</a></h4>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
     <div class="home-bottom">
         <div class="container text-center">
@@ -114,8 +190,8 @@
                     <li><a href="#our-work" >Portfolio</a></li>
                     <li><a href="#clients" >Clients</a></li>
                     <li><a href="mobile-app-development-company-journal" >Journal</a></li>
-                    <li><a href="#contact-form" >Contact</a></li>
-                    <li><a href="mailto:hello@47billion.com"><span class="btn btn-primary btn-buy">Email us</span></a></li>
+                    <li><a href="contact.html" >Contact</a></li>
+                    <li><a href="mailto:hello@47billion.com" style="color:#f3793a !important;">hello@47billion.com</a></li>
                 </ul>
             </div>
         </div>
@@ -126,7 +202,7 @@
         <div class="container content">
             <div class="col-lg-12 section-title-about wow flipInX">
                 <h2><small>At 47Billion</small> <br> We deliver innovation with creativity and passion</h2>
-                <p class="lead">We are a creative product engineering shop with a focus on delivering quality products and building long-lasting relationships with our clients.</p>
+                <p class="lead">We are a creative product engineering shop with the focus on delivering quality products and building long-lasting relationships with our clients.</p>
             </div>
             <div class="row wow flipInX">
                 <div class="col-md-6 col-sm-6">
@@ -136,9 +212,8 @@
                             <i class="fa fa-code back-icon" style=""></i>
                         </div>
                         <div class="about-info">
-                            <h4>We're experienced<br><small>Building relationships worldwide</small></h4>
-                            <p class="about-description">Collaborative development methodology is what drove us to deliver over 400 successful apps on the mobile and web
-                                platforms.</p>
+                            <h4>We're experienced <br><small>Nurturing relationships worldwide</small></h4>
+                            <p class="about-description">We follow a collaborative development methodology. We have built many successful mobile apps, cloud-ready web apps, analytics platforms, advertising systems etc. </p>
                         </div>
                     </div>
                 </div>
@@ -149,9 +224,8 @@
                             <i class="icon ion-map back-icon" style=""></i>
                         </div>
                         <div class="about-info">
-                            <h4>We're creative<br><small>Conceptualizing user experiences that rock</small></h4>
-                            <p class="about-description">Our passion for creative engineering lead us to deliver pixel-perfect designs to power your apps with an impeccable
-                                user experience.</p>
+                            <h4>We're creative<br><small>Flawless User Experience</small></h4>
+                            <p class="about-description">Our motto is - simple is beautiful. Also more usable. We deliver pixel-perfect designs for an impeccable user experience. </p>
                         </div>
                     </div>
                 </div>
@@ -164,9 +238,8 @@
                             <i class="fa fa-arrows-alt back-icon" style=""></i>
                         </div>
                         <div class="about-info">
-                            <h4>We're flexible<br><small>Innovative business models that work for you</small></h4>
-                            <p class="about-description">Our unique & highly cost effective service delivery model ensures that you get the best of pricing, experience, timelines
-                                - well, everything.</p>
+                            <h4>We're flexible<br><small> Innovative business models</small></h4>
+                            <p class="about-description">We work like your extended team, and make sure that you get the best of pricing, experience, timelines - and all the jazz.</p>
                         </div>
                     </div>
                 </div>
@@ -177,214 +250,36 @@
                             <i class="fa  fa-clock-o back-icon" style=""></i>
                         </div>
                         <div class="about-info">
-                            <h4>We're professional<br><small>Delivering on time, every-single-time</small></h4>
-                            <p class="about-description">We work with you hand-in-hand, set targets and go miles to hit them so that you can drive your business the way you
-                                think is the best.</p>
+                            <h4>We're professional<br><small> Delivering on time, every-single-time</small></h4>
+                            <p class="about-description">We work with you hand-in-hand, set targets and go miles to hit them so that you can drive your business the way you think is the best.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <section id="who-we-are" data-stellar-vertical-offset="">
-        <div class="row" style="position:relative;">
-            <div class="parallax-overlay"></div>
-            <div class="container">
-                <div class="col-md-6 col-we-are wow flipInX">
-                    <h2 class="we-are-info"><small class="highlight">Our skills</small><br>Crafting with love</h2>
-                    <br>
-                    <p class="p-info">We help global customers understand and experience the benefits of mobility for their businesses such as instant availability
-                        and access, real time integration with terminal devices, integration of location based services and more.
-                    <p class="p-info">We are capable of delivering projects fast and cost efficiently, keeping in mind the importance of protecting your
-                        Intellectual Property Rights (IPR).</p>
-                </div>
-                <div class="col-md-6 col-md-skills wow flipInX">
-                    <div class="skills-col">
-                        <img src="images/tech_cloud.png" width="100%">
-                        <!--<p><em>iOS</em></p>-->
-                        <!--<div class="skillbar" data-percent="100%">-->
-                            <!--<div class="skillbar-title"><span>100%</span></div>-->
-                            <!--<div class="skillbar-bar"></div>-->
-                        <!--</div>-->
-                        <!--<p><em>Android</em></p>-->
-                        <!--<div class="skillbar" data-percent="100%">-->
-                            <!--<div class="skillbar-title"><span>100%</span></div>-->
-                            <!--<div class="skillbar-bar"></div>-->
-                        <!--</div>-->
-                        <!--<p><em>Web</em></p>-->
-                        <!--<div class="skillbar" data-percent="100%">-->
-                            <!--<div class="skillbar-title"><span>100%</span></div>-->
-                            <!--<div class="skillbar-bar"></div>-->
-                        <!--</div>-->
-                        <!--<p><em>User Experience</em></p>-->
-                        <!--<div class="skillbar" data-percent="100%">-->
-                            <!--<div class="skillbar-title"><span>100%</span></div>-->
-                            <!--<div class="skillbar-bar"></div>-->
-                        <!--</div>-->
-                    </div>
-                </div>
-            </div>
+        <div class="text-center" style="color: #ccc;margin: 40px 0;">
+            <i class="fa fa-ellipsis-h"></i><i class="fa fa-ellipsis-h"></i>
         </div>
     </section>
-    <section id="team">
-        <div class="container">
-            <div class="col-lg-12 section-title-team wow flipInX">
-                <h2><small>Our small team</small><br> with big ideas</h2>
-                <p class="lead">Here's the team you'll <span class="highlight">really have fun </span>to work with.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 wow fadeIn no-l-r-pad">
-                    <div class="team-member">
-                        <ul class="grid cs-style-3">
-                            <li>
-                                <figure>
-                                    <img src="images/dikshith.jpg" alt="Dikshith Rai">
-                                    <figcaption>
-                                        <a href="http://in.linkedin.com/in/dikshithrai" target="_blank"><i class="fa fa-linkedin"></i></a>
-
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        </ul>
-                        <div class="team-info">
-                            <h4>Dikshith Rai<br><small class="highlight">Founder & CEO</small></h4>
-                            <p style="text-align: justify;">Dikshith is responsible for structuring CodeCraft's growth strategy. Prior to CodeCraft, he has worked several years
-                                for a leading Mac development house and has developed some of the top iOS, Mac frameworks and Apps. He is also a
-                                Director of Kanara Chamber of Commerce and Industry.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 wow fadeIn no-l-r-pad">
-                    <div class="team-member">
-                        <ul class="grid cs-style-3">
-                            <li>
-                                <figure>
-                                    <img src="images/praveen.jpg" alt="Praveen Castelino">
-                                    <figcaption>
-                                        <a href="http://in.linkedin.com/in/praveencastelino" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        </ul>
-                        <div class="team-info">
-                            <h4>Praveen Castelino<br><small class="highlight">CTO</small></h4>
-                            <p style="text-align: justify;">An avid programmer, Praveen takes care of delivery by prioritizing customer and organizational requirements. He has
-                                worked with some of the leading software houses in India on Games, Enterprise and Utility applications winning laurels
-                                for Best Employee in his career.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 wow fadeIn no-l-r-pad">
-                    <div class="team-member">
-                        <ul class="grid cs-style-3">
-                            <li>
-                                <figure>
-                                    <img src="images/divya.jpg" alt="Divyarani">
-                                    <figcaption>
-                                        <a href="http://in.linkedin.com/pub/divyarani-rai/1a/600/942" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        </ul>
-                        <div class="team-info">
-                            <h4>Divyarani<br><small class="highlight">CPO</small></h4>
-                            <p style="text-align: justify;">Divya oversees the smooth day-to-day functioning at CodeCraft. She comes with an experience of managing HR and vendor
-                                relationship at FlipKart during its early stage. She is an innovator, observer and a people's leader. She holds
-                                master's degree in Psychological Counselling.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 wow fadeIn no-l-r-pad">
-                    <div class="team-member">
-                        <ul class="grid cs-style-3">
-                            <li>
-                                <figure>
-                                    <img src="images/abhik.jpg" alt="Abhik Ray">
-                                    <figcaption>
-                                        <a href="http://in.linkedin.com/pub/abhik-ray/11/4b5/821" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        </ul>
-                        <div class="team-info">
-                            <h4>Abhik Ray<br><small class="highlight">Director - Web Platform</small></h4>
-                            <p style="text-align: justify;">Abhik takes care of business development and customer relations in the web division of CodeCraft. A web developer
-                                himself, he has worked with brands worldwide. Abhik has also been the CEO of a web development company and has been
-                                featured in international magazines.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 wow fadeIn no-l-r-pad">
-                    <div class="team-member">
-                        <ul class="grid cs-style-3">
-                            <li>
-                                <figure>
-                                    <img src="images/raj.jpg" alt="Rajaram Shetty">
-                                    <figcaption>
-                                        <a href="https://in.linkedin.com/in/rajaramshetty" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        </ul>
-                        <div class="team-info">
-                            <h4>Rajaram Shetty<br><small class="highlight">Director - User Experience</small></h4>
-                            <p style="text-align: justify;">Rajaram makes sure design thinking is at the core of our practices and that we consistently deliver human-centered
-                                solutions by leveraging effective research, strategy & design methodologies. He has over 10 years of experience
-                                in the field of UX design and has worked with brands like OnMobile, Obopay & Bosch.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 wow fadeIn no-l-r-pad">
-                    <div class="team-member">
-                        <ul class="grid cs-style-3">
-                            <li>
-                                <figure>
-                                    <img src="images/raj.jpg" alt="Rajaram Shetty">
-                                    <figcaption>
-                                        <a href="https://in.linkedin.com/in/rajaramshetty" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        </ul>
-                        <div class="team-info">
-                            <h4>Rajaram Shetty<br><small class="highlight">Director - User Experience</small></h4>
-                            <p style="text-align: justify;">Rajaram makes sure design thinking is at the core of our practices and that we consistently deliver human-centered
-                                solutions by leveraging effective research, strategy & design methodologies. He has over 10 years of experience
-                                in the field of UX design and has worked with brands like OnMobile, Obopay & Bosch.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="separator-quotes" data-stellar-vertical-offset="">
-        <div class="row text-left" style="position:relative;">
-            <div class="parallax-overlay"></div>
-            <div class="quotes liquid-slider" id="separator-slider-1">
-                <div class="col-lg-12">
-                    <h2><small class="white">H2O Polo, a game developed by us, gets aired on NBC during</small> London Olympics.</h2>
-                    <p class="label label-primary">Achievement</p>
-                </div>
-                <div class="col-lg-12">
-                    <h2><small class="white">Smart Blood Pressure</small> No.1 App in the Medical Category<small class="white"> across many countries.</small></h2>
-                    <p class="label label-primary">Achievement</p>
-                </div>
-                <div class="col-lg-12">
-                    <h2><small class="white">Animated Essential Atlas of Anatomy and Physiology gets </small>over 1,00,000 downloads.</h2>
-                    <p class="label label-primary">Achievement</p>
-                </div>
-                <div class="col-lg-12">
-                    <h2>CamFish for Windows Mobile <small class="white">gets user review of being a camera app better than Nokia. </small></h2>
-                    <p class="label label-primary">Achievement</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--<section id="who-we-are" data-stellar-vertical-offset="">-->
+        <!--<div class="row" style="position:relative;">-->
+            <!--<div class="container">-->
+                <!--<div class="col-md-12 col-we-are wow flipInX">-->
+                    <!--<h2 class="we-are-info"><small>Our skills</small><br>We love what we do</h2>-->
+                    <!--<p class="lead">And so would you!</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
     <section id="services">
         <div class="container">
-            <div class="col-lg-12 section-title wow flipInX">
-                <h2><small>What we do</small><br><strong>Our capabilities</strong></h2>
-                <p class="lead">A highly skilled professional service with a <span class="highlight">creative touch.</span></p>
+            <div class="row" style="position:relative;">
+                <div class="container">
+                    <div class="col-md-12 col-we-are wow flipInX">
+                        <h2 class="we-are-info"><small>Our skills</small><br>We love what we do</h2>
+                        <p class="lead">And so would you!</p>
+                    </div>
+                </div>
             </div>
             <div class="services-container">
                 <div class="row services-row">
@@ -395,8 +290,8 @@
                                 <i class="fa fa-apple back-icon" style=""></i>
                             </div>
                             <div class="service-info">
-                                <h4>iOS development<br><small>Innovating experiences</small></h4>
-                                <p class="service-description">We carry years of experience in developing apps and games for the iOS platform. Leverage our expertise.</p>
+                                <h4>Mobile development<br><small>Apps that deliver</small></h4>
+                                <p class="service-description">We comprehend your needs and deliver apps that work for you - for Android and iOS both. </p>
                             </div>
                         </div>
                     </div>
@@ -407,7 +302,7 @@
                                 <i class="fa fa-android back-icon" style=""></i>
                             </div>
                             <div class="service-info">
-                                <h4>Android development<br><small>Apps that deliver</small></h4>
+                                <h4>UX<br><small>Wow 'em all</small></h4>
                                 <p class="service-description">Starting from MVP to a feature packed product, we comprehend your needs and deliver Android apps that work for you.</p>
                             </div>
                         </div>
@@ -419,9 +314,8 @@
                                 <i class="fa fa-windows back-icon" style=""></i>
                             </div>
                             <div class="service-info">
-                                <h4>Windows development<br><small>Leveraging the new</small></h4>
-                                <p class="service-description">Searching for an innovative solution for your Windows Mobile app? We have a Windows development team that covers
-                                    it all.</p>
+                                <h4>UI<br><small>Crafting simplicity</small></h4>
+                                <p class="service-description">We analyze every pixel that goes to your application so that your software, web and mobile apps have the perfect user experience.</p>
                             </div>
                         </div>
                     </div>
@@ -432,9 +326,8 @@
                                 <i class="fa fa-paint-brush back-icon" style=""></i>
                             </div>
                             <div class="service-info">
-                                <h4>UI design<br><small>Crafting simplicity</small></h4>
-                                <p class="service-description">We analyze every pixel that goes to your application so that your software, web and mobile apps have the perfect
-                                    user experience.</p>
+                                <h4>Web App<br><small>Fast and interactive</small></h4>
+                                <p class="service-description">We deliver robust web applications using state-of-the-art tools, technologies and architecture.</p>
                             </div>
                         </div>
                     </div>
@@ -445,8 +338,8 @@
                                 <i class="fa fa-globe back-icon" style=""></i>
                             </div>
                             <div class="service-info">
-                                <h4>Web development<br><small>Fast and interactive</small></h4>
-                                <p class="service-description">We deliver quality websites and robust web applications using state-of-the-art tools, technologies and architecture.</p>
+                                <h4>Backend<br><small>Scale. Scale. Scale. </small></h4>
+                                <p class="service-description">We build robust, tolerant, cloud-ready backend to grow with your needs and never fail. </p>
                             </div>
                         </div>
                     </div>
@@ -457,21 +350,328 @@
                                 <i class="fa fa-bug back-icon" style=""></i>
                             </div>
                             <div class="service-info">
-                                <h4>Testing<br><small>Flawless experience</small></h4>
+                                <h4>Big data<br><small>Analyse. Learn. Adapt. </small></h4>
                                 <p class="service-description">We have a dedicated Quality Assurance team and process in place so that your products work flawlessly with optimized
                                     performance.</p>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-12 col-md-skills wow flipInX">
+                        <div class="skills-col text-center">
+                            <img src="images/tech_cloud.png" style="width: 100%; max-width:700px">
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="text-center" style="color: #ccc;margin: 40px 0;">
+            <i class="fa fa-ellipsis-h"></i><i class="fa fa-ellipsis-h"></i>
+        </div>
+    </section>
+    <!--<section id="separator-quotes" data-stellar-vertical-offset="">-->
+        <!--<div class="row text-left" style="position:relative;">-->
+            <!--<div class="parallax-overlay"></div>-->
+            <!--<div class="quotes liquid-slider" id="separator-slider-1">-->
+                <!--<div class="col-lg-12">-->
+                    <!--<h2><small class="white">H2O Polo, a game developed by us, gets aired on NBC during</small> London Olympics.</h2>-->
+                    <!--<p class="label label-primary">Achievement</p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-12">-->
+                    <!--<h2><small class="white">Smart Blood Pressure</small> No.1 App in the Medical Category<small class="white"> across many countries.</small></h2>-->
+                    <!--<p class="label label-primary">Achievement</p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-12">-->
+                    <!--<h2><small class="white">Animated Essential Atlas of Anatomy and Physiology gets </small>over 1,00,000 downloads.</h2>-->
+                    <!--<p class="label label-primary">Achievement</p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-12">-->
+                    <!--<h2>CamFish for Windows Mobile <small class="white">gets user review of being a camera app better than Nokia. </small></h2>-->
+                    <!--<p class="label label-primary">Achievement</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
+    <section id="team">
+        <div class="container">
+            <div class="col-lg-12 section-title-team wow flipInX">
+                <h2><small>Meet the team</small><br> Our sweet bakers</h2>
+                <p class="lead">You'll have fun working with</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0015_animesh.png" alt="Animesh">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Animesh Kumar<br><small class="highlight">Cofounder/Products</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0012_amol.png" alt="Amol">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Amol Vaidya<br><small class="highlight">Cofounder/UX</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0014_rajeev.png" alt="Rajeev">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Rajeev Dixit<br><small class="highlight">Cofounder/Tech</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0005_gaurav.png" alt="Gaurav">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Gaurav Pandey<br><small class="highlight">Tech</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0008_chetan.png" alt="Chetan">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Chetan Upadhyay
+                                <br><small class="highlight">Mobile</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0016_naveen.png" alt="Naveen">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Naveen Mishra<br><small class="highlight">Tech</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0006_devendra.png" alt="Devendra">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Devendra Rathore<br><small class="highlight">Tech</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0011_ashish.png" alt="Ashish">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Ashish Sahu<br><small class="highlight">UX</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0000_deepak.png" alt="Deepak">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Deepak Tomar<br><small class="highlight">UI</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0009_ajay.png" alt="Ajay">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Ajay Soni<br><small class="highlight">Artist</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0004_neelesh.png" alt="Neelesh">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Neelesh Wabhale
+                                <br><small class="highlight">Quality</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0001_sumit.png" alt="Sumit">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Sumit Vani
+                                 <br><small class="highlight">Quality</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0000_ankit.png" alt="Ankit">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Ankit Sharma
+                                <br><small class="highlight">Program</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0002_sunny.png" alt="Sunny">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Sunny Gupta
+                                <br><small class="highlight">HR</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeIn">
+                    <div class="team-member">
+                        <ul class="grid cs-style-3">
+                            <li>
+                                <figure>
+                                    <img src="images/team/team_0003_kirti.png" alt="Kirti">
+                                    <figcaption>
+                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        <div class="team-info">
+                            <h4>Kirti Sehgal
+
+
+                                <br><small class="highlight">Finance</small></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center" style="color: #ccc;margin: 40px 0;">
+            <i class="fa fa-ellipsis-h"></i><i class="fa fa-ellipsis-h"></i>
         </div>
     </section>
     <section id="separator-purchase" data-stellar-vertical-offset="">
         <div class="container">
             <div class="col-sm-12 call-action-purchase text-center">
                 <div class="action-5-info col-xs-12 col-md-12">
-                    <h2 style="color: #fcde05"><small class="white">We are all about people. Awesome people. Want to explore</small> career opportunity <small class="white">with us? </small></h2><br>
+                    <h2 style="color: #f3793a"><small>We are all about people. Awesome people. Want to explore</small> career opportunity <small>with us? </small></h2><br>
                 </div>
 
                 <div class="action-5-info col-xs-12 col-md-2">
@@ -487,7 +687,11 @@
                 </div>
             </div>
         </div>
+        <div class="text-center" style="color: #ccc;margin: 40px 0;">
+            <i class="fa fa-ellipsis-h"></i><i class="fa fa-ellipsis-h"></i>
+        </div>
     </section>
+
     <section id="our-work">
         <div class="container">
             <div class="col-lg-12 section-title wow flipInX">
@@ -790,39 +994,42 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section id="separator-testimonials">
-        <div class="row text-center" style="position:relative;">
-            <div class="parallax-overlay"></div>
-            <div class="liquid-slider" style="z-index: 3;" id="testimonials-slider">
-                <div class="col-lg-6 testimonials text-left">
-                    <h4><i class="fa fa-quote-left highlight"></i> <small class="white">I am currently involved in two projects with CodeCraft and they are both going very well - </small>							<span class="">a top notch.</span> <i class="fa fa-quote-right highlight"></i> </h4>
-                    <p class="label label-primary">Vibor Cilic - Spaladium LLC</p>
-                </div>
-                <div class="col-lg-6 testimonials text-left">
-                    <h4><i class="fa fa-quote-left highlight"></i> <small class="white">CodeCraft</small> <span class="">has all the expertise </span>
-                        <small
-                                class="white">that an apps developer needs and the several apps they have developed for us in Focus Medica is proof.</small>
-                        <i
-                                class="fa fa-quote-right highlight"></i>
-                    </h4>
-                    <p class="label label-primary">Rajashekaran - Focus Medica India Pvt. Ltd.</p>
-                </div>
-                <div class="col-lg-6 testimonials text-left">
-                    <h4><i class="fa fa-quote-left highlight"></i> <small class="white">We are grateful to the</small> <span class="">exceptionally committed and hard working </span>
-                        <small
-                                class="white"> team in CodeCraft for developing the Focus Medica apps as well as the children's apps. </small> <i class="fa fa-quote-right highlight"></i></h4>
-                    <p class="label label-primary">Sophie - Panther Publishers Pvt. Ltd.</p>
-                </div>
-                <div class="col-lg-6 testimonials text-left">
-                    <h4><i class="fa fa-quote-left highlight"></i> <small class="white">They went </small> <span class=""> above and beyond </span>
-                        <small
-                                class="white">to understand the requirements and translate them to an acceptable design with quick iterations.</small> <i class="fa fa-quote-right highlight"></i></h4>
-                    <p class="label label-primary">Pranam Shetty - Evolve Medical Systems LLC.</p>
-                </div>
-            </div>
+        <div class="text-center" style="color: #ccc;margin: 40px 0;">
+            <i class="fa fa-ellipsis-h"></i><i class="fa fa-ellipsis-h"></i>
         </div>
     </section>
+    <!--<section id="separator-testimonials">-->
+        <!--<div class="row text-center" style="position:relative;">-->
+            <!--<div class="parallax-overlay"></div>-->
+            <!--<div class="liquid-slider" style="z-index: 3;" id="testimonials-slider">-->
+                <!--<div class="col-lg-6 testimonials text-left">-->
+                    <!--<h4><i class="fa fa-quote-left highlight"></i> <small class="white">I am currently involved in two projects with CodeCraft and they are both going very well - </small>							<span class="">a top notch.</span> <i class="fa fa-quote-right highlight"></i> </h4>-->
+                    <!--<p class="label label-primary">Vibor Cilic - Spaladium LLC</p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-6 testimonials text-left">-->
+                    <!--<h4><i class="fa fa-quote-left highlight"></i> <small class="white">CodeCraft</small> <span class="">has all the expertise </span>-->
+                        <!--<small-->
+                                <!--class="white">that an apps developer needs and the several apps they have developed for us in Focus Medica is proof.</small>-->
+                        <!--<i-->
+                                <!--class="fa fa-quote-right highlight"></i>-->
+                    <!--</h4>-->
+                    <!--<p class="label label-primary">Rajashekaran - Focus Medica India Pvt. Ltd.</p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-6 testimonials text-left">-->
+                    <!--<h4><i class="fa fa-quote-left highlight"></i> <small class="white">We are grateful to the</small> <span class="">exceptionally committed and hard working </span>-->
+                        <!--<small-->
+                                <!--class="white"> team in CodeCraft for developing the Focus Medica apps as well as the children's apps. </small> <i class="fa fa-quote-right highlight"></i></h4>-->
+                    <!--<p class="label label-primary">Sophie - Panther Publishers Pvt. Ltd.</p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-6 testimonials text-left">-->
+                    <!--<h4><i class="fa fa-quote-left highlight"></i> <small class="white">They went </small> <span class=""> above and beyond </span>-->
+                        <!--<small-->
+                                <!--class="white">to understand the requirements and translate them to an acceptable design with quick iterations.</small> <i class="fa fa-quote-right highlight"></i></h4>-->
+                    <!--<p class="label label-primary">Pranam Shetty - Evolve Medical Systems LLC.</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
     <section id="clients">
         <div class="container">
             <div class="col-lg-12 section-title-clients wow flipInX">
@@ -868,91 +1075,94 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section id="contact-details">
-        <div class="row text-left" style="position:relative;">
-            <div class="parallax-overlay"></div>
-            <div class="container">
-                <div class="details col-lg-12 wow flipInX">
-                    <div class="col-lg-12">
-                        <h2>
-                            <a href="mailto:hello@47billion.com" style="color:#fcde05 !important;">
-                                hello@47billion.com
-                            </a>
-                        </h2>
-                    <div class="row">
-                        <div class="col-md-4 text-left wow flipInX  col-sm-12 col-xs-12 white">
-                            <h3 style="margin: 30px 0 0;">
-                                Indore<br>
-                                <small class="white">
-                                    409-B, Corporate House<br>
-                                    4th Floor, 169 RNT Marg<br>
-                                    Indore(MP) - 452001<br>
-                                    India
-                                </small>
-                            </h3>
-                        </div>
-                        <div class="col-md-4 text-left wow flipInX col-sm-12 col-xs-12">
-                            <h3 style="margin: 30px 0 0;">
-                                Bangalore<br>
-                                <small class="white">
-                                    1502 OAK A-Wing<br>
-                                    Godrej Woodsman Estates<br>
-                                    Bellary Road, Hebbal<br>
-                                    Bangalore(KA) - 560024<br>
-                                    India
-                                </small>
-                            </h3>
-                        </div>
-                        <div class="col-md-4 text-left wow flipInX  col-sm-12 col-xs-12 white">
-                            <h3 style="margin: 30px 0 0;">
-                                Sunnyvale<br>
-                                <small class="white">
-                                    455 Crescent AVE<br>
-                                    Apt 40<br>
-                                    Sunnyvale(CA) - 94087<br>
-                                    USA
-                                </small>
-                            </h3>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
+        <div class="text-center" style="color: #ccc;margin: 40px 0;">
+            <i class="fa fa-ellipsis-h"></i><i class="fa fa-ellipsis-h"></i>
         </div>
     </section>
-    <section id="contact-new" style="padding: 60px 0;">
-        <div class="container">
-            <div class="col-lg-12 section-title-price wow flipInX">
-                <h2><small>Let's start discussing</small><br><strong>Your new idea</strong></h2>
-                <p class="lead">We would love to <span class="highlight">hear from you.</span></p>
-            </div>
-            <div class="col-lg-12 text-center wow flipInX" id="contact">
-                <div id="message"></div>
-                <form method="post" action="contact.php" name="contactform" id="contactform">
-                    <fieldset>
-                        <div class="col-md-6">
-                            <input name="name" type="text" id="name" size="30" value="" placeholder="Name" />
-                            <br />
-                            <input name="email" type="text" id="email" size="30" value="" placeholder="Email" />
-                            <br />
-                            <input name="phone" type="text" id="phone" size="30" value="" placeholder="Phone" />
-                        </div>
-                        <div class="col-md-6">
-                            <textarea name="comments" cols="40" rows="5" id="comments" placeholder="Message"></textarea>
-                        </div>
-                        <div class="col-md-12 text-center">
-                            <input type="submit" class="submit" id="submit" value="Submit" onClick="ga('send', 'event', { eventCategory: 'Contact Form', eventAction: 'Submission'});"
-                                    />
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div id="map"></div>
-    </section>
+    <!--<section id="contact-details">-->
+        <!--<div class="row text-left" style="position:relative;">-->
+            <!--<div class="parallax-overlay"></div>-->
+            <!--<div class="container">-->
+                <!--<div class="details col-lg-12 wow flipInX">-->
+                    <!--<div class="col-lg-12">-->
+                        <!--<h2>-->
+                            <!--<a href="mailto:hello@47billion.com" style="color:#fcde05 !important;">-->
+                                <!--hello@47billion.com-->
+                            <!--</a>-->
+                        <!--</h2>-->
+                    <!--<div class="row">-->
+                        <!--<div class="col-md-4 text-left wow flipInX  col-sm-12 col-xs-12 white">-->
+                            <!--<h3 style="margin: 30px 0 0;">-->
+                                <!--Indore<br>-->
+                                <!--<small class="white">-->
+                                    <!--409-B, Corporate House<br>-->
+                                    <!--4th Floor, 169 RNT Marg<br>-->
+                                    <!--Indore(MP) - 452001<br>-->
+                                    <!--India-->
+                                <!--</small>-->
+                            <!--</h3>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-4 text-left wow flipInX col-sm-12 col-xs-12">-->
+                            <!--<h3 style="margin: 30px 0 0;">-->
+                                <!--Bangalore<br>-->
+                                <!--<small class="white">-->
+                                    <!--1502 OAK A-Wing<br>-->
+                                    <!--Godrej Woodsman Estates<br>-->
+                                    <!--Bellary Road, Hebbal<br>-->
+                                    <!--Bangalore(KA) - 560024<br>-->
+                                    <!--India-->
+                                <!--</small>-->
+                            <!--</h3>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-4 text-left wow flipInX  col-sm-12 col-xs-12 white">-->
+                            <!--<h3 style="margin: 30px 0 0;">-->
+                                <!--Sunnyvale<br>-->
+                                <!--<small class="white">-->
+                                    <!--455 Crescent AVE<br>-->
+                                    <!--Apt 40<br>-->
+                                    <!--Sunnyvale(CA) - 94087<br>-->
+                                    <!--USA-->
+                                <!--</small>-->
+                            <!--</h3>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section id="contact-form" style="padding: 60px 0;">-->
+        <!--<div class="container">-->
+            <!--<div class="col-lg-12 section-title-price wow flipInX text-left">-->
+                <!--<h2><small>Let's start discussing</small><br><strong>Your new idea</strong></h2>-->
+                <!--<p class="lead">We would love to <span class="highlight">hear from you.</span></p>-->
+            <!--</div>-->
+            <!--<div class="col-lg-12 text-center wow flipInX" id="contact">-->
+                <!--<div id="message"></div>-->
+                <!--<form method="post" action="contact.php" name="contactform" id="contactform">-->
+                    <!--<fieldset>-->
+                        <!--<div class="col-md-6">-->
+                            <!--<input name="name" type="text" id="name" size="30" value="" placeholder="Name" />-->
+                            <!--<br />-->
+                            <!--<input name="email" type="text" id="email" size="30" value="" placeholder="Email" />-->
+                            <!--<br />-->
+                            <!--<input name="phone" type="text" id="phone" size="30" value="" placeholder="Phone" />-->
+                        <!--</div>-->
+                        <!--<div class="col-md-6">-->
+                            <!--<textarea name="comments" cols="40" rows="5" id="comments" placeholder="Message"></textarea>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-12 text-center">-->
+                            <!--<input type="submit" class="submit" id="submit" value="Submit" onClick="ga('send', 'event', { eventCategory: 'Contact Form', eventAction: 'Submission'});"-->
+                                    <!--/>-->
+                        <!--</div>-->
+                    <!--</fieldset>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section>-->
+        <!--<div id="map"></div>-->
+    <!--</section>-->
     <footer id="footer">
         <div class="col-lg-12 text-center">
             <div class="back-to-top">
@@ -968,9 +1178,49 @@
                     </ul>
                 </div>
                 <p>Driving innovation with passion</p>
-                <h4 class="footer-logo"><a href="#">47Billion <small style="color:white;">IT Pvt. Ltd.</small></a></h4>
+                <h4 class="footer-logo"><a href="#">47Billion</a></h4>
+                <div class="details col-lg-12 wow flipInX">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-md-4 text-left wow flipInX  col-sm-12 col-xs-12">
+                                <p style="margin: 30px 0 0;">
+                                    Indore<br><br>
+                                    <span>
+                                        409-B, Corporate House<br>
+                                        4th Floor, 169 RNT Marg<br>
+                                        Indore(MP) - 452001<br>
+                                        India
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="col-md-4 text-left wow flipInX col-sm-12 col-xs-12">
+                                <p style="margin: 30px 0 0;">
+                                    Bangalore<br><br>
+                                    <span>
+                                        1502 OAK A-Wing<br>
+                                        Godrej Woodsman Estates<br>
+                                        Bellary Road, Hebbal<br>
+                                        Bangalore(KA) - 560024<br>
+                                        India
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="col-md-4 text-left wow flipInX  col-sm-12 col-xs-12">
+                                <p style="margin: 30px 0 0; font-weight: 200">
+                                    Sunnyvale<br><br>
+                                    <span>
+                                        455 Crescent AVE<br>
+                                        Apt 40<br>
+                                        Sunnyvale(CA) - 94087<br>
+                                        USA
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-12 footer-menu">
-                    <span class="pull-left">Copyright &copy; 2016 <a href="http://47billion.com" style="margin:0;">47billion IT Pvt. Ltd</a>.</span>
+                    <span class="pull-left">Copyright &copy; 2016 <a href="http://47billion.com" style="margin:0;">47Billion Information Technologies Private Limited</a>.</span>
 						<span class="pull-right">
                                 <a href="#home">Home</a>
                                 <a href="#about">About</a>
@@ -978,8 +1228,8 @@
                                 <a href="#our-work">Portfolio</a>
 								<a href="#clients">Clients</a>
 								<a href="mobile-app-development-company-journal">Journal</a>
-                                <a href="#contact" >Contact</a>
-								<a href="mailto:hello@47billion.com"><span class="btn btn-primary btn-buy" style="font-family: 'Montserrat', sans-serif;" >Email us</span></a>
+                                <a href="contact.html" >Contact</a>
+								<a href="mailto:hello@47billion.com" style="color:#f3793a !important;">hello@47billion.com</a>
 						</span>
                 </div>
             </div>

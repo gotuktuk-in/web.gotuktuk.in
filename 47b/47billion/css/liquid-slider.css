@@ -309,9 +309,7 @@
 * applied above.
 *******************************************************/
 .ls-responsive .liquid-slider {
-  /* Do not edit below this line */
-  width: 100%;
-  margin: 0;
+    width: 100%;
 }
 .ls-responsive .liquid-slider .panel .panel-wrapper {
   padding: 10px;
