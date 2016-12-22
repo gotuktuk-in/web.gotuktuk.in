@@ -399,7 +399,7 @@ $(".home-fullscreen-slider").backstretch([
     // init cubeportfolio
     gridContainer.cubeportfolio({
 
-        defaultFilter: '.ios',
+        defaultFilter: '.service',
 
         animationType: 'rotateRoom',
 

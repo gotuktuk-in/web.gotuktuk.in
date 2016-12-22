@@ -3324,6 +3324,10 @@ html, body {
     /* @editable properties */
     width: 370px;
     height: 278px;
+    background: #333;
+}
+.cbp-l-grid-projects .cbp-item img {
+    opacity: 0.3;
 }
 
 /* adjust the caption height and add some margin-bottom*/

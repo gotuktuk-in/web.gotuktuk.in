@@ -1028,7 +1028,6 @@ p {
 .cs-style-3 figure img {
     margin-left: auto;
     margin-right: auto;
-
     -webkit-transition: -webkit-transform 0.3s;
     -moz-transition: -moz-transform 0.3s;
     transition: transform 0.3s;
