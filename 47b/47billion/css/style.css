@@ -304,7 +304,7 @@ h4 small, h5 small, h6 small {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-image: url(../images/bg_1.jpg);
+    background-image: url(../images/Office-Day.jpg);
     display: table;
     width: 100%;
     height: 100%;
@@ -790,7 +790,7 @@ h4 small, h5 small, h6 small {
 /* ==== 5) About ==== */
 #about {
     padding-top: 60px;
-    padding-bottom: 60px;
+    /*padding-bottom: 60px;*/
 }
 
 .section-title-about {
@@ -843,7 +843,6 @@ p {
 }
 
 .col-we-are {
-    margin-top: 40px;
     margin-bottom: 40px;
     color: #000;
     z-index: 3;
@@ -1012,7 +1011,7 @@ p {
 }
 
 .team-member .grid figcaption {
-    padding-top: 37.5%;
+    padding-top: 65%;
 }
 
 .grid figcaption a {
@@ -1269,6 +1268,7 @@ p {
 
 /* ==== 12) Separator Call to Action ==== */
 #separator-purchase {
+    background: #f3793a;
     display: table;
     width: 100%;
     height: 100%;
@@ -1876,14 +1876,15 @@ acronym {
 }
 
 .footer-copyright {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 footer p {
-    font-size: 16px;
+    font-size: 12px;
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
     color: #999;
+    line-height: 20px;
 }
 
 .footer-logo a {
@@ -1894,8 +1895,8 @@ footer .footer-menu {
     margin-top: 30px;
     border-top: 1px solid #333;
     padding-top: 30px;
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 300;
     height: 64px;
     color: #999;
 }

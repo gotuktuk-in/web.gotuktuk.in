@@ -4,10 +4,12 @@ Blue Color Skin
 =============================================== */
 
 ::-moz-selection {
- background: #2eb6d7;
+ background: #e5e5e5;
+    color:#000;
 }
 ::selection {
-	background: #2eb6d7;
+	background: #e5e5e5;
+    color:#000;
 }
 
 .btn-home a,

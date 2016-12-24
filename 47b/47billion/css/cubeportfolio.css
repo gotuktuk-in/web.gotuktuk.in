@@ -2334,7 +2334,7 @@ html, body {
 /* NAVIGATION BUTTONS */
 .cbp-popup-singlePage .cbp-popup-navigation-wrap {
     position: absolute;
-    top: 0;
+    /*top: 0;*/
     left: 0;
     width: 100%;
     z-index: 2;
@@ -2358,11 +2358,11 @@ html, body {
 
 .cbp-popup-singlePage-sticky .cbp-popup-navigation-wrap {
     position: fixed;
-    top: 0 !important;
+    bottom: 0 !important;
 }
 
 .cbp-popup-singlePage-sticky .cbp-popup-navigation {
-    position: fixed;
+    /*position: fixed;*/
 }
 
 .cbp-popup-singlePage-counter {
