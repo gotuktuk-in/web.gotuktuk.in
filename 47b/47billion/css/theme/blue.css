@@ -62,7 +62,7 @@ figure figcaption a:hover,
  {
 	color: #2eb6d7;
 }
-
+.navbar-default .navbar-nav > li.current > a{ color: #2eb6d7; !important; }
 
 .phone-info {
 	background: #2eb6d7;
