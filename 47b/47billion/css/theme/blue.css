@@ -75,3 +75,13 @@ figure figcaption a:hover,
 .btn-home a {
     box-shadow: 0 3px 0 #2eb6d7;
 }
+.btn-talk {
+    background: #2eb6d7 !important;
+    color: #fff !important;
+    border: 0px solid transparent !important;
+}
+.btn-talk:hover {
+    background: #2ea8c9 !important;
+    color: #fff !important;
+    border: 0px solid transparent !important;
+}

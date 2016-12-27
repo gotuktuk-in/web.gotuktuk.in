@@ -1208,7 +1208,7 @@ $(".home-fullscreen-slider").backstretch([
     // init cubeportfolio
     gridContainer.cubeportfolio({
 
-        defaultFilter: '.service',
+        defaultFilter: '.mobile',
 
         animationType: 'rotateRoom',
 

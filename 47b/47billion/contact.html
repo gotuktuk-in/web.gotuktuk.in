@@ -71,11 +71,11 @@
                     <li><a href="index.html#about">About</a></li>
                     <li><a href="index.html#services">Services</a></li>
                     <li><a href="index.html#our-work">Portfolio</a></li>
+                    <li><a href="index.html#team">Team</a></li>
                     <li><a href="index.html#clients">Clients</a></li>
                     <!--<li><a href="mobile-app-development-company-journal">Journal</a></li>-->
                     <li class="current"><a href="contact.html">Contact</a></li>
-                    <li><a href="mailto:hello@47billion.com"><img src="images/email.svg" height="15" /> </a>
-                    </li>
+                    <li style="visibility: hidden"><a href="contact.html" class="btn btn-talk" data-animation="animated fadeInUp">LET'S TALK</a></li>
                 </ul>
             </div>
         </div>
@@ -85,39 +85,43 @@
     <section id="contact-form">
         <div class="container" style="margin-bottom: 40px;">
             <div class="col-lg-12 wow flipInX text-left">
-                <h2><small>Let's start discussing</small><br><strong>Your new idea</strong></h2>
-                <p class="lead">We would love to <span class="highlight">hear from you.</span></p>
+                <h2><small>Let us help you</small><br><strong>build your Big Idea</strong></h2>
+                <p class="lead">hand in hand, like a true partner in crime!</span></p>
             </div>
             <div class="col-lg-12 text-left wow flipInX no-pad" id="contact">
-                <form method="post" action="https://formspree.io/ashish.sahu@47billion.com" style="padding: 0 0 120px;">
+                <form method="post" action="https://formspree.io/animesh@47billion.com" style="padding: 0 0 120px;">
                     <input type="hidden" name="_subject" value="47Billion Contact" />
                     <input type="hidden" name="_next" value="thank-you.html" />
                     <input type="text" name="_gotcha" style="display:none">
-                        <div class="col-md-12"><br /><p class="lead">Little about you</p></div>
+                        <div class="col-md-12"><br /><p class="lead">About you</p></div>
                         <div class="col-md-6">
                             <input name="Name" type="text" id="name" size="30" value="" placeholder="Your Name" required/>
                             <br />
-                            <input name="Company" type="text" id="company" size="30" value="" placeholder="Your Company" required/>
-                        </div>
-                        <div class="col-md-6">
                             <input name="Email" type="email" id="email" size="30" value="" placeholder="Your Email" required/>
+                            </div>
+                        <div class="col-md-6">
+                            <input name="Company" type="text" id="company" size="30" value="" placeholder="Your Company"/>
                             <br />
-                            <input name="Phone" type="number" id="phone" size="30" value="" placeholder="Your Phone" required/>
+                            <input name="Phone" type="number" id="phone" size="30" value="" placeholder="Your Phone"/>
                         </div>
-                    <div class="col-md-12"><br><br><p class="lead">About your project</p></div>
+                    <div class="col-md-12"><br><br><p class="lead">Your Idea</p></div>
+                    <div class="col-md-6">
+                        <textarea name="Project Summary" cols="20" id="summary" maxlength="1000" rows="1.5" autocomplete="off"  placeholder="Share your thoughts briefly" required></textarea>
+                    </div>
+                    <div class="col-md-12"><br><br><p class="lead">Where can we help you?</p></div>
                     <div class="col-md-12">
                         <div class="checkbox checkbox-primary pull-left">
-                            <input name="Mobile Development" id="MobileDevelopment" type="checkbox">
-                            <label for="MobileDevelopment">Mobile Development
+                            <input name="User Experience" id="UserExperience" type="checkbox">
+                            <label for="UserExperience">User Experience
                             </label>
                         </div>
                         <div class="checkbox checkbox-primary pull-left">
-                            <input name="UX" id="ux" type="checkbox">
-                            <label for="ux">UX</label>
+                            <input name="User Interface" id="UserInterface" type="checkbox">
+                            <label for="UserInterface">User Interface</label>
                         </div>
                         <div class="checkbox checkbox-primary pull-left">
-                            <input name="UI" id="ui" type="checkbox">
-                            <label for="ui">UI</label>
+                            <input name="Mobile App" id="MobileApp" type="checkbox">
+                            <label for="MobileApp">Mobile App</label>
                         </div>
                         <div class="checkbox checkbox-primary pull-left">
                             <input name="Web App" id="WebApp" type="checkbox">
@@ -128,25 +132,41 @@
                             <label for="Backend">Backend</label>
                         </div>
                         <div class="checkbox checkbox-primary pull-left">
-                            <input name="Big Data" id="BigData" type="checkbox">
-                            <label for="BigData">Big Data
+                            <input name="Analytics/Predictions" id="AnalyticsPredictions" type="checkbox">
+                            <label for="AnalyticsPredictions">Analytics/Predictions
                             </label>
                         </div>
                     </div>
-                    <div class="col-md-12"><br><br><p class="lead">Project Summary</p></div>
-                    <div class="col-md-6">
-                        <textarea name="Project Summary" cols="20" id="summary" maxlength="1000" rows="1.5" autocomplete="off"  placeholder="Project summary: Share your thoughts on your project" required></textarea>
-                        </div>
-                    <div class="col-md-12 text-left">
-                        <input type="submit" class="submit" id="submit" value="Send us your project"  />
+                    <div class="col-md-12 text-left"><br>
+                        <input type="submit" class="submit" id="submit" value="Click to submit"  />
                     </div>
                 </form>
             </div>
         </div>
     </section>
-    <!--<section>-->
-    <!--<div id="map"></div>-->
-    <!--</section>-->
+    <section id="career" data-stellar-vertical-offset="">
+        <div class="container">
+            <div class="col-sm-12 call-action-purchase text-center">
+                <div class="action-5-info col-xs-12 col-md-12">
+                    <h2 class="white">
+                        <small class="white">We are all about people. Awesome people. Want to explore</small>
+                        career opportunity
+                        <small class="white">with us?</small>
+                    </h2>
+                    <br>
+                </div>
+
+                <div class="action-5-info col-xs-12 col-md-2">
+                    <div>
+
+                        <a id="open_popup">
+                            <div class="btn btn-primary btn-lg btn-responsive">Check out openings</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer id="footer">
         <div class="col-lg-12 text-center">
             <div class="back-to-top">
@@ -157,19 +177,20 @@
             <div class="row">
                 <div class="col-md-12 footer-social">
                     <ul class="connected-icons text-center">
-                        <li class="connected-icon"><a target="_blank" href="#" title="Follow us on Twitter"><i
+                        <li class="connected-icon"><a target="_blank" href="https://twitter.com/47billion" title="Follow us on Twitter"><i
                                 class="fa fa-twitter fa-2-5x"></i></a></li>
-                        <li class="connected-icon"><a target="_blank" href="#" title="Facebook"><i
+                        <li class="connected-icon"><a target="_blank" href="https://www.facebook.com/47Billion/?fref=ts" title="Facebook"><i
                                 class="fa fa-facebook fa-2-5x"></i></a></li>
+                        <li class="connected-icon"><a target="_blank" href="https://www.linkedin.com/company/47billion/" title="Linkedin"><i
+                                class="fa fa-linkedin fa-2-5x"></i></a></li>
                     </ul>
                 </div>
-                <p>Driving innovation with passion</p>
-                <h4 class="footer-logo"><a href="#">47Billion</a></h4>
+                <h4 class="footer-logo"><a href="http://47billion.com">47Billion</a></h4>
 
                 <div class="details col-lg-12 fadeIn">
                     <div class="col-lg-12">
                         <div class="row">
-                            <div class="col-md-4 text-center col-sm-12 col-xs-12">
+                            <div class="col-md-4 text-center  col-sm-12 col-xs-12">
                                 <p style="margin: 30px 0 0;">
                                     Indore<br><br>
                                     <span>
@@ -192,7 +213,7 @@
                                     </span>
                                 </p>
                             </div>
-                            <div class="col-md-4 text-center col-sm-12 col-xs-12">
+                            <div class="col-md-4 text-center  col-sm-12 col-xs-12">
                                 <p style="margin: 30px 0 0; font-weight: 200">
                                     Sunnyvale<br><br>
                                     <span>
@@ -209,14 +230,16 @@
                     <span class="pull-left">Copyright &copy; 2016 <a href="http://47billion.com" style="margin:0;">47Billion
                         Information Technologies Private Limited</a>.</span>
 						<span class="pull-right">
-                                <a href="index.html#home">Home</a>
-                                <a href="index.html#about">About</a>
-                                <a href="index.html#services">Services</a>
-                                <a href="index.html#our-work">Portfolio</a>
-								<a href="index.html#clients">Clients</a>
+                                <a href="#home">Home</a>
+                                <a href="#about">About</a>
+                                <a href="#services">Services</a>
+                                <a href="#our-work">Portfolio</a>
+								<a href="#clients">Clients</a>
+								<a href="#team">Team</a>
+                                <!--<a href="#career">Career</a>-->
 								<!--<a href="mobile-app-development-company-journal">Journal</a>-->
                                 <a href="contact.html">Contact</a>
-								<a href="mailto:hello@47billion.com"><img src="images/email.svg" height="12" /> </a>
+								<a href="contact.html" class="btn btn-talk" data-animation="animated fadeInUp">LET'S TALK</a>
 						</span>
                 </div>
             </div>
