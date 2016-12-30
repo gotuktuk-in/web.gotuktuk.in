@@ -2,15 +2,10 @@ if (!Modernizr.touch) {
     $.stellar();
 }
 
-
 // slider
-
 /*Bootstrap Carousel Touch Slider.
-
  http://bootstrapthemes.co
-
  Credits: Bootstrap, jQuery, TouchSwipe, Animate.css, FontAwesome
-
  */
 
 
@@ -888,9 +883,9 @@ if (!Modernizr.touch) {
 
 $('#bootstrap-touch-slider').bsTouchSlider();
 
-/* ==============================================
- Liquid Slider - Home Text Slider
- =============================================== */
+
+//Liquid Slider - Home Text Slider
+
 
 $('#slider-home').liquidSlider({
     autoSlide: true,
@@ -912,9 +907,9 @@ $('#slider-home').liquidSlider({
     }
 });
 
-/* ==============================================
- Liquid Slider - Quotes Slider
- =============================================== */
+
+//Liquid Slider - Quotes Slider
+
 
 $('#separator-slider-1').liquidSlider({
     autoSlide: true,
@@ -938,43 +933,17 @@ $('#separator-slider-1').liquidSlider({
     }
 });
 
-/* ==============================================
- Liquid Slider - Testimonials
- =============================================== */
-$('#testimonials-slider').liquidSlider({
-    autoSlide: true,
-    autoSlideDirection: 'right',
-    autoSlideInterval: 5000,
-    autoSlideControls: true,
-    forceAutoSlide: true,
-    autoHeight: false,
-    dynamicArrows: true,
 
+//Sticky Navbar
 
-    slideEaseFunction: 'animate.css',
-    slideEaseDuration: 500,
-    heightEaseDuration: 500,
-    animateIn: "flipInX",
-    animateOut: "fadeOut",
-    callback: function () {
-        var self = this;
-        $('.slider-6-panel').each(function () {
-            $(this).removeClass('animated ' + self.options.animateIn);
-        });
-    }
-});
-
-/* ==============================================
- Sticky Navbar
- =============================================== */
 
 $(document).ready(function () {
     $(".navbar").sticky({topSpacing: 0});
 });
 
-/* ==============================================
- Auto Close Responsive Navbar on Click
- =============================================== */
+
+//Auto Close Responsive Navbar on Click
+
 
 function close_toggle() {
     if ($(window).width() <= 992) {
@@ -1002,9 +971,9 @@ $(function () {
     });
 });
 
-/* ==============================================
- WOW plugin triggers animation.css on scroll
- =============================================== */
+
+//WOW plugin triggers animation.css on scroll
+
 
 var wow = new WOW(
     {
@@ -1016,9 +985,9 @@ var wow = new WOW(
 );
 wow.init();
 
-/* ==============================================
- Bootstrap Tooltip, Alert, Tabs
- =============================================== */
+
+//Bootstrap Tooltip, Alert, Tabs
+
 
 $(function () {
     $("[data-toggle='tooltip']").tooltip();
@@ -1050,32 +1019,9 @@ $('#myTab a').click(function (e) {
     $(this).tab('show')
 })
 
-/* ==============================================
- mb.YTPlayer
- ===============================================
 
- $(function(){
- $(".player").mb_YTPlayer();
- });
- */
-/* ==============================================
- Skill Bars
- =============================================== */
+//Preloader
 
-$('.skills-col').waypoint(function () {
-    jQuery('.skillbar').each(function () {
-        jQuery(this).find('.skillbar-bar').animate({
-            width: jQuery(this).attr('data-percent')
-        }, 2000);
-    });
-
-}, {
-    offset: '100%'
-});
-
-/* ==============================================
- Preloader
- =============================================== */
 
 jQuery(window).load(function () {
     setTimeout(function () {
@@ -1086,9 +1032,9 @@ jQuery(window).load(function () {
     }, 4000);
 });
 
-/* ==============================================
- Counter Up
- =============================================== */
+
+//Counter Up
+
 
 jQuery(document).ready(function ($) {
     $('.counter').counterUp({
@@ -1097,9 +1043,7 @@ jQuery(document).ready(function ($) {
     });
 });
 
-/* ==============================================
- Parallax
- =============================================== */
+//Parallax
 
 $(document).ready(function () {
     $(window).stellar({
@@ -1108,9 +1052,7 @@ $(document).ready(function () {
     });
 });
 
-/* ==============================================
- FlexSlider v2.2.2
- =============================================== */
+//FlexSlider v2.2.2
 
 $(window).load(function () {
     $('.flexslider').flexslider({
@@ -1122,9 +1064,9 @@ $(window).load(function () {
     });
 });
 
-/* ==============================================
- Contact Form
- =============================================== */
+
+//Contact Form
+
 
 jQuery(document).ready(function () {
 
@@ -1166,9 +1108,16 @@ jQuery(document).ready(function () {
 });
 
 
-/* ==============================================
- Back to Top
- =============================================== */
+//team slider
+
+// Instantiate the Bootstrap carousel
+$('.multi-item-carousel').carousel({
+    interval: false
+});
+
+
+//Back to Top
+
 
 $(window).scroll(function () {
     if ($(window).scrollTop() > 300) {
@@ -1183,9 +1132,9 @@ $('#back-to-top, .back-to-top').click(function () {
     return false;
 });
 
-/* ==============================================
- Backstretch - v2.0.4
- =============================================== */
+
+//Backstretch - v2.0.4
+
 
 $(".home-fullscreen-slider").backstretch([
     "images/slide-1.jpg",
@@ -1196,9 +1145,8 @@ $(".home-fullscreen-slider").backstretch([
     duration: 4000
 });
 
-/* ==============================================
- Portfolio
- =============================================== */
+//Portfolio
+
 
 (function ($, window, document, undefined) {
 
@@ -1208,7 +1156,7 @@ $(".home-fullscreen-slider").backstretch([
     // init cubeportfolio
     gridContainer.cubeportfolio({
 
-        defaultFilter: '.mobile',
+        defaultFilter: '.all',
 
         animationType: 'rotateRoom',
 
@@ -1356,9 +1304,8 @@ $(".home-fullscreen-slider").backstretch([
 })(jQuery, window, document);
 
 
-/* ==============================================
- Smooth scrolling to anchor for home buttons
- =============================================== */
+//Smooth scrolling to anchor for home buttons
+
 
 $(function () {
     $('.btn-home a,.move a').bind('click', function (event) {
@@ -1370,24 +1317,24 @@ $(function () {
     });
 });
 
-/* ==============================================
- Smooth Scroll To Anchor
- =============================================== */
+
+//Smooth Scroll To Anchor
+
 
 //jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function () {
     $('#main-nav a,.footer-menu a,.home-bottom a').bind('click', function (event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top - 70
+            scrollTop: $($anchor.attr('href')).offset().top - 20
         }, 1000);
         event.preventDefault();
     });
 });
 
-/* ==============================================
- Active Menu Item on Page Scroll
- =============================================== */
+
+//Active Menu Item on Page Scroll
+
 
 var sections = $('section')
     , nav = $('nav')
@@ -1410,19 +1357,8 @@ $(window).on('scroll', function () {
     });
 });
 
-/* ==============================================
- Twitter Feed Calling
- ===============================================
 
- $('.tweet-feed .tweet').twittie({
- dateFormat: '%b. %d, %Y',
- template: '{{tweet}} <div class="date">{{date}}</div>',
- count: 5
- });*/
-
-/* ==============================================
- Smooth Scroll (mouse-wheel)
- =============================================== */
+//Smooth Scroll (mouse-wheel)
 
 // SmoothScroll for websites v1.2.1
 // Licensed under the terms of the MIT license.
@@ -1480,20 +1416,15 @@ $(window).on('scroll', function () {
     };
 
 
-    /***********************************************
-     * SETTINGS
-     ***********************************************/
+    //SETTINGS
 
     var options = defaultOptions;
 
 
-    /***********************************************
-     * INITIALIZE
-     ***********************************************/
+    //INITIALIZE
 
-    /**
-     * Tests if smooth scrolling is allowed. Shuts down everything if not.
-     */
+    //Tests if smooth scrolling is allowed. Shuts down everything if not.
+
     function initTest() {
 
         var disableKeyboard = false;
@@ -1560,9 +1491,7 @@ $(window).on('scroll', function () {
     }
 
 
-    /************************************************
-     * SCROLLING
-     ************************************************/
+    //SCROLLING
 
     var que = [];
     var pending = false;
@@ -1672,9 +1601,7 @@ $(window).on('scroll', function () {
     }
 
 
-    /***********************************************
-     * EVENTS
-     ***********************************************/
+    //EVENTS
 
     /**
      * Mouse wheel handler.
@@ -1803,9 +1730,8 @@ $(window).on('scroll', function () {
     }
 
 
-    /***********************************************
-     * OVERFLOW
-     ***********************************************/
+    //OVERFLOW
+
 
     var cache = {}; // cleared out every once in while
     setInterval(function () {
@@ -1848,9 +1774,8 @@ $(window).on('scroll', function () {
     }
 
 
-    /***********************************************
-     * HELPERS
-     ***********************************************/
+    //HELPERS
+
 
     function addEvent(type, fn, bubble) {
         window.addEventListener(type, fn, (bubble || false));

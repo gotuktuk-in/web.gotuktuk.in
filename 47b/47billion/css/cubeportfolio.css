@@ -2241,6 +2241,7 @@ html, body {
     vertical-align: middle;
     text-align: left;
     max-width: 100%;
+    width: 100%;
 }
 
 .cbp-popup-singlePage .cbp-popup-content {
@@ -3899,3 +3900,6 @@ html, body {
     max-width: 1170px;
     margin: 0 auto;
 }
+.portfolio-item h1{ font-size: 26px; letter-spacing: -1px;}
+.portfolio-item h2{ font-size: 18px; letter-spacing: -1px;}
+.portfolio-item p{ font-size: 14px; letter-spacing: -1px;}

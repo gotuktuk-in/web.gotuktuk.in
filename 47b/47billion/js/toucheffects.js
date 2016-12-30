@@ -74,7 +74,7 @@
 			el.addEventListener( 'touchstart', function(e) {
 				classie.toggle( this, 'cs-hover' );
 			}, false );
-		} );
+		} )
 
 	}
 

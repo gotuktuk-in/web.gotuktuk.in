@@ -74,13 +74,15 @@ h4 small, h5 small, h6 small {
 
 /*form*/
 .radio + .radio, .checkbox, .checkbox + .checkbox {
-     margin: 10px 20px 0 10px;
+    margin: 10px 20px 0 10px;
     padding: 0;
 }
+
 .checkbox {
     /*padding-left: 20px;*/
 }
-#contact .checkbox input{
+
+#contact .checkbox input {
     width: auto !important;
 }
 
@@ -389,6 +391,7 @@ h4 small, h5 small, h6 small {
     object-fit: cover;
     height: 100vh;
 }
+
 .home-container {
     height: 100%;
     display: table-cell;
@@ -813,7 +816,7 @@ h4 small, h5 small, h6 small {
 .navbar-right {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-    font-weight : 400;
+    font-weight: 400;
     height: 100%;
     margin-top: 10px;
 }
@@ -1217,12 +1220,12 @@ p {
 
 /* ==== 7) Team ==== */
 #team {
-    padding-bottom: 60px;
+    /*padding-bottom: 60px;*/
     padding-top: 60px;
 }
 
 .section-title-team {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .team-info {
@@ -1277,7 +1280,7 @@ p {
 }
 
 .grid figcaption a {
-    padding: 5px;
+    padding: 30% 23%;
     color: #fff;
 }
 
@@ -1483,11 +1486,11 @@ p {
 
 #services {
     padding-top: 60px;
-    padding-bottom: 60px;
+    /*padding-bottom: 60px;*/
 }
 
 .section-title {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .services-row {
@@ -1564,7 +1567,7 @@ p {
 /* ==== 13) Portfolio ==== */
 #our-work {
     padding-top: 60px;
-    padding-bottom: 60px;
+    /*padding-bottom: 60px;*/
 }
 
 .portfolio-container {
@@ -1691,7 +1694,7 @@ p {
 
 #clients {
     padding-top: 60px;
-    padding-bottom: 80px;
+    /*padding-bottom: 80px;*/
 }
 
 .section-title-clients {
@@ -1971,7 +1974,7 @@ p {
 /* ==== 19) Contact Form ==== */
 
 #contact-form {
-    padding-top: 60px;
+    padding-top: 10px;
     padding-bottom: 60px;
 }
 
@@ -2411,7 +2414,8 @@ ul.caret-list li:before {
 }
 
 .blog-widget-container {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+    margin-top: 60px;
 }
 
 .form-control:focus {
@@ -2643,7 +2647,7 @@ ul.caret-list li:before {
 /*slider*/
 
 .bs-slider {
-    overflow: hidden;
+    /*overflow: hidden;*/
     max-height: 700px;
     position: relative;
     /*background: #2eb6d7;*/
@@ -2711,7 +2715,9 @@ ul.caret-list li:before {
     -o-transition: opacity ease-in-out 1s;
     transition: opacity ease-in-out 1s;
 }
-
+#bootstrap-touch-slider .carousel-inner {
+    box-shadow: 0px 0px 70px 0px rgba(0, 0, 0, 0.3) !important;
+}
 /*---------- LEFT/RIGHT ROUND CONTROL ----------*/
 .control-round .carousel-control {
     top: 47%;
@@ -2852,6 +2858,7 @@ ul.caret-list li:before {
     margin: 0 auto;
     background: rgba(46, 182, 215, 0.9);
     max-width: 1170px;
+    /*min-height: 230px;*/
 }
 
 .slide-text {
@@ -2983,6 +2990,14 @@ ul.caret-list li:before {
 }
 
 @media (max-width: 480px) {
+    .blog-widget-container {
+        margin-top: 0px;
+    }
+
+    .carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right {
+        top: 40%;
+    }
+
     .slide-text {
         padding: 10px 30px;
     }
@@ -3010,6 +3025,26 @@ ul.caret-list li:before {
 
     .indicators-line > .carousel-indicators {
         display: none;
+    }
+
+}
+
+@media screen
+and (min-device-width: 360px)
+and (max-device-height: 640px)
+and (orientation: landscape) {
+    .blog-widget-container {
+        margin-top: 0px;
+    }
+
+    .navbar-default ul.nav li {
+        float: left !important;
+        width: 50% !important;
+    }
+
+    .goto-menu {
+        float: right !important;
+        margin-right: 25px !important;
     }
 
 }
